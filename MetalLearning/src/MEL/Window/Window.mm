@@ -1,0 +1,123 @@
+#import "Window.h"
+
+#import "Events/KeyEvent.h"
+#import "Events/MouseEvent.h"
+#import "Events/ApplicationEvent.h"
+
+@implementation Window
+
+- (instancetype)initWithFrame:(NSRect)frame styleMask:(NSWindowStyleMask)styleMask title:(NSString *)title {
+	self=[super initWithContentRect:frame
+						  styleMask:styleMask
+							backing:NSBackingStoreBuffered
+							  defer:NO];
+	if(self){
+		[self center];
+		[self setTitle:title];
+		[self setCollectionBehavior:NSWindowCollectionBehaviorFullScreenPrimary];
+		[self setDelegate:self];
+	}
+	return self;
+}
+
+//Key Events
+-(void)keyDown:(NSEvent *)event{
+	int action;
+	action=[event isARepeat]?1:0;
+	MEL::KeyPressedEvent keyPressedEvent((int)[event keyCode],action);
+	[self dispatchEvent:keyPressedEvent];
+	
+	MEL::KeyTypedEvent keyTyped((int)[event keyCode]);
+	[self dispatchEvent:keyTyped];
+}
+
+-(void)keyUp:(NSEvent *)event{
+	MEL::KeyReleasedEvent keyReleasedEvent((int)[event keyCode]);
+	[self dispatchEvent:keyReleasedEvent];
+}
+
+//Mouse Events
+-(void)mouseDown:(NSEvent *)event{
+	MEL::MouseButtonPressedEvent mousePressed(1);
+	[self dispatchEvent:mousePressed];
+}
+
+-(void)mouseUp:(NSEvent *)event{
+	MEL::MouseButtonReleasedEvent mouseReleased(0);
+	[self dispatchEvent:mouseReleased];
+}
+
+-(void)mouseMoved:(NSEvent *)event{
+	NSPoint location=[event locationInWindow];
+	MEL::MouseMovedEvent mouseMovedEvent(location.x,location.y);
+	[self dispatchEvent:mouseMovedEvent];
+}
+
+-(void)scrollWheel:(NSEvent *)event{
+	float deltaX=[event scrollingDeltaX];
+	float deltaY=[event scrollingDeltaY];
+	
+	if([event hasPreciseScrollingDeltas]){
+		deltaX*=0.1f;
+		deltaY*=0.1f;
+	}
+	
+	MEL::MouseScrolledEvent mouseScrolled(deltaX,deltaY);
+	[self dispatchEvent:mouseScrolled];
+}
+
+//Window Events
+-(void)windowDidResize:(NSNotification *)notification{
+	NSRect frame=[self contentRectForFrameRect:[self frame]];
+	MEL::WindowResizeEvent windowResize(frame.size.width,frame.size.height);
+	[self dispatchEvent:windowResize];
+}
+
+-(void)windowWillClose:(NSNotification *)notification{
+	MEL::WindowCloseEvent windowClosed;
+	[self dispatchEvent:windowClosed];
+}
+
+-(void)dispatchEvent:(MEL::Event &)event{
+	if(self.eventCallback){
+		self.eventCallback(event);
+	}
+}
+@end
+
+
+namespace MEL {
+	Window* Window::Create(const WindowProps& props){
+		return new Window(props);
+	}
+	Window::Window(const WindowProps& props){
+		Init(props);
+	}
+	Window::~Window(){
+		ShutDown();
+	}
+	
+	void Window::Init(const WindowProps &props){
+		m_Data.Title=props.Title;
+		m_Data.Width=props.Width;
+		m_Data.Height=props.Height;
+		MEL_CORE_INFO("Create Window: {0},{1},{2}",m_Data.Title,m_Data.Width,m_Data.Height);
+		
+	}
+	
+	void Window::ShutDown(){
+		
+	}
+	
+	void Window::OnUpdate(){
+		
+	}
+	
+	void Window::SetSync(bool enable){
+		m_Data.VSync=enable;
+	}
+	
+	bool Window::IsVSync()const{
+		return m_Data.VSync;
+	}
+}

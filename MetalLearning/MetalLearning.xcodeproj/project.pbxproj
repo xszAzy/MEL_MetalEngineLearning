@@ -1,0 +1,742 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		030AAB3B742D4C2D29F3F97B /* Log.mm in Sources */ = {isa = PBXBuildFile; fileRef = ABD76E03D41226B5BBADB443 /* Log.mm */; };
+		1817955824A247CA9F871398 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5C1300C9792D32A5828940 /* CoreFoundation.framework */; };
+		470B56372E897D33001040D0 /* Sandbox.mm in Sources */ = {isa = PBXBuildFile; fileRef = 470B56362E897D33001040D0 /* Sandbox.mm */; };
+		470B563A2E8988BF001040D0 /* Entrypoint.mm in Sources */ = {isa = PBXBuildFile; fileRef = 470B56392E8988BF001040D0 /* Entrypoint.mm */; };
+		47FF21F62E8A056A004D6F5D /* Window.mm in Sources */ = {isa = PBXBuildFile; fileRef = 47FF21F52E8A056A004D6F5D /* Window.mm */; };
+		47FF21F92E8A07BE004D6F5D /* WindowManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 47FF21F82E8A07BE004D6F5D /* WindowManager.mm */; };
+		4B007C2E118E73A07F909A6E /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0271576359DD4A8A43A2BB6 /* MetalKit.framework */; };
+		755C09380F7FFE6ABFA5DF78 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CC2A80804084C572BE684EC0 /* ViewController.mm */; };
+		9130093853F069AAB1254778 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B91C4E06FD8CD12F3C5FB20 /* QuartzCore.framework */; };
+		95EFFE0C89EF477E0EDA5C4C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74A9A874B8BD79A6AC8EFEB4 /* CoreGraphics.framework */; };
+		B24E4279E3323A6BF64A70B9 /* melpch.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0EB1E78134D817339BDF0DC1 /* melpch.mm */; };
+		C39B3D3E56290730BF01AB7E /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EF28886D25E4A381101EEC6 /* Metal.framework */; };
+		CE38F4BC94C6EC2E02C912FC /* Application.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6038CC64F5AF8B96644BE2A4 /* Application.mm */; };
+		D73895124B210CC46D6EBB52 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6188BCBA2816B42C9618DAFA /* AppDelegate.mm */; };
+		E7B2A65E3F181950F126349E /* Shader.metal in Resources */ = {isa = PBXBuildFile; fileRef = 0EC3D68640BD2138BA9C5CC6 /* Shader.metal */; };
+		EC4D1F2E8A2E1FE061AC656E /* MetalRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA29160D9A89886ACF6756 /* MetalRenderer.mm */; };
+		F8E8DBA28B76A594F44F49E2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D6BC6AA50D7885C8F7B2CEA /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E7F7B1F70E1DE1A97524D837 /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0BCE199D22E0B4CF12FCAFDD /* melpch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = melpch.h; path = src/melpch.h; sourceTree = "<group>"; };
+		0EB1E78134D817339BDF0DC1 /* melpch.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = melpch.mm; path = src/melpch.mm; sourceTree = "<group>"; };
+		0EC3D68640BD2138BA9C5CC6 /* Shader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; name = Shader.metal; path = ShaderSrc/Shader.metal; sourceTree = "<group>"; };
+		0EF28886D25E4A381101EEC6 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		13E796BCD6A7F72E33DCD4FC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = src/MEL/Renderer/ViewController.h; sourceTree = "<group>"; };
+		333B5CED59618C9FC068832D /* Log.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Log.h; path = src/MEL/Log/Log.h; sourceTree = "<group>"; };
+		38BBC2DB812CA70DC5CB791B /* MetalLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		470B56362E897D33001040D0 /* Sandbox.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Sandbox.mm; sourceTree = "<group>"; };
+		470B56382E8986D5001040D0 /* MEL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MEL.h; sourceTree = "<group>"; };
+		470B56392E8988BF001040D0 /* Entrypoint.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Entrypoint.mm; path = src/MEL/Entrypoint.mm; sourceTree = "<group>"; };
+		470B563F2E898C34001040D0 /* ApplicationEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplicationEvent.h; sourceTree = "<group>"; };
+		470B56402E898C34001040D0 /* Event.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		470B56412E898C34001040D0 /* KeyEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyEvent.h; sourceTree = "<group>"; };
+		470B56422E898C34001040D0 /* MouseEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MouseEvent.h; sourceTree = "<group>"; };
+		470B56432E898D43001040D0 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
+		47FF21F42E8A056A004D6F5D /* Window.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Window.h; sourceTree = "<group>"; };
+		47FF21F52E8A056A004D6F5D /* Window.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Window.mm; sourceTree = "<group>"; };
+		47FF21F72E8A07BE004D6F5D /* WindowManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowManager.h; sourceTree = "<group>"; };
+		47FF21F82E8A07BE004D6F5D /* WindowManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WindowManager.mm; sourceTree = "<group>"; };
+		4ADA29160D9A89886ACF6756 /* MetalRenderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = MetalRenderer.mm; path = src/MEL/Renderer/MetalRenderer.mm; sourceTree = "<group>"; };
+		6038CC64F5AF8B96644BE2A4 /* Application.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Application.mm; path = src/MEL/Application.mm; sourceTree = "<group>"; };
+		6188BCBA2816B42C9618DAFA /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = src/MEL/Renderer/AppDelegate.mm; sourceTree = "<group>"; };
+		74A9A874B8BD79A6AC8EFEB4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7B436A80AD3CB532271BF0C0 /* Application.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Application.h; path = src/MEL/Application.h; sourceTree = "<group>"; };
+		8B91C4E06FD8CD12F3C5FB20 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8D6BC6AA50D7885C8F7B2CEA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		A0271576359DD4A8A43A2BB6 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
+		ABD76E03D41226B5BBADB443 /* Log.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Log.mm; path = src/MEL/Log/Log.mm; sourceTree = "<group>"; };
+		C635BED61D9B31C8CFA94D16 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = src/MEL/Renderer/AppDelegate.h; sourceTree = "<group>"; };
+		CC2A80804084C572BE684EC0 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = ViewController.mm; path = src/MEL/Renderer/ViewController.mm; sourceTree = "<group>"; };
+		DE5E49728047E564776EF7B2 /* MetalRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MetalRenderer.h; path = src/MEL/Renderer/MetalRenderer.h; sourceTree = "<group>"; };
+		EA5C1300C9792D32A5828940 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		100082CB27131DFD172F190B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C39B3D3E56290730BF01AB7E /* Metal.framework in Frameworks */,
+				F8E8DBA28B76A594F44F49E2 /* Cocoa.framework in Frameworks */,
+				9130093853F069AAB1254778 /* QuartzCore.framework in Frameworks */,
+				1817955824A247CA9F871398 /* CoreFoundation.framework in Frameworks */,
+				95EFFE0C89EF477E0EDA5C4C /* CoreGraphics.framework in Frameworks */,
+				4B007C2E118E73A07F909A6E /* MetalKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		15A91B70B9FBB922CC3401B0 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				ABD76E03D41226B5BBADB443 /* Log.mm */,
+				333B5CED59618C9FC068832D /* Log.h */,
+			);
+			name = Log;
+			sourceTree = "<group>";
+		};
+		2C8FAEDB7CA3438DFF21751B /* MEL */ = {
+			isa = PBXGroup;
+			children = (
+				47FF21F32E8A0556004D6F5D /* Window */,
+				470B56392E8988BF001040D0 /* Entrypoint.mm */,
+				7B436A80AD3CB532271BF0C0 /* Application.h */,
+				6038CC64F5AF8B96644BE2A4 /* Application.mm */,
+				15A91B70B9FBB922CC3401B0 /* Log */,
+				B69F209AFF1004CC43AED6DA /* Renderer */,
+				470B563D2E898A81001040D0 /* Events */,
+				470B56432E898D43001040D0 /* Core.h */,
+			);
+			name = MEL;
+			sourceTree = "<group>";
+		};
+		470B56352E897CFD001040D0 /* Sandbox */ = {
+			isa = PBXGroup;
+			children = (
+				470B56362E897D33001040D0 /* Sandbox.mm */,
+			);
+			name = Sandbox;
+			path = src/Sandbox;
+			sourceTree = "<group>";
+		};
+		470B563D2E898A81001040D0 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				470B563F2E898C34001040D0 /* ApplicationEvent.h */,
+				470B56402E898C34001040D0 /* Event.h */,
+				470B56412E898C34001040D0 /* KeyEvent.h */,
+				470B56422E898C34001040D0 /* MouseEvent.h */,
+			);
+			name = Events;
+			path = src/MEL/Events;
+			sourceTree = "<group>";
+		};
+		47FF21F32E8A0556004D6F5D /* Window */ = {
+			isa = PBXGroup;
+			children = (
+				47FF21F42E8A056A004D6F5D /* Window.h */,
+				47FF21F52E8A056A004D6F5D /* Window.mm */,
+				47FF21F72E8A07BE004D6F5D /* WindowManager.h */,
+				47FF21F82E8A07BE004D6F5D /* WindowManager.mm */,
+			);
+			name = Window;
+			path = src/MEL/Window;
+			sourceTree = "<group>";
+		};
+		5775D4184366DFCA959E7A58 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				470B56352E897CFD001040D0 /* Sandbox */,
+				470B56382E8986D5001040D0 /* MEL.h */,
+				2C8FAEDB7CA3438DFF21751B /* MEL */,
+				0BCE199D22E0B4CF12FCAFDD /* melpch.h */,
+				0EB1E78134D817339BDF0DC1 /* melpch.mm */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		A6C936B49B3FADE6EA134CF4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				38BBC2DB812CA70DC5CB791B /* MetalLearning.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B69F209AFF1004CC43AED6DA /* Renderer */ = {
+			isa = PBXGroup;
+			children = (
+				C635BED61D9B31C8CFA94D16 /* AppDelegate.h */,
+				6188BCBA2816B42C9618DAFA /* AppDelegate.mm */,
+				DE5E49728047E564776EF7B2 /* MetalRenderer.h */,
+				4ADA29160D9A89886ACF6756 /* MetalRenderer.mm */,
+				13E796BCD6A7F72E33DCD4FC /* ViewController.h */,
+				CC2A80804084C572BE684EC0 /* ViewController.mm */,
+			);
+			name = Renderer;
+			sourceTree = "<group>";
+		};
+		BBF76781A7E87333FA200DC1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0EF28886D25E4A381101EEC6 /* Metal.framework */,
+				8D6BC6AA50D7885C8F7B2CEA /* Cocoa.framework */,
+				8B91C4E06FD8CD12F3C5FB20 /* QuartzCore.framework */,
+				EA5C1300C9792D32A5828940 /* CoreFoundation.framework */,
+				74A9A874B8BD79A6AC8EFEB4 /* CoreGraphics.framework */,
+				A0271576359DD4A8A43A2BB6 /* MetalKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E0ED8EA319A85515A93F8CE3 /* MetalLearning */ = {
+			isa = PBXGroup;
+			children = (
+				EFA4B5E69292DC9821B8BC26 /* ShaderSrc */,
+				5775D4184366DFCA959E7A58 /* src */,
+				BBF76781A7E87333FA200DC1 /* Frameworks */,
+				A6C936B49B3FADE6EA134CF4 /* Products */,
+			);
+			name = MetalLearning;
+			sourceTree = "<group>";
+		};
+		EFA4B5E69292DC9821B8BC26 /* ShaderSrc */ = {
+			isa = PBXGroup;
+			children = (
+				0EC3D68640BD2138BA9C5CC6 /* Shader.metal */,
+			);
+			name = ShaderSrc;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		13592B61FE455153462B19A1 /* MetalLearning */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE3BCB2A154E665C056A616A /* Build configuration list for PBXNativeTarget "MetalLearning" */;
+			buildPhases = (
+				7FE8036B96FA9E9D871699AB /* Resources */,
+				E9951CC200A7B7F4F0C3B302 /* Sources */,
+				100082CB27131DFD172F190B /* Frameworks */,
+				E7F7B1F70E1DE1A97524D837 /* Embed Libraries */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MetalLearning;
+			productInstallPath = "$(HOME)/Applications";
+			productName = MetalLearning;
+			productReference = 38BBC2DB812CA70DC5CB791B /* MetalLearning.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1640;
+			};
+			buildConfigurationList = 1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "MetalLearning" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E0ED8EA319A85515A93F8CE3 /* MetalLearning */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				13592B61FE455153462B19A1 /* MetalLearning */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7FE8036B96FA9E9D871699AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7B2A65E3F181950F126349E /* Shader.metal in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E9951CC200A7B7F4F0C3B302 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE38F4BC94C6EC2E02C912FC /* Application.mm in Sources */,
+				47FF21F62E8A056A004D6F5D /* Window.mm in Sources */,
+				47FF21F92E8A07BE004D6F5D /* WindowManager.mm in Sources */,
+				470B563A2E8988BF001040D0 /* Entrypoint.mm in Sources */,
+				030AAB3B742D4C2D29F3F97B /* Log.mm in Sources */,
+				D73895124B210CC46D6EBB52 /* AppDelegate.mm in Sources */,
+				470B56372E897D33001040D0 /* Sandbox.mm in Sources */,
+				EC4D1F2E8A2E1FE061AC656E /* MetalRenderer.mm in Sources */,
+				755C09380F7FFE6ABFA5DF78 /* ViewController.mm in Sources */,
+				B24E4279E3323A6BF64A70B9 /* melpch.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		61E5269204D34D4493F92CD2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CONFIGURATION_BUILD_DIR = "$(SYMROOT)";
+				CONFIGURATION_TEMP_DIR = "$(OBJROOT)";
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					MEL_PLATFORM_MAC,
+					MEL_DEBUG,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/vendor/spdlog/include";
+				OBJROOT = "../bin-int/Debug-macosx-x86_64/MetalLearning";
+				ONLY_ACTIVE_ARCH = YES;
+				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = static;
+				SYMROOT = "../bin/Debug-macosx-x86_64/MetalLearning";
+				USER_HEADER_SEARCH_PATHS = (
+					../bin,
+					.,
+					"../bin-int",
+					../.git,
+					../MEL.xcworkspace,
+					"../bin/Debug-macosx-x86_64",
+					"../bin/Debug-macosx-x86_64/MetalLearning",
+					"../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app",
+					"../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM",
+					"../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app/Contents",
+					"../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app/Contents/_CodeSignature",
+					"../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app/Contents/MacOS",
+					"../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app/Contents/Resources",
+					"../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM/Contents",
+					"../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM/Contents/Resources",
+					"../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM/Contents/Resources/Relocations",
+					"../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM/Contents/Resources/DWARF",
+					"../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM/Contents/Resources/Relocations/aarch64",
+					vendor,
+					src,
+					vendor/spdlog,
+					vendor/spdlog/bench,
+					vendor/spdlog/cmake,
+					vendor/spdlog/example,
+					vendor/spdlog/include,
+					vendor/spdlog/tests,
+					vendor/spdlog/logos,
+					vendor/spdlog/scripts,
+					vendor/spdlog/.github,
+					vendor/spdlog/src,
+					vendor/spdlog/include/spdlog,
+					vendor/spdlog/include/spdlog/fmt,
+					vendor/spdlog/include/spdlog/sinks,
+					vendor/spdlog/include/spdlog/details,
+					vendor/spdlog/include/spdlog/cfg,
+					vendor/spdlog/include/spdlog/fmt/bundled,
+					vendor/spdlog/.github/workflows,
+					src/Sandbox,
+					src/MEL,
+					src/MEL/Renderer,
+					src/MEL/Log,
+					"../bin-int/Debug-macosx-x86_64",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning/XCBuildData",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning/EagerLinkingTBDs",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning/MetalLearning.build",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning/MetalLearning-e033b179dceb315dcd5ecd602612986a-VFS",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning/XCBuildData/d85599197a3a4aca7ac6e87f545c7a9b.xcbuilddata",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning/XCBuildData/fb18ae1ea551295376d9abe4ea3d8d41.xcbuilddata",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning/XCBuildData/d141e9892080c178f4f5fbaba7b758b1.xcbuilddata",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning/XCBuildData/81650ab4220cca3995c175bed5cd3d62.xcbuilddata",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning/XCBuildData/d85599197a3a4aca7ac6e87f545c7a9b.xcbuilddata/attachments",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning/XCBuildData/fb18ae1ea551295376d9abe4ea3d8d41.xcbuilddata/attachments",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning/XCBuildData/d141e9892080c178f4f5fbaba7b758b1.xcbuilddata/attachments",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning/XCBuildData/81650ab4220cca3995c175bed5cd3d62.xcbuilddata/attachments",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning/EagerLinkingTBDs/Debug",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning/MetalLearning.build/Objects-normal",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning/MetalLearning.build/Objects-normal/arm64",
+					../.git/objects,
+					../.git/info,
+					../.git/logs,
+					../.git/hooks,
+					../.git/refs,
+					../.git/modules,
+					../.git/objects/95,
+					../.git/objects/59,
+					../.git/objects/0c,
+					../.git/objects/57,
+					../.git/objects/6f,
+					../.git/objects/9b,
+					../.git/objects/9e,
+					../.git/objects/04,
+					../.git/objects/32,
+					../.git/objects/35,
+					../.git/objects/56,
+					../.git/objects/67,
+					../.git/objects/0b,
+					../.git/objects/b5,
+					../.git/objects/d9,
+					../.git/objects/d0,
+					../.git/objects/be,
+					../.git/objects/b3,
+					../.git/objects/a2,
+					../.git/objects/eb,
+					../.git/objects/c9,
+					../.git/objects/fd,
+					../.git/objects/f2,
+					../.git/objects/pack,
+					../.git/objects/45,
+					../.git/objects/73,
+					../.git/objects/7e,
+					../.git/objects/75,
+					../.git/objects/43,
+					../.git/objects/info,
+					../.git/objects/91,
+					../.git/objects/62,
+					../.git/objects/98,
+					../.git/objects/37,
+					../.git/objects/6d,
+					../.git/objects/0f,
+					../.git/objects/0a,
+					../.git/objects/a8,
+					../.git/objects/ea,
+					../.git/objects/cc,
+					../.git/objects/ff,
+					../.git/objects/e0,
+					../.git/objects/46,
+					../.git/objects/83,
+					../.git/objects/49,
+					../.git/objects/2b,
+					../.git/objects/7f,
+					../.git/objects/14,
+					../.git/objects/22,
+					../.git/logs/refs,
+					../.git/logs/refs/heads,
+					../.git/refs/heads,
+					../.git/refs/tags,
+					../.git/modules/MetalLearning,
+					../.git/modules/MetalLearning/src,
+					../.git/modules/MetalLearning/src/vendor,
+					../.git/modules/MetalLearning/src/vendor/objects,
+					../.git/modules/MetalLearning/src/vendor/info,
+					../.git/modules/MetalLearning/src/vendor/logs,
+					../.git/modules/MetalLearning/src/vendor/hooks,
+					../.git/modules/MetalLearning/src/vendor/refs,
+					../.git/modules/MetalLearning/src/vendor/objects/pack,
+					../.git/modules/MetalLearning/src/vendor/objects/info,
+					../.git/modules/MetalLearning/src/vendor/logs/refs,
+					../.git/modules/MetalLearning/src/vendor/logs/refs/heads,
+					../.git/modules/MetalLearning/src/vendor/logs/refs/remotes,
+					../.git/modules/MetalLearning/src/vendor/logs/refs/remotes/origin,
+					../.git/modules/MetalLearning/src/vendor/refs/heads,
+					../.git/modules/MetalLearning/src/vendor/refs/tags,
+					../.git/modules/MetalLearning/src/vendor/refs/remotes,
+					../.git/modules/MetalLearning/src/vendor/refs/remotes/origin,
+					../MEL.xcworkspace/xcshareddata,
+					../MEL.xcworkspace/xcshareddata/swiftpm,
+					../MEL.xcworkspace/xcshareddata/swiftpm/configuration,
+					ShaderSrc,
+					../MEL/vendor/spdlog/include,
+				);
+			};
+			name = Debug;
+		};
+		6430ED4C7B43887E6B5F838C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CONFIGURATION_BUILD_DIR = "$(SYMROOT)";
+				CONFIGURATION_TEMP_DIR = "$(OBJROOT)";
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					MEL_PLATFORM_MAC,
+					MEL_RELEASE,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/vendor/spdlog/include";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				OBJROOT = "../bin-int/Release-macosx-x86_64/MetalLearning";
+				ONLY_ACTIVE_ARCH = NO;
+				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = static;
+				SYMROOT = "../bin/Release-macosx-x86_64/MetalLearning";
+				USER_HEADER_SEARCH_PATHS = (
+					../bin,
+					.,
+					"../bin-int",
+					../.git,
+					../MEL.xcworkspace,
+					"../bin/Debug-macosx-x86_64",
+					"../bin/Debug-macosx-x86_64/MetalLearning",
+					"../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app",
+					"../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM",
+					"../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app/Contents",
+					"../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app/Contents/_CodeSignature",
+					"../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app/Contents/MacOS",
+					"../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app/Contents/Resources",
+					"../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM/Contents",
+					"../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM/Contents/Resources",
+					"../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM/Contents/Resources/Relocations",
+					"../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM/Contents/Resources/DWARF",
+					"../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM/Contents/Resources/Relocations/aarch64",
+					vendor,
+					src,
+					vendor/spdlog,
+					vendor/spdlog/bench,
+					vendor/spdlog/cmake,
+					vendor/spdlog/example,
+					vendor/spdlog/include,
+					vendor/spdlog/tests,
+					vendor/spdlog/logos,
+					vendor/spdlog/scripts,
+					vendor/spdlog/.github,
+					vendor/spdlog/src,
+					vendor/spdlog/include/spdlog,
+					vendor/spdlog/include/spdlog/fmt,
+					vendor/spdlog/include/spdlog/sinks,
+					vendor/spdlog/include/spdlog/details,
+					vendor/spdlog/include/spdlog/cfg,
+					vendor/spdlog/include/spdlog/fmt/bundled,
+					vendor/spdlog/.github/workflows,
+					src/Sandbox,
+					src/MEL,
+					src/MEL/Renderer,
+					src/MEL/Log,
+					"../bin-int/Debug-macosx-x86_64",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning/XCBuildData",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning/EagerLinkingTBDs",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning/MetalLearning.build",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning/MetalLearning-e033b179dceb315dcd5ecd602612986a-VFS",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning/XCBuildData/d85599197a3a4aca7ac6e87f545c7a9b.xcbuilddata",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning/XCBuildData/fb18ae1ea551295376d9abe4ea3d8d41.xcbuilddata",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning/XCBuildData/d141e9892080c178f4f5fbaba7b758b1.xcbuilddata",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning/XCBuildData/81650ab4220cca3995c175bed5cd3d62.xcbuilddata",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning/XCBuildData/d85599197a3a4aca7ac6e87f545c7a9b.xcbuilddata/attachments",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning/XCBuildData/fb18ae1ea551295376d9abe4ea3d8d41.xcbuilddata/attachments",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning/XCBuildData/d141e9892080c178f4f5fbaba7b758b1.xcbuilddata/attachments",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning/XCBuildData/81650ab4220cca3995c175bed5cd3d62.xcbuilddata/attachments",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning/EagerLinkingTBDs/Debug",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning/MetalLearning.build/Objects-normal",
+					"../bin-int/Debug-macosx-x86_64/MetalLearning/MetalLearning.build/Objects-normal/arm64",
+					../.git/objects,
+					../.git/info,
+					../.git/logs,
+					../.git/hooks,
+					../.git/refs,
+					../.git/modules,
+					../.git/objects/95,
+					../.git/objects/59,
+					../.git/objects/0c,
+					../.git/objects/57,
+					../.git/objects/6f,
+					../.git/objects/9b,
+					../.git/objects/9e,
+					../.git/objects/04,
+					../.git/objects/32,
+					../.git/objects/35,
+					../.git/objects/56,
+					../.git/objects/67,
+					../.git/objects/0b,
+					../.git/objects/b5,
+					../.git/objects/d9,
+					../.git/objects/d0,
+					../.git/objects/be,
+					../.git/objects/b3,
+					../.git/objects/a2,
+					../.git/objects/eb,
+					../.git/objects/c9,
+					../.git/objects/fd,
+					../.git/objects/f2,
+					../.git/objects/pack,
+					../.git/objects/45,
+					../.git/objects/73,
+					../.git/objects/7e,
+					../.git/objects/75,
+					../.git/objects/43,
+					../.git/objects/info,
+					../.git/objects/91,
+					../.git/objects/62,
+					../.git/objects/98,
+					../.git/objects/37,
+					../.git/objects/6d,
+					../.git/objects/0f,
+					../.git/objects/0a,
+					../.git/objects/a8,
+					../.git/objects/ea,
+					../.git/objects/cc,
+					../.git/objects/ff,
+					../.git/objects/e0,
+					../.git/objects/46,
+					../.git/objects/83,
+					../.git/objects/49,
+					../.git/objects/2b,
+					../.git/objects/7f,
+					../.git/objects/14,
+					../.git/objects/22,
+					../.git/logs/refs,
+					../.git/logs/refs/heads,
+					../.git/refs/heads,
+					../.git/refs/tags,
+					../.git/modules/MetalLearning,
+					../.git/modules/MetalLearning/src,
+					../.git/modules/MetalLearning/src/vendor,
+					../.git/modules/MetalLearning/src/vendor/objects,
+					../.git/modules/MetalLearning/src/vendor/info,
+					../.git/modules/MetalLearning/src/vendor/logs,
+					../.git/modules/MetalLearning/src/vendor/hooks,
+					../.git/modules/MetalLearning/src/vendor/refs,
+					../.git/modules/MetalLearning/src/vendor/objects/pack,
+					../.git/modules/MetalLearning/src/vendor/objects/info,
+					../.git/modules/MetalLearning/src/vendor/logs/refs,
+					../.git/modules/MetalLearning/src/vendor/logs/refs/heads,
+					../.git/modules/MetalLearning/src/vendor/logs/refs/remotes,
+					../.git/modules/MetalLearning/src/vendor/logs/refs/remotes/origin,
+					../.git/modules/MetalLearning/src/vendor/refs/heads,
+					../.git/modules/MetalLearning/src/vendor/refs/tags,
+					../.git/modules/MetalLearning/src/vendor/refs/remotes,
+					../.git/modules/MetalLearning/src/vendor/refs/remotes/origin,
+					../MEL.xcworkspace/xcshareddata,
+					../MEL.xcworkspace/xcshareddata/swiftpm,
+					../MEL.xcworkspace/xcshareddata/swiftpm/configuration,
+					ShaderSrc,
+					../MEL/vendor/spdlog/include,
+				);
+			};
+			name = Release;
+		};
+		C71A85EAF913D09C72F30C2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CONFIGURATION_BUILD_DIR = "../bin/Release-macosx-x86_64/MetalLearning";
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/vendor/spdlog/include";
+				INSTALL_PATH = "\"$(HOME)/Applications\"";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_NAME = MetalLearning;
+			};
+			name = Release;
+		};
+		D89FEEF02602E5229C21E530 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CONFIGURATION_BUILD_DIR = "../bin/Debug-macosx-x86_64/MetalLearning";
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_DYNAMIC_NO_PIC = NO;
+				INSTALL_PATH = "\"$(HOME)/Applications\"";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_NAME = MetalLearning;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "MetalLearning" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61E5269204D34D4493F92CD2 /* Debug */,
+				6430ED4C7B43887E6B5F838C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FE3BCB2A154E665C056A616A /* Build configuration list for PBXNativeTarget "MetalLearning" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D89FEEF02602E5229C21E530 /* Debug */,
+				C71A85EAF913D09C72F30C2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}
