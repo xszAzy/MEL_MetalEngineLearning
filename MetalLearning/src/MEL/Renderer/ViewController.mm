@@ -29,4 +29,10 @@
 	self.metalView.frame=self.view.bounds;
 }
 
+-(void)loadView{
+	self.view=[[NSView alloc] init];
+	self.view.wantsLayer=YES;
+	//self.view.layer.backgroundColor=[[NSColor blueColor] CGColor];
+}
+
 @end

@@ -1,10 +1,10 @@
-#import "Window.h"
+#import "CocoaWindow.h"
 
 #import "Events/KeyEvent.h"
 #import "Events/MouseEvent.h"
 #import "Events/ApplicationEvent.h"
 
-@implementation Window
+@implementation CocoaWindow
 
 - (instancetype)initWithFrame:(NSRect)frame styleMask:(NSWindowStyleMask)styleMask title:(NSString *)title {
 	self=[super initWithContentRect:frame
@@ -84,40 +84,3 @@
 	}
 }
 @end
-
-
-namespace MEL {
-	Window* Window::Create(const WindowProps& props){
-		return new Window(props);
-	}
-	Window::Window(const WindowProps& props){
-		Init(props);
-	}
-	Window::~Window(){
-		ShutDown();
-	}
-	
-	void Window::Init(const WindowProps &props){
-		m_Data.Title=props.Title;
-		m_Data.Width=props.Width;
-		m_Data.Height=props.Height;
-		MEL_CORE_INFO("Create Window: {0},{1},{2}",m_Data.Title,m_Data.Width,m_Data.Height);
-		
-	}
-	
-	void Window::ShutDown(){
-		
-	}
-	
-	void Window::OnUpdate(){
-		
-	}
-	
-	void Window::SetSync(bool enable){
-		m_Data.VSync=enable;
-	}
-	
-	bool Window::IsVSync()const{
-		return m_Data.VSync;
-	}
-}

@@ -11,8 +11,10 @@
 		1817955824A247CA9F871398 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5C1300C9792D32A5828940 /* CoreFoundation.framework */; };
 		470B56372E897D33001040D0 /* Sandbox.mm in Sources */ = {isa = PBXBuildFile; fileRef = 470B56362E897D33001040D0 /* Sandbox.mm */; };
 		470B563A2E8988BF001040D0 /* Entrypoint.mm in Sources */ = {isa = PBXBuildFile; fileRef = 470B56392E8988BF001040D0 /* Entrypoint.mm */; };
-		47FF21F62E8A056A004D6F5D /* Window.mm in Sources */ = {isa = PBXBuildFile; fileRef = 47FF21F52E8A056A004D6F5D /* Window.mm */; };
-		47FF21F92E8A07BE004D6F5D /* WindowManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 47FF21F82E8A07BE004D6F5D /* WindowManager.mm */; };
+		473EC1802E8BED99009A2988 /* Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 473EC17F2E8BED99009A2988 /* Layer.cpp */; };
+		4798F2BB2E8AE124000FC97A /* MacWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4798F2BA2E8AE124000FC97A /* MacWindow.mm */; };
+		4798F2CA2E8AF18B000FC97A /* Input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4798F2C92E8AF18B000FC97A /* Input.cpp */; };
+		47FF21F62E8A056A004D6F5D /* CocoaWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 47FF21F52E8A056A004D6F5D /* CocoaWindow.mm */; };
 		4B007C2E118E73A07F909A6E /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0271576359DD4A8A43A2BB6 /* MetalKit.framework */; };
 		755C09380F7FFE6ABFA5DF78 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CC2A80804084C572BE684EC0 /* ViewController.mm */; };
 		9130093853F069AAB1254778 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B91C4E06FD8CD12F3C5FB20 /* QuartzCore.framework */; };
@@ -55,10 +57,15 @@
 		470B56412E898C34001040D0 /* KeyEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyEvent.h; sourceTree = "<group>"; };
 		470B56422E898C34001040D0 /* MouseEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MouseEvent.h; sourceTree = "<group>"; };
 		470B56432E898D43001040D0 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
-		47FF21F42E8A056A004D6F5D /* Window.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Window.h; sourceTree = "<group>"; };
-		47FF21F52E8A056A004D6F5D /* Window.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Window.mm; sourceTree = "<group>"; };
-		47FF21F72E8A07BE004D6F5D /* WindowManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowManager.h; sourceTree = "<group>"; };
-		47FF21F82E8A07BE004D6F5D /* WindowManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WindowManager.mm; sourceTree = "<group>"; };
+		473EC17E2E8BED99009A2988 /* Layer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Layer.h; sourceTree = "<group>"; };
+		473EC17F2E8BED99009A2988 /* Layer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Layer.cpp; sourceTree = "<group>"; };
+		4798F2B92E8AE124000FC97A /* MacWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacWindow.h; sourceTree = "<group>"; };
+		4798F2BA2E8AE124000FC97A /* MacWindow.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MacWindow.mm; sourceTree = "<group>"; };
+		4798F2C12E8AE55E000FC97A /* Window.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Window.h; sourceTree = "<group>"; };
+		4798F2C82E8AF18B000FC97A /* Input.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Input.h; sourceTree = "<group>"; };
+		4798F2C92E8AF18B000FC97A /* Input.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Input.cpp; sourceTree = "<group>"; };
+		47FF21F42E8A056A004D6F5D /* CocoaWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CocoaWindow.h; sourceTree = "<group>"; };
+		47FF21F52E8A056A004D6F5D /* CocoaWindow.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CocoaWindow.mm; sourceTree = "<group>"; };
 		4ADA29160D9A89886ACF6756 /* MetalRenderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = MetalRenderer.mm; path = src/MEL/Renderer/MetalRenderer.mm; sourceTree = "<group>"; };
 		6038CC64F5AF8B96644BE2A4 /* Application.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Application.mm; path = src/MEL/Application.mm; sourceTree = "<group>"; };
 		6188BCBA2816B42C9618DAFA /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = src/MEL/Renderer/AppDelegate.mm; sourceTree = "<group>"; };
@@ -103,6 +110,8 @@
 		2C8FAEDB7CA3438DFF21751B /* MEL */ = {
 			isa = PBXGroup;
 			children = (
+				473EC17D2E8BED88009A2988 /* Layer */,
+				4798F2C72E8AF171000FC97A /* Input */,
 				47FF21F32E8A0556004D6F5D /* Window */,
 				470B56392E8988BF001040D0 /* Entrypoint.mm */,
 				7B436A80AD3CB532271BF0C0 /* Application.h */,
@@ -111,6 +120,7 @@
 				B69F209AFF1004CC43AED6DA /* Renderer */,
 				470B563D2E898A81001040D0 /* Events */,
 				470B56432E898D43001040D0 /* Core.h */,
+				4798F2C12E8AE55E000FC97A /* Window.h */,
 			);
 			name = MEL;
 			sourceTree = "<group>";
@@ -136,13 +146,33 @@
 			path = src/MEL/Events;
 			sourceTree = "<group>";
 		};
+		473EC17D2E8BED88009A2988 /* Layer */ = {
+			isa = PBXGroup;
+			children = (
+				473EC17E2E8BED99009A2988 /* Layer.h */,
+				473EC17F2E8BED99009A2988 /* Layer.cpp */,
+			);
+			name = Layer;
+			path = src/MEL/Layer;
+			sourceTree = "<group>";
+		};
+		4798F2C72E8AF171000FC97A /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				4798F2C82E8AF18B000FC97A /* Input.h */,
+				4798F2C92E8AF18B000FC97A /* Input.cpp */,
+			);
+			name = Input;
+			path = src/MEL/Input;
+			sourceTree = "<group>";
+		};
 		47FF21F32E8A0556004D6F5D /* Window */ = {
 			isa = PBXGroup;
 			children = (
-				47FF21F42E8A056A004D6F5D /* Window.h */,
-				47FF21F52E8A056A004D6F5D /* Window.mm */,
-				47FF21F72E8A07BE004D6F5D /* WindowManager.h */,
-				47FF21F82E8A07BE004D6F5D /* WindowManager.mm */,
+				47FF21F42E8A056A004D6F5D /* CocoaWindow.h */,
+				47FF21F52E8A056A004D6F5D /* CocoaWindow.mm */,
+				4798F2B92E8AE124000FC97A /* MacWindow.h */,
+				4798F2BA2E8AE124000FC97A /* MacWindow.mm */,
 			);
 			name = Window;
 			path = src/MEL/Window;
@@ -277,11 +307,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4798F2BB2E8AE124000FC97A /* MacWindow.mm in Sources */,
 				CE38F4BC94C6EC2E02C912FC /* Application.mm in Sources */,
-				47FF21F62E8A056A004D6F5D /* Window.mm in Sources */,
-				47FF21F92E8A07BE004D6F5D /* WindowManager.mm in Sources */,
+				47FF21F62E8A056A004D6F5D /* CocoaWindow.mm in Sources */,
+				473EC1802E8BED99009A2988 /* Layer.cpp in Sources */,
 				470B563A2E8988BF001040D0 /* Entrypoint.mm in Sources */,
 				030AAB3B742D4C2D29F3F97B /* Log.mm in Sources */,
+				4798F2CA2E8AF18B000FC97A /* Input.cpp in Sources */,
 				D73895124B210CC46D6EBB52 /* AppDelegate.mm in Sources */,
 				470B56372E897D33001040D0 /* Sandbox.mm in Sources */,
 				EC4D1F2E8A2E1FE061AC656E /* MetalRenderer.mm in Sources */,
@@ -321,6 +353,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
