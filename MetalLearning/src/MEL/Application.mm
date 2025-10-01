@@ -1,10 +1,11 @@
 #import "melpch.h"
 #import "Renderer/AppDelegate.h"
-#include "Log.h"
 #include "Application.h"
-#include "Events/ApplicationEvent.h"
+
 
 namespace MEL{
+	Application* Application::s_Instance=nullptr;
+	
 	Application::Application(){
 		m_Window=std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback([this](MEL::Event& e){
@@ -21,23 +22,50 @@ namespace MEL{
 		dispathcher.Dispatch<WindowCloseEvent>(MEL_BIND_EVENT_FN(Application::OnWindowClose));
 		
 		MEL_CORE_INFO("{0}",e.ToString());
-	}
-	
-	void Application::Run() {
-		m_Window->Show();
-		NSApplication* application=[NSApplication sharedApplication];
-		AppDelegate* appDelegate=[[AppDelegate alloc] init];
-		[application setDelegate:appDelegate];
-		[application run];
-		while (m_Running){
-			
-			m_Window->OnUpdate();
+		
+		for(auto it=m_LayerStack.end();it!=m_LayerStack.begin();){
+			(*--it)->OnEvent(e);
+			if(e.m_Handled)
+				break;
 		}
 	}
 	
 	bool Application::OnWindowClose(WindowCloseEvent& event){
 		m_Running=false;
 		return true;
+	}
+	
+	void Application::Run() {
+		NSApplication* application=[NSApplication sharedApplication];
+		AppDelegate* appDelegate=[[AppDelegate alloc] init];
+		[application setDelegate:appDelegate];
+		[application finishLaunching];
+		[application activateIgnoringOtherApps:YES];
+		while (m_Running){
+			@autoreleasepool {
+				NSEvent* event;
+				while ((event=[application nextEventMatchingMask:NSEventMaskAny
+													   untilDate:[NSDate distantPast]
+														  inMode:NSDefaultRunLoopMode
+														 dequeue:YES])){
+					[application sendEvent:event];
+				}
+				
+				m_Window->OnUpdate();
+				
+				[NSThread sleepForTimeInterval:0.001];
+				m_Window->Show();
+			}
+		}
+		[application stop:nil];
+	}
+	
+	void Application::PushLayer(Layer *layer){
+		m_LayerStack.PushLayer(layer);
+	}
+	
+	void Application::PushOverlay(Layer *overlay){
+		m_LayerStack.PushOverLay(overlay);
 	}
 	
 }

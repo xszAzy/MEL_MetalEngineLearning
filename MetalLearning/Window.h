@@ -31,5 +31,8 @@ namespace MEL {
 		virtual void Show()=0;
 		
 		static Window* Create(const WindowProps& props=WindowProps());
+	public:
+		//Metal Methods
+		
 	};
 }

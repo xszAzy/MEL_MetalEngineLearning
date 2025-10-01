@@ -1,8 +1,9 @@
 #pragma once
-
 #include "melpch.h"
 #include "MEL.h"
 #include "Window.h"
+#include "ImGuiLayer/ImGuiLayer.h"
+
 namespace MEL {
 	class MacWindow:public Window{
 	public:
@@ -24,7 +25,6 @@ namespace MEL {
 		static Window* Create(const WindowProps& props=WindowProps());
 		
 		void Show()override;
-		
 	private:
 		virtual void Init(const WindowProps& props);
 		virtual void ShutDown();
@@ -37,6 +37,8 @@ namespace MEL {
 			EventCallbackFn EventCallback;
 		};
 		WindowData m_Data;
+	private:
+		ImGuiLayer* m_ImGuiLayer;
 	};
 }
 

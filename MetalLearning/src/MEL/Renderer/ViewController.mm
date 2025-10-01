@@ -5,6 +5,7 @@
 
 @property (nonatomic,strong)MTKView* metalView;
 @property (nonatomic,strong)MetalRenderer* renderer;
+@property (nonatomic,strong)id<MTLCommandQueue> commandQueue;
 
 @end;
 
@@ -21,6 +22,9 @@
 	[self.view addSubview:self.metalView];
 	
 	self.renderer=[[MetalRenderer alloc] initWithMetalKitView:self.metalView];
+	
+	[self.renderer setupImGui];
+	
 	self.metalView.delegate=self.renderer;
 }
 
@@ -32,7 +36,11 @@
 -(void)loadView{
 	self.view=[[NSView alloc] init];
 	self.view.wantsLayer=YES;
-	//self.view.layer.backgroundColor=[[NSColor blueColor] CGColor];
+}
+
+-(void)viewWillDisappear{
+	[super viewWillDisappear];
+	[self.renderer cleanup];
 }
 
 @end

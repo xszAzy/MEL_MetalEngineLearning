@@ -3,6 +3,8 @@
 #import "Events/KeyEvent.h"
 #import "Events/MouseEvent.h"
 #import "Events/ApplicationEvent.h"
+#include "imgui_impl_osx.h"
+#include "MacInput.h"
 
 @implementation CocoaWindow
 
@@ -22,6 +24,7 @@
 
 //Key Events
 -(void)keyDown:(NSEvent *)event{
+	//MEL::MacInput::OnKeyEvent(event, true);
 	int action;
 	action=[event isARepeat]?1:0;
 	MEL::KeyPressedEvent keyPressedEvent((int)[event keyCode],action);
@@ -32,22 +35,26 @@
 }
 
 -(void)keyUp:(NSEvent *)event{
+	MEL::MacInput::OnKeyEvent(event, false);
 	MEL::KeyReleasedEvent keyReleasedEvent((int)[event keyCode]);
 	[self dispatchEvent:keyReleasedEvent];
 }
 
 //Mouse Events
 -(void)mouseDown:(NSEvent *)event{
+	MEL::MacInput::OnMouseEvent(event);
 	MEL::MouseButtonPressedEvent mousePressed(1);
 	[self dispatchEvent:mousePressed];
 }
 
 -(void)mouseUp:(NSEvent *)event{
+	MEL::MacInput::OnMouseEvent(event);
 	MEL::MouseButtonReleasedEvent mouseReleased(0);
 	[self dispatchEvent:mouseReleased];
 }
 
 -(void)mouseMoved:(NSEvent *)event{
+	MEL::MacInput::OnMouseMovedEvent(event);
 	NSPoint location=[event locationInWindow];
 	MEL::MouseMovedEvent mouseMovedEvent(location.x,location.y);
 	[self dispatchEvent:mouseMovedEvent];

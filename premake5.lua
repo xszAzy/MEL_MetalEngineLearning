@@ -6,7 +6,10 @@ workspace "MEL"
 	outputdir= "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir={}
-IncludeDir["spdlog"]="MEL/vendor/spdlog/include"
+IncludeDir["spdlog"]="MetalLearning/vendor/spdlog/include"
+IncludeDir["ImGui"]="MetalLearning/vendor/imgui"
+
+include "MetalLearning/vendor/imgui"
 
 project "MetalLearning"
 	location "MetalLearning"
@@ -23,7 +26,10 @@ project "MetalLearning"
         "%{prj.name}/src/**.cpp",
         "%{prj.name}/src/**.mm",
 		"%{prj.name}/src/**.m",
-		"%{prj.name}/ShaderSrc/**.metal"
+		"%{prj.name}/*.h",
+		"%{prj.name}/ShaderSrc/**.metal",
+		"%{prj.name}/vendor/imgui/backends/imgui_impl_osx.mm",
+		"%{prj.name}/vendor/imgui/backends/imgui_impl_metal.mm"
 	}
 	
 	includedirs
@@ -31,12 +37,13 @@ project "MetalLearning"
 		"**",
 		"%{prj.name}/ShaderSrc",
         "%{IncludeDir.spdlog}",
+        "%{IncludeDir.ImGui}",
 	}
 
 	links
 	{
 -- link directories here
-
+		"ImGui",
 	}
 
 	filter "system:macosx"
@@ -53,19 +60,10 @@ project "MetalLearning"
         "QuartzCore.framework",
         "CoreFoundation.framework",
         "CoreGraphics.framework",
-        "MetalKit.framework"
+        "MetalKit.framework",
+        "GameController.framework"
 		}
-
-	filter "configurations:Debug"
-		defines"MEL_DEBUG"
-		runtime "Debug"
-		symbols "on"
-
-	filter "configurations:Release"
-        defines "MEL_RELEASE"
-        runtime "Release"
-        optimize "on"
-
+		
 	xcodebuildsettings{
             ["MACOSX_DEPLOYMENT_TARGET"]="10.15",
             ["GCC_PRECOMPILE_PREFIX_HEADER"]="NO",
@@ -78,4 +76,15 @@ project "MetalLearning"
             ["GCC_INPUT_FILETYPE"]="sourcecode.cpp.objcpp",
             ["GENERATE_INFOPLIST_FILE"]="YES"
 		}
+
+
+	filter "configurations:Debug"
+		defines"MEL_DEBUG"
+		runtime "Debug"
+		symbols "on"
+
+	filter "configurations:Release"
+        defines "MEL_RELEASE"
+        runtime "Release"
+        optimize "on"
 

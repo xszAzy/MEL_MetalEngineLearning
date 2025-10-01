@@ -4,6 +4,7 @@
 @implementation AppDelegate
 
 -(void)applicationDidFinishLaunching:(NSNotification *)notification{
+	NSLog(@"finished launching application");
 }
 
 -(BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender{

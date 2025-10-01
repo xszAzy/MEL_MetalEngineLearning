@@ -52,6 +52,8 @@ namespace MEL {
 					m_Data.EventCallback(event);
 			};
 		}
+		m_ImGuiLayer=new ImGuiLayer(m_Window);
+		LayerStack::PushOverLay(m_ImGuiLayer);
 	}
 	
 	void MacWindow::ShutDown(){
