@@ -1,11 +1,8 @@
 #import "ViewController.h"
-#import "MetalRenderer.h"
 
 @interface ViewController()
 
 @property (nonatomic,strong)MTKView* metalView;
-@property (nonatomic,strong)MetalRenderer* renderer;
-@property (nonatomic,strong)id<MTLCommandQueue> commandQueue;
 
 @end;
 
@@ -13,19 +10,17 @@
 
 -(void)viewDidLoad{
 	[super viewDidLoad];
-	
+
 	self.metalView=[[MTKView alloc] initWithFrame:self.view.bounds];
 	self.metalView.device=MTLCreateSystemDefaultDevice();
 	self.metalView.clearColor=MTLClearColorMake(0.1, 0.1, 0.1, 1.0);
 	self.metalView.colorPixelFormat=MTLPixelFormatBGRA8Unorm;
 	
+	self.metalView.enableSetNeedsDisplay=NO;
+	self.metalView.paused=NO;
+	self.metalView.preferredFramesPerSecond=60;
+	
 	[self.view addSubview:self.metalView];
-	
-	self.renderer=[[MetalRenderer alloc] initWithMetalKitView:self.metalView];
-	
-	[self.renderer setupImGui];
-	
-	self.metalView.delegate=self.renderer;
 }
 
 -(void)viewDidLayout{
@@ -40,7 +35,25 @@
 
 -(void)viewWillDisappear{
 	[super viewWillDisappear];
-	[self.renderer cleanup];
+
+}
+
+-(void)viewDidAppear{
+	[super viewDidAppear];
+}
+/*
+#pragma mark - MTKViewDelegate
+
+-(void)drawInMTKView:(MTKView *)view{
+	[_renderer drawInMTKView:view];
+}
+
+-(void)mtkView:(MTKView *)view drawableSizeWillChange:(CGSize)size{
+	[_renderer mtkView:view drawableSizeWillChange:size];
+}
+*/
+-(MTKView*)getMetalView{
+	return self.metalView;
 }
 
 @end

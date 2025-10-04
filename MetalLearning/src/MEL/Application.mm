@@ -1,16 +1,20 @@
 #import "melpch.h"
 #import "Renderer/AppDelegate.h"
 #include "Application.h"
-
+#include "MacWindow.h"
 
 namespace MEL{
 	Application* Application::s_Instance=nullptr;
 	
 	Application::Application(){
+		s_Instance=this;
 		m_Window=std::unique_ptr<Window>(Window::Create());
-		m_Window->SetEventCallback([this](MEL::Event& e){
-			this->OnEvent(e);
-		});
+		m_Window->SetEventCallback(MEL_BIND_EVENT_FN(Application::OnEvent));
+		
+		auto* macWindow=static_cast<MacWindow*>(m_Window.get());
+		m_Renderer=macWindow->GetRenderer();
+		m_ImGuiLayer=new ImGuiLayer();
+		PushOverlay(m_ImGuiLayer);
 	}
 	
 	Application::~Application(){
@@ -36,6 +40,7 @@ namespace MEL{
 	}
 	
 	void Application::Run() {
+		
 		NSApplication* application=[NSApplication sharedApplication];
 		AppDelegate* appDelegate=[[AppDelegate alloc] init];
 		[application setDelegate:appDelegate];
@@ -51,9 +56,30 @@ namespace MEL{
 					[application sendEvent:event];
 				}
 				
+				if(m_Renderer){
+					m_Renderer->BeginFrame();
+					m_Renderer->BeginScene();
+					m_Renderer->CreatePipelineState();
+					m_ImGuiLayer->Begin();
+					
+					m_Renderer->DrawIndexed(3);
+					for(Layer* layer:m_LayerStack)
+						layer->OnUpdate();
+					
+					for (Layer* layer :m_LayerStack)
+						layer->OnImGuiRender();
+					
+					m_ImGuiLayer->End();
+					
+					
+					
+					m_Renderer->EndScene();
+					m_Renderer->EndFrame();
+				}
+				
 				m_Window->OnUpdate();
 				
-				[NSThread sleepForTimeInterval:0.001];
+				[NSThread sleepForTimeInterval:0.016];
 				m_Window->Show();
 			}
 		}
@@ -62,10 +88,12 @@ namespace MEL{
 	
 	void Application::PushLayer(Layer *layer){
 		m_LayerStack.PushLayer(layer);
+		layer->OnAttach();
 	}
 	
 	void Application::PushOverlay(Layer *overlay){
 		m_LayerStack.PushOverLay(overlay);
+		overlay->OnAttach();
 	}
 	
 }

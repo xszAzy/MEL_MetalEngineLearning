@@ -1,6 +1,7 @@
 #include "MacWindow.h"
 #import "CocoaWindow.h"
 #import "ViewController.h"
+#include "Renderer.h"
 
 namespace MEL {
 	Window* Window::Create(const WindowProps& props){
@@ -11,6 +12,10 @@ namespace MEL {
 	}
 	MacWindow::~MacWindow(){
 		ShutDown();
+		if(m_Renderer){
+			delete m_Renderer;
+			m_Renderer=nullptr;
+		}
 	}
 	
 	void MacWindow::Init(const WindowProps &props){
@@ -43,7 +48,10 @@ namespace MEL {
 		m_Window.contentView=contentView;
 		m_Window.contentViewController=viewController;
 		
-		
+		MTKView* mtkView=[viewController getMetalView];
+		if(mtkView){
+			m_Renderer=new Renderer(mtkView);
+		}
 		if([m_Window isKindOfClass:[CocoaWindow class]]){
 			CocoaWindow* cocoaWindow=(CocoaWindow*)m_Window;
 			
@@ -52,8 +60,6 @@ namespace MEL {
 					m_Data.EventCallback(event);
 			};
 		}
-		m_ImGuiLayer=new ImGuiLayer(m_Window);
-		LayerStack::PushOverLay(m_ImGuiLayer);
 	}
 	
 	void MacWindow::ShutDown(){

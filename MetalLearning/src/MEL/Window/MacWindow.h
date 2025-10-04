@@ -3,8 +3,10 @@
 #include "MEL.h"
 #include "Window.h"
 #include "ImGuiLayer/ImGuiLayer.h"
+#include "Renderer.h"
 
 namespace MEL {
+	class MetalRenderer;
 	class MacWindow:public Window{
 	public:
 		MacWindow(const WindowProps& props);
@@ -25,6 +27,8 @@ namespace MEL {
 		static Window* Create(const WindowProps& props=WindowProps());
 		
 		void Show()override;
+		
+		virtual Renderer* GetRenderer()const override{return m_Renderer;}
 	private:
 		virtual void Init(const WindowProps& props);
 		virtual void ShutDown();
@@ -39,6 +43,7 @@ namespace MEL {
 		WindowData m_Data;
 	private:
 		ImGuiLayer* m_ImGuiLayer;
+		Renderer* m_Renderer;
 	};
 }
 

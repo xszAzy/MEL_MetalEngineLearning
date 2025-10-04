@@ -3,7 +3,9 @@
 #include "melpch.h"
 #include "MEL.h"
 #include "Events/Event.h"
+#include "Renderer.h"
 namespace MEL {
+	class Renderer;
 	struct WindowProps{
 		std::string Title;
 		unsigned int Width;
@@ -31,8 +33,7 @@ namespace MEL {
 		virtual void Show()=0;
 		
 		static Window* Create(const WindowProps& props=WindowProps());
-	public:
-		//Metal Methods
 		
+		virtual Renderer* GetRenderer()const=0;
 	};
 }

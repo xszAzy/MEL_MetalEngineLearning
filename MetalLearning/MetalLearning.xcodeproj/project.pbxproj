@@ -10,10 +10,13 @@
 		1817955824A247CA9F871398 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5C1300C9792D32A5828940 /* CoreFoundation.framework */; };
 		1EA5B05892FFF54A10E37E98 /* LayerStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD1D7500EF4751B223383B40 /* LayerStack.cpp */; };
 		40821283ADAA20F5AF3D10C3 /* Sandbox.mm in Sources */ = {isa = PBXBuildFile; fileRef = DB139FCB287695FD9E95960B /* Sandbox.mm */; };
+		471F408B2E9048F700A39495 /* Shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 0EC3D68640BD2138BA9C5CC6 /* Shader.metal */; };
 		475DDCC62E8D968900D66434 /* ImGuiLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 475DDCC52E8D968900D66434 /* ImGuiLayer.mm */; };
+		47A97AAA2E8EB34B00293FA8 /* Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 47A97AA92E8EB34B00293FA8 /* Renderer.mm */; };
+		47A97AAE2E8EDBAD00293FA8 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 47A97AAD2E8EDBAD00293FA8 /* ViewController.mm */; };
+		47F2B42A2E918103005D0A7A /* Shader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 47F2B4292E918103005D0A7A /* Shader.mm */; };
 		4B007C2E118E73A07F909A6E /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0271576359DD4A8A43A2BB6 /* MetalKit.framework */; };
 		70B86CF5705B5027AAB00335 /* CocoaWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = C83A417D1F9FB46FD1ADCFBD /* CocoaWindow.mm */; };
-		755C09380F7FFE6ABFA5DF78 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CC2A80804084C572BE684EC0 /* ViewController.mm */; };
 		7D00ECD4898B9F4604706B14 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6BEC0BCC5DBDAEEA1E536FC /* GameController.framework */; };
 		9130093853F069AAB1254778 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B91C4E06FD8CD12F3C5FB20 /* QuartzCore.framework */; };
 		93CEE37D2C46D0EF582DC1BD /* imgui_impl_metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = B0B9D6E54ADDCC17FB03AD25 /* imgui_impl_metal.mm */; };
@@ -27,9 +30,7 @@
 		CE38F4BC94C6EC2E02C912FC /* Application.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6038CC64F5AF8B96644BE2A4 /* Application.mm */; };
 		D73895124B210CC46D6EBB52 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6188BCBA2816B42C9618DAFA /* AppDelegate.mm */; };
 		E6BAF36C53E301DE5575F1AC /* Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5F823D4035B1A06797A1A14 /* Layer.cpp */; };
-		E7B2A65E3F181950F126349E /* Shader.metal in Resources */ = {isa = PBXBuildFile; fileRef = 0EC3D68640BD2138BA9C5CC6 /* Shader.metal */; };
 		EA0614A5455164D733834AE5 /* libImGui.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B70ACDADC8C20D9F3E2FFBED /* libImGui.a */; };
-		EC4D1F2E8A2E1FE061AC656E /* MetalRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA29160D9A89886ACF6756 /* MetalRenderer.mm */; };
 		F8E8DBA28B76A594F44F49E2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D6BC6AA50D7885C8F7B2CEA /* Cocoa.framework */; };
 		FF1219CB5B991E3DE43BD80B /* imgui_impl_osx.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6AB35F537A988B85670C1593 /* imgui_impl_osx.mm */; };
 /* End PBXBuildFile section */
@@ -70,7 +71,6 @@
 		0EB1E78134D817339BDF0DC1 /* melpch.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = melpch.mm; path = src/melpch.mm; sourceTree = "<group>"; };
 		0EC3D68640BD2138BA9C5CC6 /* Shader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; name = Shader.metal; path = ShaderSrc/Shader.metal; sourceTree = "<group>"; };
 		0EF28886D25E4A381101EEC6 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
-		13E796BCD6A7F72E33DCD4FC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = src/MEL/Renderer/ViewController.h; sourceTree = "<group>"; };
 		14AAEE9285CD8F843B943CD2 /* KeyEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KeyEvent.h; path = src/MEL/Events/KeyEvent.h; sourceTree = "<group>"; };
 		167CCC373848796974FDA277 /* Input.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Input.h; path = src/MEL/Input/Input.h; sourceTree = "<group>"; };
 		2379E11DB8F0A04F278CF75D /* MacInput.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = MacInput.mm; path = src/MEL/Input/MacInput.mm; sourceTree = "<group>"; };
@@ -80,7 +80,12 @@
 		38BBC2DB812CA70DC5CB791B /* MetalLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		475DDCC42E8D968900D66434 /* ImGuiLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImGuiLayer.h; sourceTree = "<group>"; };
 		475DDCC52E8D968900D66434 /* ImGuiLayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ImGuiLayer.mm; sourceTree = "<group>"; };
-		4ADA29160D9A89886ACF6756 /* MetalRenderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = MetalRenderer.mm; path = src/MEL/Renderer/MetalRenderer.mm; sourceTree = "<group>"; };
+		47A97AA82E8EB31500293FA8 /* Renderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Renderer.h; path = src/MEL/Renderer/Renderer.h; sourceTree = "<group>"; };
+		47A97AA92E8EB34B00293FA8 /* Renderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Renderer.mm; path = src/MEL/Renderer/Renderer.mm; sourceTree = "<group>"; };
+		47A97AAC2E8EDBAD00293FA8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		47A97AAD2E8EDBAD00293FA8 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		47F2B4282E918103005D0A7A /* Shader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
+		47F2B4292E918103005D0A7A /* Shader.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Shader.mm; sourceTree = "<group>"; };
 		500811C6F3539AF80E246806 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
 		6038CC64F5AF8B96644BE2A4 /* Application.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = Application.mm; path = src/MEL/Application.mm; sourceTree = "<group>"; };
 		6188BCBA2816B42C9618DAFA /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = AppDelegate.mm; path = src/MEL/Renderer/AppDelegate.mm; sourceTree = "<group>"; };
@@ -100,13 +105,11 @@
 		B5F823D4035B1A06797A1A14 /* Layer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Layer.cpp; path = src/MEL/Layer/Layer.cpp; sourceTree = "<group>"; };
 		C635BED61D9B31C8CFA94D16 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = src/MEL/Renderer/AppDelegate.h; sourceTree = "<group>"; };
 		C83A417D1F9FB46FD1ADCFBD /* CocoaWindow.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = CocoaWindow.mm; path = src/MEL/Window/CocoaWindow.mm; sourceTree = "<group>"; };
-		CC2A80804084C572BE684EC0 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = ViewController.mm; path = src/MEL/Renderer/ViewController.mm; sourceTree = "<group>"; };
 		CD1B60B1116A062353913EF1 /* MacWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MacWindow.h; path = src/MEL/Window/MacWindow.h; sourceTree = "<group>"; };
 		CD3C96B4FF35E16679151CF4 /* Entrypoint.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = Entrypoint.mm; path = src/MEL/Entrypoint.mm; sourceTree = "<group>"; };
 		DB139FCB287695FD9E95960B /* Sandbox.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = Sandbox.mm; path = src/Sandbox/Sandbox.mm; sourceTree = "<group>"; };
 		DC88E3B90E822E6B886169F9 /* MacInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MacInput.h; path = src/MEL/Input/MacInput.h; sourceTree = "<group>"; };
 		DD1D7500EF4751B223383B40 /* LayerStack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LayerStack.cpp; path = src/MEL/Layer/LayerStack.cpp; sourceTree = "<group>"; };
-		DE5E49728047E564776EF7B2 /* MetalRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MetalRenderer.h; path = src/MEL/Renderer/MetalRenderer.h; sourceTree = "<group>"; };
 		E19C4EDD3901C1CFEB0FDD1D /* ImGui.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ImGui.xcodeproj; path = vendor/imgui/ImGui.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E54DE3995275F20B5408E1D9 /* CocoaWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CocoaWindow.h; path = src/MEL/Window/CocoaWindow.h; sourceTree = "<group>"; };
 		E6BEC0BCC5DBDAEEA1E536FC /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
@@ -152,6 +155,7 @@
 		2C8FAEDB7CA3438DFF21751B /* MEL */ = {
 			isa = PBXGroup;
 			children = (
+				47F2B4272E9180E3005D0A7A /* Shader */,
 				7B436A80AD3CB532271BF0C0 /* Application.h */,
 				6038CC64F5AF8B96644BE2A4 /* Application.mm */,
 				CD3C96B4FF35E16679151CF4 /* Entrypoint.mm */,
@@ -162,6 +166,7 @@
 				B69F209AFF1004CC43AED6DA /* Renderer */,
 				734CD11C8A5F6C4E7A7B675C /* Window */,
 				475DDCC32E8D966F00D66434 /* ImGuiLayer */,
+				47A97AAB2E8EDB8A00293FA8 /* ViewController */,
 			);
 			name = MEL;
 			sourceTree = "<group>";
@@ -191,6 +196,26 @@
 			);
 			name = ImGuiLayer;
 			path = src/MEL/ImGuiLayer;
+			sourceTree = "<group>";
+		};
+		47A97AAB2E8EDB8A00293FA8 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				47A97AAC2E8EDBAD00293FA8 /* ViewController.h */,
+				47A97AAD2E8EDBAD00293FA8 /* ViewController.mm */,
+			);
+			name = ViewController;
+			path = src/MEL/ViewController;
+			sourceTree = "<group>";
+		};
+		47F2B4272E9180E3005D0A7A /* Shader */ = {
+			isa = PBXGroup;
+			children = (
+				47F2B4282E918103005D0A7A /* Shader.h */,
+				47F2B4292E918103005D0A7A /* Shader.mm */,
+			);
+			name = Shader;
+			path = src/MEL/Shader;
 			sourceTree = "<group>";
 		};
 		5775D4184366DFCA959E7A58 /* src */ = {
@@ -266,10 +291,8 @@
 			children = (
 				C635BED61D9B31C8CFA94D16 /* AppDelegate.h */,
 				6188BCBA2816B42C9618DAFA /* AppDelegate.mm */,
-				DE5E49728047E564776EF7B2 /* MetalRenderer.h */,
-				4ADA29160D9A89886ACF6756 /* MetalRenderer.mm */,
-				13E796BCD6A7F72E33DCD4FC /* ViewController.h */,
-				CC2A80804084C572BE684EC0 /* ViewController.mm */,
+				47A97AA82E8EB31500293FA8 /* Renderer.h */,
+				47A97AA92E8EB34B00293FA8 /* Renderer.mm */,
 			);
 			name = Renderer;
 			sourceTree = "<group>";
@@ -398,7 +421,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7B2A65E3F181950F126349E /* Shader.metal in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +431,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				471F408B2E9048F700A39495 /* Shader.metal in Sources */,
 				CE38F4BC94C6EC2E02C912FC /* Application.mm in Sources */,
 				CA73010C21D873FED3E68F4C /* Entrypoint.mm in Sources */,
 				969729155D252087CB274755 /* MacInput.mm in Sources */,
@@ -417,14 +440,15 @@
 				C5361949BEF7D5BBF8F6D789 /* Log.mm in Sources */,
 				D73895124B210CC46D6EBB52 /* AppDelegate.mm in Sources */,
 				475DDCC62E8D968900D66434 /* ImGuiLayer.mm in Sources */,
-				EC4D1F2E8A2E1FE061AC656E /* MetalRenderer.mm in Sources */,
-				755C09380F7FFE6ABFA5DF78 /* ViewController.mm in Sources */,
+				47A97AAE2E8EDBAD00293FA8 /* ViewController.mm in Sources */,
+				47F2B42A2E918103005D0A7A /* Shader.mm in Sources */,
 				70B86CF5705B5027AAB00335 /* CocoaWindow.mm in Sources */,
 				BC2CC98D9B49E3BF77533FCD /* MacWindow.mm in Sources */,
 				40821283ADAA20F5AF3D10C3 /* Sandbox.mm in Sources */,
 				B24E4279E3323A6BF64A70B9 /* melpch.mm in Sources */,
 				93CEE37D2C46D0EF582DC1BD /* imgui_impl_metal.mm in Sources */,
 				FF1219CB5B991E3DE43BD80B /* imgui_impl_osx.mm in Sources */,
+				47A97AAA2E8EB34B00293FA8 /* Renderer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
