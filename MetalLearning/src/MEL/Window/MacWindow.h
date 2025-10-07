@@ -29,6 +29,7 @@ namespace MEL {
 		void Show()override;
 		
 		virtual Renderer* GetRenderer()const override{return m_Renderer;}
+		
 	private:
 		virtual void Init(const WindowProps& props);
 		virtual void ShutDown();

@@ -10,8 +10,13 @@
 		1817955824A247CA9F871398 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5C1300C9792D32A5828940 /* CoreFoundation.framework */; };
 		1EA5B05892FFF54A10E37E98 /* LayerStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD1D7500EF4751B223383B40 /* LayerStack.cpp */; };
 		40821283ADAA20F5AF3D10C3 /* Sandbox.mm in Sources */ = {isa = PBXBuildFile; fileRef = DB139FCB287695FD9E95960B /* Sandbox.mm */; };
+		470E4F862E92E62C0001CB6D /* MTKViewDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 470E4F852E92E62C0001CB6D /* MTKViewDelegate.mm */; };
 		471F408B2E9048F700A39495 /* Shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 0EC3D68640BD2138BA9C5CC6 /* Shader.metal */; };
+		472151D42E953F6D00E52696 /* VertexArray.mm in Sources */ = {isa = PBXBuildFile; fileRef = 472151D32E953F6D00E52696 /* VertexArray.mm */; };
 		475DDCC62E8D968900D66434 /* ImGuiLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 475DDCC52E8D968900D66434 /* ImGuiLayer.mm */; };
+		479A9D0A2E93ED400019F59F /* Buffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 479A9D092E93ED400019F59F /* Buffer.mm */; };
+		479A9D0D2E942C4E0019F59F /* IndexBuffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 479A9D0C2E942C4E0019F59F /* IndexBuffer.mm */; };
+		479A9D102E942CBD0019F59F /* VertexBuffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 479A9D0F2E942CBD0019F59F /* VertexBuffer.mm */; };
 		47A97AAA2E8EB34B00293FA8 /* Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 47A97AA92E8EB34B00293FA8 /* Renderer.mm */; };
 		47A97AAE2E8EDBAD00293FA8 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 47A97AAD2E8EDBAD00293FA8 /* ViewController.mm */; };
 		47F2B42A2E918103005D0A7A /* Shader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 47F2B4292E918103005D0A7A /* Shader.mm */; };
@@ -78,8 +83,18 @@
 		28A2B695BB308087240924D5 /* MacWindow.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = MacWindow.mm; path = src/MEL/Window/MacWindow.mm; sourceTree = "<group>"; };
 		333B5CED59618C9FC068832D /* Log.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Log.h; path = src/MEL/Log/Log.h; sourceTree = "<group>"; };
 		38BBC2DB812CA70DC5CB791B /* MetalLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		470E4F842E92E62C0001CB6D /* MTKViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MTKViewDelegate.h; path = src/MEL/Renderer/MTKViewDelegate.h; sourceTree = "<group>"; };
+		470E4F852E92E62C0001CB6D /* MTKViewDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = MTKViewDelegate.mm; path = src/MEL/Renderer/MTKViewDelegate.mm; sourceTree = "<group>"; };
+		472151D22E953F6D00E52696 /* VertexArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VertexArray.h; sourceTree = "<group>"; };
+		472151D32E953F6D00E52696 /* VertexArray.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = VertexArray.mm; sourceTree = "<group>"; };
 		475DDCC42E8D968900D66434 /* ImGuiLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImGuiLayer.h; sourceTree = "<group>"; };
 		475DDCC52E8D968900D66434 /* ImGuiLayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ImGuiLayer.mm; sourceTree = "<group>"; };
+		479A9D082E93ED400019F59F /* Buffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Buffer.h; sourceTree = "<group>"; };
+		479A9D092E93ED400019F59F /* Buffer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Buffer.mm; sourceTree = "<group>"; };
+		479A9D0B2E942C4E0019F59F /* IndexBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndexBuffer.h; sourceTree = "<group>"; };
+		479A9D0C2E942C4E0019F59F /* IndexBuffer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = IndexBuffer.mm; sourceTree = "<group>"; };
+		479A9D0E2E942CBD0019F59F /* VertexBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VertexBuffer.h; sourceTree = "<group>"; };
+		479A9D0F2E942CBD0019F59F /* VertexBuffer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = VertexBuffer.mm; sourceTree = "<group>"; };
 		47A97AA82E8EB31500293FA8 /* Renderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Renderer.h; path = src/MEL/Renderer/Renderer.h; sourceTree = "<group>"; };
 		47A97AA92E8EB34B00293FA8 /* Renderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Renderer.mm; path = src/MEL/Renderer/Renderer.mm; sourceTree = "<group>"; };
 		47A97AAC2E8EDBAD00293FA8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -155,6 +170,8 @@
 		2C8FAEDB7CA3438DFF21751B /* MEL */ = {
 			isa = PBXGroup;
 			children = (
+				472151D12E953F5900E52696 /* VertexArray */,
+				479A9D072E93ED2A0019F59F /* Buffer */,
 				47F2B4272E9180E3005D0A7A /* Shader */,
 				7B436A80AD3CB532271BF0C0 /* Application.h */,
 				6038CC64F5AF8B96644BE2A4 /* Application.mm */,
@@ -188,6 +205,16 @@
 			name = backends;
 			sourceTree = "<group>";
 		};
+		472151D12E953F5900E52696 /* VertexArray */ = {
+			isa = PBXGroup;
+			children = (
+				472151D22E953F6D00E52696 /* VertexArray.h */,
+				472151D32E953F6D00E52696 /* VertexArray.mm */,
+			);
+			name = VertexArray;
+			path = src/MEL/VertexArray;
+			sourceTree = "<group>";
+		};
 		475DDCC32E8D966F00D66434 /* ImGuiLayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +223,20 @@
 			);
 			name = ImGuiLayer;
 			path = src/MEL/ImGuiLayer;
+			sourceTree = "<group>";
+		};
+		479A9D072E93ED2A0019F59F /* Buffer */ = {
+			isa = PBXGroup;
+			children = (
+				479A9D082E93ED400019F59F /* Buffer.h */,
+				479A9D092E93ED400019F59F /* Buffer.mm */,
+				479A9D0B2E942C4E0019F59F /* IndexBuffer.h */,
+				479A9D0C2E942C4E0019F59F /* IndexBuffer.mm */,
+				479A9D0E2E942CBD0019F59F /* VertexBuffer.h */,
+				479A9D0F2E942CBD0019F59F /* VertexBuffer.mm */,
+			);
+			name = Buffer;
+			path = src/MEL/Buffer;
 			sourceTree = "<group>";
 		};
 		47A97AAB2E8EDB8A00293FA8 /* ViewController */ = {
@@ -293,6 +334,8 @@
 				6188BCBA2816B42C9618DAFA /* AppDelegate.mm */,
 				47A97AA82E8EB31500293FA8 /* Renderer.h */,
 				47A97AA92E8EB34B00293FA8 /* Renderer.mm */,
+				470E4F842E92E62C0001CB6D /* MTKViewDelegate.h */,
+				470E4F852E92E62C0001CB6D /* MTKViewDelegate.mm */,
 			);
 			name = Renderer;
 			sourceTree = "<group>";
@@ -432,6 +475,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				471F408B2E9048F700A39495 /* Shader.metal in Sources */,
+				472151D42E953F6D00E52696 /* VertexArray.mm in Sources */,
 				CE38F4BC94C6EC2E02C912FC /* Application.mm in Sources */,
 				CA73010C21D873FED3E68F4C /* Entrypoint.mm in Sources */,
 				969729155D252087CB274755 /* MacInput.mm in Sources */,
@@ -444,7 +488,11 @@
 				47F2B42A2E918103005D0A7A /* Shader.mm in Sources */,
 				70B86CF5705B5027AAB00335 /* CocoaWindow.mm in Sources */,
 				BC2CC98D9B49E3BF77533FCD /* MacWindow.mm in Sources */,
+				479A9D0A2E93ED400019F59F /* Buffer.mm in Sources */,
+				470E4F862E92E62C0001CB6D /* MTKViewDelegate.mm in Sources */,
+				479A9D102E942CBD0019F59F /* VertexBuffer.mm in Sources */,
 				40821283ADAA20F5AF3D10C3 /* Sandbox.mm in Sources */,
+				479A9D0D2E942C4E0019F59F /* IndexBuffer.mm in Sources */,
 				B24E4279E3323A6BF64A70B9 /* melpch.mm in Sources */,
 				93CEE37D2C46D0EF582DC1BD /* imgui_impl_metal.mm in Sources */,
 				FF1219CB5B991E3DE43BD80B /* imgui_impl_osx.mm in Sources */,

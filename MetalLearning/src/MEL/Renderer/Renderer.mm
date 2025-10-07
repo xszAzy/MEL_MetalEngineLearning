@@ -3,13 +3,15 @@
 #import "imgui_impl_metal.h"
 #import "imgui_impl_osx.h"
 
+#include "VertexArray/VertexArray.h"
+#import "Buffer/VertexBuffer.h"
+#import "Buffer/IndexBuffer.h"
+
 namespace MEL{
 	Renderer::Renderer(MTKView* mtkview):
 	m_View(mtkview),
 	m_Device([mtkview device]),
 	m_CurrentPipeline(nullptr),
-	m_VertexBuffer(nil),
-	m_IndexBuffer(nil),
 	m_CommandBuffer(nullptr),
 	m_CurrentEncoder(nullptr)
 	{
@@ -28,22 +30,32 @@ namespace MEL{
 	}
 	
 	void Renderer::BeginFrame(){
-		m_CommandBuffer=[m_CommandQueue commandBuffer];
+		//debug mode
+		//MEL_CORE_INFO("====Begin Frame====");
+		
+		if(!m_Device){
+			//MEL_CORE_ERROR("NO DEVICE");
+			return;
+		}
+		if(!m_CommandQueue){
+			//MEL_CORE_ERROR("No Command queue");
+			return;
+		}
 		//set viewport in this frame
-		m_ViewportSize={
-			(uint32_t)m_View.drawableSize.width,
-			(uint32_t)m_View.drawableSize.height
-		};
-		m_FrameStarted=true;
+		UpdateViewport();
+		m_CommandBuffer=[m_CommandQueue commandBuffer];
+		//MEL_CORE_INFO("Creates commandbuffer:{}",(void*)m_CommandBuffer);
 	}
 	
 	void Renderer::BeginScene(){
-		if(!m_FrameStarted){
-			NSLog(@"Call BeginFrame() first");
-			return;
-		}
-		//create render pass descriptor
+		//debug mode
+		//MEL_CORE_INFO("----Begin Scene----");
+		
+		//get render pass descriptor
 		MTLRenderPassDescriptor* renderPassDescriptor=m_View.currentRenderPassDescriptor;
+		
+		//MEL_CORE_INFO("Descriptor{}",(void*)renderPassDescriptor);
+		
 		if(renderPassDescriptor==nil){
 			NSLog(@"No renderpass");
 			[m_CommandBuffer commit];
@@ -51,82 +63,82 @@ namespace MEL{
 		}
 		//create encoder for current scene
 		m_CurrentEncoder=[m_CommandBuffer renderCommandEncoderWithDescriptor:renderPassDescriptor];
+		
+		//MEL_CORE_INFO("encoder{}",(void*)m_CurrentEncoder);
+		
 		//set viewport and pipeline state
-		MTLViewport viewport={0,0,(double)m_ViewportSize.x,(double)m_ViewportSize.y,0,1};
-		[m_CurrentEncoder setViewport:viewport];
+		
+		[m_CurrentEncoder setViewport:m_MTLViewportSize];
+		
+		//MEL_CORE_INFO("encoder viewport{}x{}",m_MTLViewportSize.width,m_MTLViewportSize.height);
 		
 		if(m_CurrentPipeline){
 			[m_CurrentEncoder setRenderPipelineState:m_CurrentPipeline];
+			
+			//MEL_CORE_INFO("encoder pipeline set");
 		}
 	}
 	
 	void Renderer::EndScene(){
 		[m_CurrentEncoder endEncoding];
-		m_CurrentEncoder=nullptr;
+		//m_CurrentEncoder=nullptr;
+		//MEL_CORE_INFO("----End Scene----");
 	}
 	
 	void Renderer::EndFrame(){
-		if(!m_FrameStarted)return;
 		if(m_CommandBuffer){
 			[m_CommandBuffer presentDrawable:[m_View currentDrawable]];
+			//MEL_CORE_INFO("commandbuffer drawable{}",(void*)[m_View currentDrawable]);
 			[m_CommandBuffer commit];
+			//MEL_CORE_INFO("====End Frame====");
 		}
-		m_CommandBuffer=nullptr;
-		m_CurrentEncoder=nullptr;
-		m_FrameStarted=false;
 	}
 	
-	void Renderer::DrawIndexed(uint32_t indexcount){
-		if(m_CurrentPipeline)
-			[m_CurrentEncoder setRenderPipelineState:m_CurrentPipeline];
+	void Renderer::DrawIndexed(const std::shared_ptr<VertexArray>& vertexArray){
+		if(!vertexArray){
+			MEL_CORE_ERROR("No array");
+			return;
+		}
+		if(!m_CurrentEncoder){
+			MEL_CORE_ERROR("No encoder");
+			return;
+		}
+		vertexArray->Bind();
 		
-		if(m_VertexBuffer)
-			[m_CurrentEncoder setVertexBuffer:m_VertexBuffer offset:0 atIndex:0];
-		bool using_auto_draw=true;
-		if(!using_auto_draw){
+		auto indexBuffer=vertexArray->GetIndexBuffer();
+		if(indexBuffer&&indexBuffer->GetBuffer()){
 			[m_CurrentEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle
-										 indexCount:indexcount
+										 indexCount:indexBuffer->GetCount()
 										  indexType:MTLIndexTypeUInt32
-										indexBuffer:m_IndexBuffer
+										indexBuffer:indexBuffer->GetBuffer()
 								  indexBufferOffset:0];
 		}
 		else{
-			[m_CurrentEncoder drawPrimitives:MTLPrimitiveTypeTriangle
-								 vertexStart:0
-								 vertexCount:indexcount];
+			auto vertexBuffers=vertexArray->GetVertexBuffers();
+			if(!vertexBuffers.empty()&&vertexBuffers[0]){
+				uint32_t vertexCount=vertexBuffers[0]->GetSize()/sizeof(float)/3;
+				[m_CurrentEncoder drawPrimitives:MTLPrimitiveTypeTriangle
+									 vertexStart:0
+									 vertexCount:vertexCount];
+			}
 		}
 	}
 	
-	void Renderer::CreatePipelineState(){
-		id<MTLLibrary> defaultLibrary=[m_Device newDefaultLibrary];
+#pragma mark - Pipeline settings
+	void Renderer::SetCurrentPipelineState(id<MTLRenderPipelineState> pipelineState){
+		if(m_CurrentPipeline==pipelineState)return;
 		
-		NSError* error=nil;
-		
-		if(!defaultLibrary){
-			NSLog(@"Failed to load Metal library: %@",error);
-		}
-		error=nil;
-		
-		id<MTLFunction> vertexFunction=[defaultLibrary newFunctionWithName:@"vertexShader"];
-		id<MTLFunction> fragmentFunction=[defaultLibrary newFunctionWithName:@"fragmentShader"];
-		
-		if(!vertexFunction || !fragmentFunction){
-			NSLog(@"Note:Custom shaders not found,only ImGui rendering will be available!");
-			return;
+		if(m_CurrentPipeline){
+			[m_CurrentPipeline release];
+			//MEL_CORE_INFO("release pipeline to create new");
 		}
 		
-		MTLRenderPipelineDescriptor* pipeLineDescriptor=[[MTLRenderPipelineDescriptor alloc] init];
+		m_CurrentPipeline=[pipelineState retain];
+		//MEL_CORE_INFO("Pipeline retain{}",(void*)m_CurrentPipeline);
 		
-		pipeLineDescriptor.vertexFunction=vertexFunction;
-		pipeLineDescriptor.fragmentFunction=fragmentFunction;
-		
-		pipeLineDescriptor.colorAttachments[0].pixelFormat=MTLPixelFormatBGRA8Unorm;
-		
-		m_CurrentPipeline=[m_Device newRenderPipelineStateWithDescriptor:pipeLineDescriptor
-																   error:&error];
-		
-		if(!m_CurrentPipeline){
-			NSLog(@"create pipeline state failed:%@",error);
+		if(m_CurrentEncoder&&m_CurrentPipeline){
+			[m_CurrentEncoder setRenderPipelineState:m_CurrentPipeline];
+			//MEL_CORE_INFO("encoder set pipeline");
 		}
 	}
 	
@@ -134,20 +146,22 @@ namespace MEL{
 		m_ViewportSize={width,height};
 	}
 	
-	void Renderer::SetupPipeline(){
-		CreatePipelineState();
-	}
-	
 #pragma mark - ImGui Controll
 	void Renderer::BeginImGui(){
+		ImGuiIO& io=ImGui::GetIO();
+		io.DisplaySize=ImVec2(m_ViewportSize.x,m_ViewportSize.y);
+		//MEL_CORE_INFO("Set ImGui display size{},{}",io.DisplaySize.x,io.DisplaySize.y);
+		
 		MTLRenderPassDescriptor* renderPassDescriptor=m_View.currentRenderPassDescriptor;
 		if(!renderPassDescriptor){
 			NSLog(@"no render pass descriptor");
 			return;
 		}
+		
 		ImGui_ImplMetal_NewFrame(renderPassDescriptor);
 		ImGui_ImplOSX_NewFrame(m_View);
 		ImGui::NewFrame();
+		//MEL_CORE_INFO("ImGui new frame with pipe desc{}",(void*)renderPassDescriptor);
 	}
 	
 	void Renderer::EndImGui(){
@@ -159,21 +173,21 @@ namespace MEL{
 		ImDrawData* drawData=ImGui::GetDrawData();
 		
 		ImGui_ImplMetal_RenderDrawData(drawData, m_CommandBuffer, m_CurrentEncoder);
-		MTLViewport viewport={0,0,(double)m_ViewportSize.x,(double)m_ViewportSize.y,0,1};
-		[m_CurrentEncoder setViewport:viewport];
+		//MEL_CORE_INFO("ImGui draw with data{}",(void*)drawData);
 	}
-#pragma mark - Buffer sets
-	void Renderer::SetVertexBuffer(void *data, size_t size){
-		is_default=false;
-		m_VertexBuffer=[m_Device newBufferWithBytes:data
-											 length:size
-											options:MTLResourceStorageModeShared];
-	}
-	
-	void Renderer::SetIndexBuffer(uint32_t *indices, uint32_t count){
-		is_default=false;
-		m_IndexBuffer=[m_Device newBufferWithBytes:indices
-											length:count*sizeof(uint32_t)
-										   options:MTLResourceStorageModeShared];
+
+#pragma mark - Test methods
+	void Renderer::UpdateViewport(){
+		m_ViewportSize={
+			(uint32_t)m_View.currentRenderPassDescriptor.colorAttachments[0].texture.width,
+			(uint32_t)m_View.currentRenderPassDescriptor.colorAttachments[0].texture.height
+		};
+		m_MTLViewportSize={
+			0,0,
+			(double)m_ViewportSize.x,
+			(double)m_ViewportSize.y,
+			1,0
+		};
+		//MEL_CORE_INFO("Viewport size:{}x{}",(double)m_ViewportSize.x,(double)m_ViewportSize.y);
 	}
 }

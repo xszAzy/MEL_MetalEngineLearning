@@ -4,10 +4,13 @@
 #include "Events/ApplicationEvent.h"
 #include "Layer/LayerStack.h"
 #include "ImGuiLayer/ImGuiLayer.h"
-
+#include "Shader/Shader.h"
+#include "MTKViewDelegate.h"
 namespace MEL{
 	class Window;
 	class Renderer;
+	class Shader;
+	class VertexArray;
 }
 namespace MEL {
 	class Application{
@@ -25,14 +28,22 @@ namespace MEL {
 		inline Renderer* GetRenderer(){return m_Renderer;}
 	private:
 		bool OnWindowClose(WindowCloseEvent& event);
+	public:
+		//Metal unique render
+		void RenderOneFrame();
 	private:
 		std::unique_ptr<Window> m_Window;
+		
+		MELMTKViewDelegate* m_ViewDelegate;
 		Renderer* m_Renderer;
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running=true;
 		LayerStack m_LayerStack;
+		std::shared_ptr<Shader> m_CurrentShader;
 		
 		static Application* s_Instance;
+		
+		std::shared_ptr<VertexArray> m_VertexArray;
 	};
 	Application* CreateApplication();
 }

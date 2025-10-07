@@ -45,11 +45,11 @@
 #pragma mark - MTKViewDelegate
 
 -(void)drawInMTKView:(MTKView *)view{
-	[_renderer drawInMTKView:view];
+	
 }
 
 -(void)mtkView:(MTKView *)view drawableSizeWillChange:(CGSize)size{
-	[_renderer mtkView:view drawableSizeWillChange:size];
+	auto renderer=
 }
 */
 -(MTKView*)getMetalView{

@@ -24,6 +24,10 @@ public:
 		//MEL_INFO("testing update");
 	}
 	
+	void OnAttach() override{
+		
+	}
+	
 	void OnEvent(MEL::Event& e) override{
 		MEL_INFO("testing event{0}",e.ToString());
 	}
