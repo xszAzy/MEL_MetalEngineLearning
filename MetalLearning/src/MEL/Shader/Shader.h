@@ -3,6 +3,7 @@
 #include "MEL.h"
 #include<string>
 #include<unordered_map>
+#include"Buffer/BufferLayout.h"
 
 namespace MEL{
 	class Shader{
@@ -22,7 +23,8 @@ namespace MEL{
 		
 		const std::string& GetName(){return m_Name;}
 		
-		bool CreatePipelineState();
+		bool CreatePipelineState(const BufferLayout& layout);
+		MTLVertexDescriptor* CreateVertexDescriptor(const BufferLayout& layout);
 		id<MTLRenderPipelineState> GetPipelineState()const{return m_PipelineState;}
 		void Bind();
 	private:

@@ -5,6 +5,7 @@
 
 #import "Buffer/VertexBuffer.h"
 #import "Buffer/IndexBuffer.h"
+#import "Buffer/BufferLayout.h"
 #import "VertexArray/VertexArray.h"
 
 namespace MEL{
@@ -23,32 +24,42 @@ namespace MEL{
 		//create vertex array
 		m_VertexArray=MEL::VertexArray::Create();
 		//set vertex and index buffer
-		
-		float vertices[]={
-			-0.5f,-0.5f,0.0f,
-			0.4f,0.2f,0.4f,
+		struct Vertex{
+			float position[3];
+			float color[4];
+		};
+		Vertex vertices[]={
+			{{-0.5f,-0.5f,0.0f},
+			{0.4f,0.2f,0.4f,1.0f}},
 			
-			0.5f,-0.5f,0.0f,
-			0.1f,0.7f,0.1f,
+			{{0.5f,-0.5f,0.0f},
+			{0.1f,0.7f,0.1f,1.0f}},
 			
-			0.0f,0.5f,0.0f,
-			0.1f,0.3f,0.4f
+			{{0.0f,0.5f,0.0f},
+			{0.1f,0.3f,0.4f,1.0f}}
 		};
 		
 		uint32_t indices[]={0,1,2};
-		
+		//create bufferlayout
+		BufferLayout layout={
+			{ShaderDataType::Float3,"a_Position"},
+			{ShaderDataType::Float4,"a_Color"}
+		};
+		//Set buffers
 		auto basicVB=VertexBuffer::Create(vertices, sizeof(vertices));
 		auto basicIB=IndexBuffer::Create(indices, 3);
 		basicVB->SetSlot(0);
+		basicVB->SetLayout(layout);
 		
 		m_VertexArray->AddVertexBuffer(basicVB);
 		m_VertexArray->SetIndexBuffer(basicIB);
+		
 		
 		//create shader(this can be done in sandbox)
 		auto defaultShader=MEL::Shader::CreateFromDefaultLibrary("DefaultShader",
 																 @"vertexShader",@"fragmentShader");
 		if(defaultShader)
-			defaultShader->CreatePipelineState();
+			defaultShader->CreatePipelineState(layout);
 		m_CurrentShader=defaultShader;
 		
 		//initialize layers

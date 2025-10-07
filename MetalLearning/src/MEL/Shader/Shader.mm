@@ -102,7 +102,7 @@ namespace MEL{
 		return true;
 	}
 	
-	bool Shader::CreatePipelineState(){
+	bool Shader::CreatePipelineState(const BufferLayout& layout){
 		auto renderer=Application::Get().GetRenderer();
 		id<MTLDevice> device=renderer->GetMetalDevice();
 		
@@ -116,20 +116,8 @@ namespace MEL{
 		pipelineDescriptor.fragmentFunction=m_FragmentFunction;
 		pipelineDescriptor.colorAttachments[0].pixelFormat=MTLPixelFormatBGRA8Unorm;
 		
-		MTLVertexDescriptor* vertexDescriptor=[[MTLVertexDescriptor alloc]init];
-		vertexDescriptor.attributes[0].format=MTLVertexFormatFloat3;
-		vertexDescriptor.attributes[0].offset=0;
-		vertexDescriptor.attributes[0].bufferIndex=0;
-		
-		vertexDescriptor.attributes[1].format=MTLVertexFormatFloat3;
-		vertexDescriptor.attributes[1].offset=12;
-		vertexDescriptor.attributes[1].bufferIndex=0;
-		
-		vertexDescriptor.layouts[0].stride=24;
-		vertexDescriptor.layouts[0].stepFunction=MTLVertexStepFunctionPerVertex;
-		
+		MTLVertexDescriptor* vertexDescriptor=CreateVertexDescriptor(layout);
 		pipelineDescriptor.vertexDescriptor=vertexDescriptor;
-		
 		
 		NSError* error=nil;
 		m_PipelineState=[device newRenderPipelineStateWithDescriptor:pipelineDescriptor
@@ -142,6 +130,32 @@ namespace MEL{
 		
 		MEL_CORE_INFO("Create pipeline state for shader:{}",m_Name);
 		return true;
+	}
+	
+	MTLVertexDescriptor* Shader::CreateVertexDescriptor(const BufferLayout &layout){
+		MTLVertexDescriptor* vertexDescriptor=[MTLVertexDescriptor vertexDescriptor];
+		
+		uint32_t attributeIndex=0;
+		uint32_t bufferIndex=0;
+		
+		for(const auto& element:layout){
+			MTLVertexAttributeDescriptor* attribute=vertexDescriptor.attributes[attributeIndex];
+			
+			attribute.format=ShaderDataTypeToMetal(element.Type);
+			attribute.offset=element.Offset;
+			attribute.bufferIndex=bufferIndex;
+			
+			MEL_CORE_INFO("Vertex Attribute[{}]:{} at buffer {},offset {},format {}",
+						  attributeIndex,element.Name,bufferIndex,element.Offset,(int)attribute.format);
+			attributeIndex++;
+		}
+		
+		MTLVertexBufferLayoutDescriptor* bufferLayout=vertexDescriptor.layouts[bufferIndex];
+		bufferLayout.stride=layout.GetStride();
+		bufferLayout.stepRate=1;
+		bufferLayout.stepFunction=MTLVertexStepFunctionPerVertex;
+		
+		return vertexDescriptor;
 	}
 	
 	void Shader::Bind(){

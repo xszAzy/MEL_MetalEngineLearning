@@ -99,6 +99,7 @@
 		47A97AA92E8EB34B00293FA8 /* Renderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Renderer.mm; path = src/MEL/Renderer/Renderer.mm; sourceTree = "<group>"; };
 		47A97AAC2E8EDBAD00293FA8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		47A97AAD2E8EDBAD00293FA8 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		47BB8EEB2E9559770005EA9F /* BufferLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BufferLayout.h; sourceTree = "<group>"; };
 		47F2B4282E918103005D0A7A /* Shader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
 		47F2B4292E918103005D0A7A /* Shader.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Shader.mm; sourceTree = "<group>"; };
 		500811C6F3539AF80E246806 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
@@ -234,6 +235,7 @@
 				479A9D0C2E942C4E0019F59F /* IndexBuffer.mm */,
 				479A9D0E2E942CBD0019F59F /* VertexBuffer.h */,
 				479A9D0F2E942CBD0019F59F /* VertexBuffer.mm */,
+				47BB8EEB2E9559770005EA9F /* BufferLayout.h */,
 			);
 			name = Buffer;
 			path = src/MEL/Buffer;

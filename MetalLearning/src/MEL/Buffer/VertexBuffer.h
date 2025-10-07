@@ -15,7 +15,11 @@ namespace MEL {
 		
 		void SetSlot(uint32_t slot){m_Slot=slot;}
 		uint32_t GetSlot()const{return m_Slot;}
+		
+		void SetLayout(const BufferLayout& layout){m_Layout=layout;}
+		const BufferLayout& GetLayout()const{return m_Layout;}
 	private:
 		uint32_t m_Slot=0;
+		BufferLayout m_Layout;
 	};
 }

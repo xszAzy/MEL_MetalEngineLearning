@@ -1,6 +1,7 @@
 #pragma once
 #include<Metal/Metal.h>
 #include "Application.h"
+#include "BufferLayout.h"
 
 namespace MEL{
 	enum class BufferUsage{
