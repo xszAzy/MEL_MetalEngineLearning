@@ -1,4 +1,5 @@
 #include "Shader.h"
+#include "Application.h"
 
 namespace MEL{
 	Shader::Shader(const std::string& name):m_Name(name){

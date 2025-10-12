@@ -28,6 +28,8 @@
 	int action;
 	action=[event isARepeat]?1:0;
 	MEL::KeyPressedEvent keyPressedEvent((int)[event keyCode],action);
+	MEL::MacInput::OnKeyEvent(event, true);
+
 	[self dispatchEvent:keyPressedEvent];
 	
 	MEL::KeyTypedEvent keyTyped((int)[event keyCode]);

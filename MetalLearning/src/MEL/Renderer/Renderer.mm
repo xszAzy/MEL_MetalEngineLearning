@@ -6,6 +6,7 @@
 #include "VertexArray/VertexArray.h"
 #import "Buffer/VertexBuffer.h"
 #import "Buffer/IndexBuffer.h"
+#include "Buffer/UniformBuffer.h"
 
 namespace MEL{
 	Renderer::Renderer(MTKView* mtkview):
@@ -189,5 +190,24 @@ namespace MEL{
 			1,0
 		};
 		//MEL_CORE_INFO("Viewport size:{}x{}",(double)m_ViewportSize.x,(double)m_ViewportSize.y);
+	}
+#pragma mark - Camera settings
+	void Renderer::SetSceneCamera(const std::shared_ptr<Camera> &camera){
+		m_SceneCamera=camera;
+		
+		if(!m_CameraUniform){
+			m_CameraUniform=UniformBuffer::Create(sizeof(CameraData));
+			m_CameraUniform->SetBindSlot(1);
+		}
+	}
+	
+	void Renderer::UpdateCameraUniform(){
+		if(m_SceneCamera&&m_CameraUniform){
+			CameraData cameraData;
+			cameraData.viewProjectionMatrix=m_SceneCamera->GetViewProjectionMatrix();
+			cameraData.cameraPosition=m_SceneCamera->GetPosition();
+			
+			m_CameraUniform->SetData(cameraData);
+		}
 	}
 }

@@ -1,28 +1,27 @@
 #pragma once
-#include "Input.h"
 #include <AppKit/AppKit.h>
+#include"MacKeycode.h"
+#include <utility>
 
 namespace MEL{
-	class MacInput:public Input{
+	class MacInput{
 	public:
 		static void Init();
 		
 		static void OnKeyEvent(NSEvent* event,bool pressed);
 		static void OnMouseEvent(NSEvent* event);
 		static void OnMouseMovedEvent(NSEvent* event);
-		
-		static bool IsKeyPressedImpl(Keycode keycode);
-		static bool IsMouseButtonPressedImpl(int button);
-		static float GetMouseXImpl(){return MouseX;}
-		static float GetMouseYImpl(){return MouseY;}
-		static std::pair<float,float> GetMousePositionImpl();
+	
+		static bool IsKeyPressed(int keycode);
+		static bool IsMouseButtonPressed(int button);
+		static float GetMouseX(){return s_MouseX;}
+		static float GetMouseY(){return s_MouseY;}
+		static std::pair<float,float> GetMousePosition();
 		
 	private:
-		static std::unordered_map<Keycode, bool> s_KeyState;
-		static std::unordered_map<int, bool> s_MouseState;
-		static float MouseX,MouseY;
-		
-		static std::unordered_map<uint16_t, Keycode> s_KeyMap;
+		static bool s_Keys[256];
+		static bool s_MouseButton[3];
+		static float s_MouseX,s_MouseY;
 		
 		static int CocoaToEngineMouseButton(NSEvent* event);
 	};

@@ -1,6 +1,16 @@
 #include "MEL.h"
 #include "imgui.h"
 #include <stdio.h>
+#include "MacInput.h"
+
+#import "Buffer/VertexBuffer.h"
+#import "Buffer/IndexBuffer.h"
+#import "Buffer/UniformBuffer.h"
+#import "Buffer/BufferLayout.h"
+#import "VertexArray/VertexArray.h"
+
+#include "RenderCommand.h"
+
 
 class ExampleLayer:public MEL::Layer{
 public:
@@ -13,7 +23,7 @@ public:
 		ImGui::Text("Hello, Metal! This is your engine");
 		
 		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)",1000.0f/ImGui::GetIO().Framerate,ImGui::GetIO().Framerate);
-		static bool show=1;
+		static bool show=0;
 		if(show)
 			ImGui::ShowDemoWindow(&show);
 		
@@ -22,9 +32,195 @@ public:
 	
 	void OnUpdate() override{
 		//MEL_INFO("testing update");
+		//set camera
+		auto camera=m_Renderer->GetSceneCamera();
+		
+		//draw
+		if(m_CurrentShader&&m_VertexArray)
+			MEL::RenderCommand::Submit(m_CurrentShader, m_VertexArray);
+		
+		
+		if(MEL::MacInput::IsKeyPressed(MEL::Key::W)){
+			if(camera){
+				simd::float3 position=camera->GetPosition();
+				position[2]-=.2f;
+				camera->SetPosition(position);
+				//camera->LookAt({0.0f,0.0f,0.0f});
+				
+				m_Renderer->UpdateCameraUniform();
+				MEL_INFO("Set Camera to position {:.2f},{:.2f},{:.2f}",
+						 (float)position[0],(float)position[1],(float)position[2]);
+			}
+		}
+		else if (MEL::MacInput::IsKeyPressed(MEL::Key::S)){
+			if(camera){
+				simd::float3 position=camera->GetPosition();
+				position[2]+=.2f;
+				camera->SetPosition(position);
+				//camera->LookAt({0.0f,0.0f,0.0f});
+				
+				m_Renderer->UpdateCameraUniform();
+				MEL_INFO("Set Camera to position {:.2f},{:.2f},{:.2f}",
+						 (float)position[0],(float)position[1],(float)position[2]);
+			}
+		}
+		if(MEL::MacInput::IsKeyPressed(MEL::Key::Left)){
+			if(camera){
+				simd::float3 position=camera->GetPosition();
+				position[0]-=.2f;
+				camera->SetPosition(position);
+				//camera->LookAt({0.0f,0.0f,0.0f});
+				
+				m_Renderer->UpdateCameraUniform();
+				MEL_INFO("Set Camera to position {:.2f},{:.2f},{:.2f}",
+						 (float)position[0],(float)position[1],(float)position[2]);
+			}
+		}
+		else if (MEL::MacInput::IsKeyPressed(MEL::Key::Right)){
+			if(camera){
+				simd::float3 position=camera->GetPosition();
+				position[0]+=.2f;
+				camera->SetPosition(position);
+				//camera->LookAt({0.0f,0.0f,0.0f});
+				
+				m_Renderer->UpdateCameraUniform();
+				MEL_INFO("Set Camera to position {:.2f},{:.2f},{:.2f}",
+						 (float)position[0],(float)position[1],(float)position[2]);
+			}
+		}
+		
+		if(MEL::MacInput::IsKeyPressed(MEL::Key::Up)){
+			if(camera){
+				simd::float3 position=camera->GetPosition();
+				position[1]-=.2f;
+				camera->SetPosition(position);
+				//camera->LookAt({0.0f,0.0f,0.0f});
+				
+				m_Renderer->UpdateCameraUniform();
+				MEL_INFO("Set Camera to position {:.2f},{:.2f},{:.2f}",
+						 (float)position[0],(float)position[1],(float)position[2]);
+			}
+		}
+		else if (MEL::MacInput::IsKeyPressed(MEL::Key::Down)){
+			if(camera){
+				simd::float3 position=camera->GetPosition();
+				position[1]+=.2f;
+				camera->SetPosition(position);
+				//camera->LookAt({0.0f,0.0f,0.0f});
+				
+				m_Renderer->UpdateCameraUniform();
+				MEL_INFO("Set Camera to position {:.2f},{:.2f},{:.2f}",
+						 (float)position[0],(float)position[1],(float)position[2]);
+			}
+		}
 	}
 	
 	void OnAttach() override{
+		
+		m_Renderer=MEL::Application::Get().GetRenderer();
+		
+		//shadersource
+		const char* ShaderSource=R"(
+  #include <metal_stdlib>
+  using namespace metal;
+  
+  struct VertexIn{
+  float3 position[[attribute(0)]];
+  float4 color[[attribute(1)]];
+  };
+  
+  struct VertexOut{
+  float4 position[[position]];
+  float4 color;
+  };
+  
+  vertex VertexOut vertexMain(const VertexIn in [[stage_in]]){
+  VertexOut out;
+  out.position=float4(in.position,1.0);
+  out.color=in.color;
+  return out;
+  }
+  
+  fragment float4 fragmentMain(VertexOut in [[stage_in]]){
+  return in.color;
+  }
+  )";
+		m_VertexArray=MEL::VertexArray::Create();
+		//set buffers
+		struct Vertex{
+			float position[3];
+			float color[4];
+		};
+		
+		auto camera=std::make_shared<MEL::Camera>();
+		*camera=MEL::Camera::CreateOrthographic(-1.0f, 1.0f, -1.0f, 1.0f, 0.1f, 100.f);
+		camera->SetPosition({0.0f,0.0f,1.0f});
+		
+		m_Renderer->SetSceneCamera(camera);
+		
+		Vertex SquareVertices[]={
+			{{-0.5f,-0.5f,0.0f},
+				{0.4f,0.2f,0.4f,1.0f}},
+			
+			{{0.5f,-0.5f,0.0f},
+				{0.1f,0.7f,0.1f,1.0f}},
+			
+			{{0.5f,0.5f,0.0f},
+				{0.1f,0.3f,0.4f,1.0f}},
+			
+			{{-0.5f,0.5f,0.0f},
+				{0.2f,0.3f,0.1f,1.0f}}
+		};
+		
+		uint32_t SquareIndices[]={0,1,2,
+			2,3,0};
+		
+		//create bufferlayout
+		MEL::BufferLayout layout={
+			{MEL::ShaderDataType::Float3,"a_Position"},
+			{MEL::ShaderDataType::Float4,"a_Color"}
+		};
+		
+		//Set buffers
+		auto SquareVB=MEL::VertexBuffer::Create(SquareVertices, sizeof(SquareVertices));
+		auto SquareIB=MEL::IndexBuffer::Create(SquareIndices, 6);
+		SquareVB->SetSlot(0);
+		SquareVB->SetLayout(layout);
+		
+		m_VertexArray->AddVertexBuffer(SquareVB);
+		m_VertexArray->SetIndexBuffer(SquareIB);
+		
+		//Set another source
+		
+		m_TriangleVA=MEL::VertexArray::Create();
+		
+		Vertex TriVertices[]={
+			{{-0.5f,-0.5f,0.0f},
+				{0.8f,0.2f,0.4f,1.0f}},
+			
+			{{0.5f,-0.5f,0.0f},
+				{0.1f,0.7f,0.1f,1.0f}},
+			
+			{{0.0f,0.8f,0.0f},
+				{0.0f,0.2f,0.8f,1.0f}}
+		};
+		
+		uint32_t TriIndices[]={0,1,2};
+		
+		auto TriVB=MEL::VertexBuffer::Create(TriVertices, sizeof(TriVertices));
+		auto TriIB=MEL::IndexBuffer::Create(TriIndices, 3);
+		TriVB->SetSlot(0);
+		TriVB->SetLayout(layout);
+		
+		m_TriangleVA->AddVertexBuffer(TriVB);
+		m_TriangleVA->SetIndexBuffer(TriIB);
+		
+		//create shader(this can be done in sandbox)
+		auto defaultShader=MEL::Shader::CreateFromDefaultLibrary("DefaultShader", @"vertexShader", @"fragmentShader");
+		if(defaultShader)
+			defaultShader->CreatePipelineState(layout);
+		
+		m_CurrentShader=defaultShader;
 		
 	}
 	
@@ -33,7 +229,10 @@ public:
 	}
 	
 private:
-	
+	std::shared_ptr<MEL::Shader> m_CurrentShader;
+	MEL::Renderer* m_Renderer;
+	std::shared_ptr<MEL::VertexArray> m_VertexArray;
+	std::shared_ptr<MEL::VertexArray> m_TriangleVA;
 };
 
 class Sandbox:public MEL::Application{

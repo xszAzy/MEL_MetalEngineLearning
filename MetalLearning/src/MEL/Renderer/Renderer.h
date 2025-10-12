@@ -2,8 +2,12 @@
 #include "MEL.h"
 #include "Shader/Shader.h"
 #include "Log.h"
+
+#include "Camera/Camera.h"
+
 namespace MEL {
 	class VertexArray;
+	class UniformBuffer;
 	class Renderer{
 	public:
 		Renderer(MTKView* mtkview);
@@ -31,6 +35,13 @@ namespace MEL {
 		id<MTLDevice> GetMetalDevice(){return m_Device;}
 		id<MTLRenderCommandEncoder> GetCurrentEncoder(){return m_CurrentEncoder;}
 		void UpdateViewport();
+	public:
+		void SetSceneCamera(const std::shared_ptr<Camera>& camera);
+		std::shared_ptr<Camera> GetSceneCamera()const {return m_SceneCamera;}
+		
+		std::shared_ptr<UniformBuffer> GetCameraUniform()const{return m_CameraUniform;}
+		
+		void UpdateCameraUniform();
 	private:
 		MTKView* m_View;
 		
@@ -47,5 +58,14 @@ namespace MEL {
 		MTLViewport m_MTLViewportSize;
 	private:
 		bool m_ImGuiEnabled=false;
+	private:
+		std::shared_ptr<Camera> m_SceneCamera;
+		std::shared_ptr<UniformBuffer> m_CameraUniform;
+		
+		struct CameraData{
+			simd::float4x4 viewProjectionMatrix;
+			simd::float3 cameraPosition;
+			float padding;
+		};
 	};
 }

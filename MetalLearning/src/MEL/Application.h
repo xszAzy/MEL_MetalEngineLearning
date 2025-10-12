@@ -6,11 +6,20 @@
 #include "ImGuiLayer/ImGuiLayer.h"
 #include "Shader/Shader.h"
 #include "MTKViewDelegate.h"
+
+#import "Buffer/VertexBuffer.h"
+#import "Buffer/IndexBuffer.h"
+#import "Buffer/UniformBuffer.h"
+#import "Buffer/BufferLayout.h"
+
+#import "Camera/Camera.h"
+
+#import "VertexArray/VertexArray.h"
+
 namespace MEL{
 	class Window;
 	class Renderer;
 	class Shader;
-	class VertexArray;
 }
 namespace MEL {
 	class Application{
@@ -39,11 +48,13 @@ namespace MEL {
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running=true;
 		LayerStack m_LayerStack;
-		std::shared_ptr<Shader> m_CurrentShader;
 		
 		static Application* s_Instance;
 		
+		std::shared_ptr<Shader> m_CurrentShader;
+		
 		std::shared_ptr<VertexArray> m_VertexArray;
+		std::shared_ptr<VertexArray> m_TriangleVA;
 	};
 	Application* CreateApplication();
 }

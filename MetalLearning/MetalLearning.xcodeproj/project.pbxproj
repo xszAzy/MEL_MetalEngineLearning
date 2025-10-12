@@ -17,8 +17,11 @@
 		479A9D0A2E93ED400019F59F /* Buffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 479A9D092E93ED400019F59F /* Buffer.mm */; };
 		479A9D0D2E942C4E0019F59F /* IndexBuffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 479A9D0C2E942C4E0019F59F /* IndexBuffer.mm */; };
 		479A9D102E942CBD0019F59F /* VertexBuffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 479A9D0F2E942CBD0019F59F /* VertexBuffer.mm */; };
+		47A6742D2E996F6F00DA9F74 /* RenderCommand.mm in Sources */ = {isa = PBXBuildFile; fileRef = 47A6742C2E996F6E00DA9F74 /* RenderCommand.mm */; };
 		47A97AAA2E8EB34B00293FA8 /* Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 47A97AA92E8EB34B00293FA8 /* Renderer.mm */; };
 		47A97AAE2E8EDBAD00293FA8 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 47A97AAD2E8EDBAD00293FA8 /* ViewController.mm */; };
+		47C6B40D2E96ACA00033E9F8 /* UniformBuffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 47C6B40C2E96AC9F0033E9F8 /* UniformBuffer.mm */; };
+		47C6B4112E96B6E80033E9F8 /* Camera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 47C6B4102E96B6E80033E9F8 /* Camera.mm */; };
 		47F2B42A2E918103005D0A7A /* Shader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 47F2B4292E918103005D0A7A /* Shader.mm */; };
 		4B007C2E118E73A07F909A6E /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0271576359DD4A8A43A2BB6 /* MetalKit.framework */; };
 		70B86CF5705B5027AAB00335 /* CocoaWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = C83A417D1F9FB46FD1ADCFBD /* CocoaWindow.mm */; };
@@ -77,7 +80,7 @@
 		0EC3D68640BD2138BA9C5CC6 /* Shader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; name = Shader.metal; path = ShaderSrc/Shader.metal; sourceTree = "<group>"; };
 		0EF28886D25E4A381101EEC6 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		14AAEE9285CD8F843B943CD2 /* KeyEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KeyEvent.h; path = src/MEL/Events/KeyEvent.h; sourceTree = "<group>"; };
-		167CCC373848796974FDA277 /* Input.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Input.h; path = src/MEL/Input/Input.h; sourceTree = "<group>"; };
+		167CCC373848796974FDA277 /* MacKeycode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MacKeycode.h; path = src/MEL/Input/MacKeycode.h; sourceTree = "<group>"; };
 		2379E11DB8F0A04F278CF75D /* MacInput.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = MacInput.mm; path = src/MEL/Input/MacInput.mm; sourceTree = "<group>"; };
 		2640360AF46389BC7B71DC4A /* LayerStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LayerStack.h; path = src/MEL/Layer/LayerStack.h; sourceTree = "<group>"; };
 		28A2B695BB308087240924D5 /* MacWindow.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = MacWindow.mm; path = src/MEL/Window/MacWindow.mm; sourceTree = "<group>"; };
@@ -95,11 +98,17 @@
 		479A9D0C2E942C4E0019F59F /* IndexBuffer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = IndexBuffer.mm; sourceTree = "<group>"; };
 		479A9D0E2E942CBD0019F59F /* VertexBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VertexBuffer.h; sourceTree = "<group>"; };
 		479A9D0F2E942CBD0019F59F /* VertexBuffer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = VertexBuffer.mm; sourceTree = "<group>"; };
+		47A6742B2E996F6E00DA9F74 /* RenderCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RenderCommand.h; path = src/MEL/Renderer/RenderCommand.h; sourceTree = "<group>"; };
+		47A6742C2E996F6E00DA9F74 /* RenderCommand.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = RenderCommand.mm; path = src/MEL/Renderer/RenderCommand.mm; sourceTree = "<group>"; };
 		47A97AA82E8EB31500293FA8 /* Renderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Renderer.h; path = src/MEL/Renderer/Renderer.h; sourceTree = "<group>"; };
 		47A97AA92E8EB34B00293FA8 /* Renderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Renderer.mm; path = src/MEL/Renderer/Renderer.mm; sourceTree = "<group>"; };
 		47A97AAC2E8EDBAD00293FA8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		47A97AAD2E8EDBAD00293FA8 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		47BB8EEB2E9559770005EA9F /* BufferLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BufferLayout.h; sourceTree = "<group>"; };
+		47C6B40B2E96AC9F0033E9F8 /* UniformBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UniformBuffer.h; sourceTree = "<group>"; };
+		47C6B40C2E96AC9F0033E9F8 /* UniformBuffer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = UniformBuffer.mm; sourceTree = "<group>"; };
+		47C6B40F2E96B6E80033E9F8 /* Camera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
+		47C6B4102E96B6E80033E9F8 /* Camera.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Camera.mm; sourceTree = "<group>"; };
 		47F2B4282E918103005D0A7A /* Shader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
 		47F2B4292E918103005D0A7A /* Shader.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Shader.mm; sourceTree = "<group>"; };
 		500811C6F3539AF80E246806 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
@@ -171,6 +180,7 @@
 		2C8FAEDB7CA3438DFF21751B /* MEL */ = {
 			isa = PBXGroup;
 			children = (
+				47C6B40E2E96B6D90033E9F8 /* Camera */,
 				472151D12E953F5900E52696 /* VertexArray */,
 				479A9D072E93ED2A0019F59F /* Buffer */,
 				47F2B4272E9180E3005D0A7A /* Shader */,
@@ -236,6 +246,8 @@
 				479A9D0E2E942CBD0019F59F /* VertexBuffer.h */,
 				479A9D0F2E942CBD0019F59F /* VertexBuffer.mm */,
 				47BB8EEB2E9559770005EA9F /* BufferLayout.h */,
+				47C6B40B2E96AC9F0033E9F8 /* UniformBuffer.h */,
+				47C6B40C2E96AC9F0033E9F8 /* UniformBuffer.mm */,
 			);
 			name = Buffer;
 			path = src/MEL/Buffer;
@@ -249,6 +261,16 @@
 			);
 			name = ViewController;
 			path = src/MEL/ViewController;
+			sourceTree = "<group>";
+		};
+		47C6B40E2E96B6D90033E9F8 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				47C6B40F2E96B6E80033E9F8 /* Camera.h */,
+				47C6B4102E96B6E80033E9F8 /* Camera.mm */,
+			);
+			name = Camera;
+			path = src/MEL/Camera;
 			sourceTree = "<group>";
 		};
 		47F2B4272E9180E3005D0A7A /* Shader */ = {
@@ -338,6 +360,8 @@
 				47A97AA92E8EB34B00293FA8 /* Renderer.mm */,
 				470E4F842E92E62C0001CB6D /* MTKViewDelegate.h */,
 				470E4F852E92E62C0001CB6D /* MTKViewDelegate.mm */,
+				47A6742B2E996F6E00DA9F74 /* RenderCommand.h */,
+				47A6742C2E996F6E00DA9F74 /* RenderCommand.mm */,
 			);
 			name = Renderer;
 			sourceTree = "<group>";
@@ -367,7 +391,7 @@
 		D5C45B8C78B2823E07D861CC /* Input */ = {
 			isa = PBXGroup;
 			children = (
-				167CCC373848796974FDA277 /* Input.h */,
+				167CCC373848796974FDA277 /* MacKeycode.h */,
 				DC88E3B90E822E6B886169F9 /* MacInput.h */,
 				2379E11DB8F0A04F278CF75D /* MacInput.mm */,
 			);
@@ -477,9 +501,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				471F408B2E9048F700A39495 /* Shader.metal in Sources */,
+				47A6742D2E996F6F00DA9F74 /* RenderCommand.mm in Sources */,
 				472151D42E953F6D00E52696 /* VertexArray.mm in Sources */,
+				47C6B4112E96B6E80033E9F8 /* Camera.mm in Sources */,
 				CE38F4BC94C6EC2E02C912FC /* Application.mm in Sources */,
 				CA73010C21D873FED3E68F4C /* Entrypoint.mm in Sources */,
+				47C6B40D2E96ACA00033E9F8 /* UniformBuffer.mm in Sources */,
 				969729155D252087CB274755 /* MacInput.mm in Sources */,
 				E6BAF36C53E301DE5575F1AC /* Layer.cpp in Sources */,
 				1EA5B05892FFF54A10E37E98 /* LayerStack.cpp in Sources */,

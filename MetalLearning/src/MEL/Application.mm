@@ -3,64 +3,25 @@
 #include "Application.h"
 #include "MacWindow.h"
 
-#import "Buffer/VertexBuffer.h"
-#import "Buffer/IndexBuffer.h"
-#import "Buffer/BufferLayout.h"
-#import "VertexArray/VertexArray.h"
+#include "RenderCommand.h"
 
 namespace MEL{
 	Application* Application::s_Instance=nullptr;
 	
 	Application::Application(){
 		s_Instance=this;
+		
 		m_Window=std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(MEL_BIND_EVENT_FN(Application::OnEvent));
 		//Get Renderer first
 		auto* macWindow=static_cast<MacWindow*>(m_Window.get());
 		m_Renderer=macWindow->GetRenderer();
+		
+		RenderCommand::Init(m_Renderer);
+		
 		//then push imgui layer
 		m_ImGuiLayer=new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
-		//create vertex array
-		m_VertexArray=MEL::VertexArray::Create();
-		//set vertex and index buffer
-		struct Vertex{
-			float position[3];
-			float color[4];
-		};
-		Vertex vertices[]={
-			{{-0.5f,-0.5f,0.0f},
-			{0.4f,0.2f,0.4f,1.0f}},
-			
-			{{0.5f,-0.5f,0.0f},
-			{0.1f,0.7f,0.1f,1.0f}},
-			
-			{{0.0f,0.5f,0.0f},
-			{0.1f,0.3f,0.4f,1.0f}}
-		};
-		
-		uint32_t indices[]={0,1,2};
-		//create bufferlayout
-		BufferLayout layout={
-			{ShaderDataType::Float3,"a_Position"},
-			{ShaderDataType::Float4,"a_Color"}
-		};
-		//Set buffers
-		auto basicVB=VertexBuffer::Create(vertices, sizeof(vertices));
-		auto basicIB=IndexBuffer::Create(indices, 3);
-		basicVB->SetSlot(0);
-		basicVB->SetLayout(layout);
-		
-		m_VertexArray->AddVertexBuffer(basicVB);
-		m_VertexArray->SetIndexBuffer(basicIB);
-		
-		
-		//create shader(this can be done in sandbox)
-		auto defaultShader=MEL::Shader::CreateFromDefaultLibrary("DefaultShader",
-																 @"vertexShader",@"fragmentShader");
-		if(defaultShader)
-			defaultShader->CreatePipelineState(layout);
-		m_CurrentShader=defaultShader;
 		
 		//initialize layers
 		for(Layer* layer:m_LayerStack)
@@ -135,22 +96,16 @@ namespace MEL{
 	void Application::RenderOneFrame(){
 		if(m_Renderer){
 			//begin frame(command buffer)
-			m_Renderer->BeginFrame();
+			RenderCommand::BeginFrame();
 			//begin scene(pipeline desc,encoder,with sets)
-			m_Renderer->BeginScene();
-			//ImGui UI frame begin
-			m_ImGuiLayer->Begin();
-			//upper three must call
-			
-			if(m_CurrentShader&&m_VertexArray){
-				m_CurrentShader->Bind();
-				m_Renderer->DrawIndexed(m_VertexArray);
-			}
+			RenderCommand::BeginScene(m_Renderer->GetSceneCamera());
 			
 			//layers
 			for(Layer* layer:m_LayerStack)
 				layer->OnUpdate();
 			
+			//ImGui UI frame begin
+			m_ImGuiLayer->Begin();
 			//ImGui draw
 			for (Layer* layer :m_LayerStack)
 				layer->OnImGuiRender();
@@ -158,9 +113,9 @@ namespace MEL{
 			//end ImGui
 			m_ImGuiLayer->End();
 			//end scene
-			m_Renderer->EndScene();
+			RenderCommand::EndScene();
 			//end frame
-			m_Renderer->EndFrame();
+			RenderCommand::EndFrame();
 		}
 	}
 	

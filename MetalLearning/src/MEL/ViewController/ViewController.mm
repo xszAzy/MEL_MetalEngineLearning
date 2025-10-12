@@ -41,17 +41,7 @@
 -(void)viewDidAppear{
 	[super viewDidAppear];
 }
-/*
-#pragma mark - MTKViewDelegate
 
--(void)drawInMTKView:(MTKView *)view{
-	
-}
-
--(void)mtkView:(MTKView *)view drawableSizeWillChange:(CGSize)size{
-	auto renderer=
-}
-*/
 -(MTKView*)getMetalView{
 	return self.metalView;
 }
