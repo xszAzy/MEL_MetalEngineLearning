@@ -1,8 +1,9 @@
 #import "melpch.h"
-#import "Renderer/AppDelegate.h"
+#import "Renderer/Delegates.h"
 #include "Application.h"
 #include "MacWindow.h"
-
+#include "Core/Utils.h"
+#include "Core/Timestep.h"
 #include "RenderCommand.h"
 
 namespace MEL{
@@ -95,6 +96,9 @@ namespace MEL{
 	
 	void Application::RenderOneFrame(){
 		if(m_Renderer){
+			float currentTime=Time::GetTime();
+			Timestep timestep=currentTime-m_LastframeTime;
+			m_LastframeTime=currentTime;
 			//begin frame(command buffer)
 			RenderCommand::BeginFrame();
 			//begin scene(pipeline desc,encoder,with sets)
@@ -102,7 +106,7 @@ namespace MEL{
 			
 			//layers
 			for(Layer* layer:m_LayerStack)
-				layer->OnUpdate();
+				layer->OnUpdate(timestep);
 			
 			//ImGui UI frame begin
 			m_ImGuiLayer->Begin();

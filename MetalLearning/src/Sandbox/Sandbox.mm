@@ -10,6 +10,7 @@
 #import "VertexArray/VertexArray.h"
 
 #include "RenderCommand.h"
+#include "Core/Timestep.h"
 
 
 class ExampleLayer:public MEL::Layer{
@@ -30,60 +31,37 @@ public:
 		ImGui::End();
 	}
 	
-	void OnUpdate() override{
+	void OnUpdate(MEL::Timestep ts) override{
 		//MEL_INFO("testing update");
 		//set camera
 		auto camera=m_Renderer->GetSceneCamera();
-		
-		//draw
-		if(m_CurrentShader&&m_VertexArray)
-			MEL::RenderCommand::Submit(m_CurrentShader, m_VertexArray);
-		
+		simd::float3 position=camera->GetPosition();
+		float moveSpeed=1.0f;
 		
 		if(MEL::MacInput::IsKeyPressed(MEL::Key::W)){
 			if(camera){
-				simd::float3 position=camera->GetPosition();
-				position[2]-=.2f;
-				camera->SetPosition(position);
-				//camera->LookAt({0.0f,0.0f,0.0f});
-				
-				m_Renderer->UpdateCameraUniform();
+				position.z+=moveSpeed*ts*2.0f;
 				MEL_INFO("Set Camera to position {:.2f},{:.2f},{:.2f}",
 						 (float)position[0],(float)position[1],(float)position[2]);
 			}
 		}
 		else if (MEL::MacInput::IsKeyPressed(MEL::Key::S)){
 			if(camera){
-				simd::float3 position=camera->GetPosition();
-				position[2]+=.2f;
-				camera->SetPosition(position);
-				//camera->LookAt({0.0f,0.0f,0.0f});
-				
-				m_Renderer->UpdateCameraUniform();
+				position.z-=moveSpeed*ts*2.0f;
 				MEL_INFO("Set Camera to position {:.2f},{:.2f},{:.2f}",
 						 (float)position[0],(float)position[1],(float)position[2]);
 			}
 		}
 		if(MEL::MacInput::IsKeyPressed(MEL::Key::Left)){
 			if(camera){
-				simd::float3 position=camera->GetPosition();
-				position[0]-=.2f;
-				camera->SetPosition(position);
-				//camera->LookAt({0.0f,0.0f,0.0f});
-				
-				m_Renderer->UpdateCameraUniform();
+				position.x-=moveSpeed*ts;
 				MEL_INFO("Set Camera to position {:.2f},{:.2f},{:.2f}",
 						 (float)position[0],(float)position[1],(float)position[2]);
 			}
 		}
 		else if (MEL::MacInput::IsKeyPressed(MEL::Key::Right)){
 			if(camera){
-				simd::float3 position=camera->GetPosition();
-				position[0]+=.2f;
-				camera->SetPosition(position);
-				//camera->LookAt({0.0f,0.0f,0.0f});
-				
-				m_Renderer->UpdateCameraUniform();
+				position.x+=moveSpeed*ts;
 				MEL_INFO("Set Camera to position {:.2f},{:.2f},{:.2f}",
 						 (float)position[0],(float)position[1],(float)position[2]);
 			}
@@ -91,28 +69,27 @@ public:
 		
 		if(MEL::MacInput::IsKeyPressed(MEL::Key::Up)){
 			if(camera){
-				simd::float3 position=camera->GetPosition();
-				position[1]-=.2f;
-				camera->SetPosition(position);
-				//camera->LookAt({0.0f,0.0f,0.0f});
-				
-				m_Renderer->UpdateCameraUniform();
+				position.y+=moveSpeed*ts;
 				MEL_INFO("Set Camera to position {:.2f},{:.2f},{:.2f}",
 						 (float)position[0],(float)position[1],(float)position[2]);
 			}
 		}
 		else if (MEL::MacInput::IsKeyPressed(MEL::Key::Down)){
 			if(camera){
-				simd::float3 position=camera->GetPosition();
-				position[1]+=.2f;
-				camera->SetPosition(position);
-				//camera->LookAt({0.0f,0.0f,0.0f});
-				
-				m_Renderer->UpdateCameraUniform();
+				position.y-=moveSpeed*ts;
 				MEL_INFO("Set Camera to position {:.2f},{:.2f},{:.2f}",
 						 (float)position[0],(float)position[1],(float)position[2]);
 			}
 		}
+		camera->SetPosition(position);
+		//camera->SetRotation({0.0f,0.0f,0.0f});
+		
+		m_Renderer->UpdateCameraUniform();
+		
+		//draw
+		if(m_CurrentShader&&m_VertexArray)
+			MEL::RenderCommand::Submit(m_CurrentShader, m_VertexArray);
+		
 	}
 	
 	void OnAttach() override{
@@ -153,8 +130,10 @@ public:
 		};
 		
 		auto camera=std::make_shared<MEL::Camera>();
-		*camera=MEL::Camera::CreateOrthographic(-1.0f, 1.0f, -1.0f, 1.0f, 0.1f, 100.f);
-		camera->SetPosition({0.0f,0.0f,1.0f});
+		//*camera=MEL::Camera::CreateOrthographic(-1.0f, 1.0f, -1.0f, 1.0f, 0.1f, 100.f);
+		*camera=MEL::Camera::CreatePerspective(60.0f, 16.0f/9.0f, 0.1f, 100.0f);
+		camera->SetPosition({0.0f,0.0f,3.0f});
+		camera->SetTopDownView();
 		
 		m_Renderer->SetSceneCamera(camera);
 		

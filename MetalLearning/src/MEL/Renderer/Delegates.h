@@ -9,3 +9,6 @@ namespace MEL{
 (MEL::Application*)application;
 
 @end
+@interface AppDelegate : NSObject<NSApplicationDelegate>
+
+@end

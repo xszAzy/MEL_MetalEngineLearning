@@ -1,7 +1,8 @@
-#import "MTKViewDelegate.h"
+#import "Delegates.h"
 #include "Application.h"
 #include "Renderer/Renderer.h"
 #include "Shader/Shader.h"
+#include "Window.h"
 
 @implementation MELMTKViewDelegate{
 	MEL::Application* _application;
@@ -28,4 +29,17 @@
 	
 	_application->RenderOneFrame();
 }
+@end
+
+
+@implementation AppDelegate
+
+-(void)applicationDidFinishLaunching:(NSNotification *)notification{
+	NSLog(@"finished launching application");
+}
+
+-(BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender{
+	return YES;
+}
+
 @end

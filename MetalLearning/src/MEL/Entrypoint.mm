@@ -1,5 +1,4 @@
 #import "melpch.h"
-#import "AppDelegate.h"
 #include "Application.h"
 #include "Log.h"
 

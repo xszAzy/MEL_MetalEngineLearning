@@ -5,7 +5,7 @@
 #include "Layer/LayerStack.h"
 #include "ImGuiLayer/ImGuiLayer.h"
 #include "Shader/Shader.h"
-#include "MTKViewDelegate.h"
+#include "Delegates.h"
 
 #import "Buffer/VertexBuffer.h"
 #import "Buffer/IndexBuffer.h"
@@ -51,10 +51,7 @@ namespace MEL {
 		
 		static Application* s_Instance;
 		
-		std::shared_ptr<Shader> m_CurrentShader;
-		
-		std::shared_ptr<VertexArray> m_VertexArray;
-		std::shared_ptr<VertexArray> m_TriangleVA;
+		float m_LastframeTime=0.0f;
 	};
 	Application* CreateApplication();
 }

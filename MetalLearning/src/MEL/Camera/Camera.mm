@@ -51,6 +51,21 @@ namespace MEL {
 		UpdateViewMatrix();
 	}
 	
+	void Camera::SetTopDownView(){
+		m_Rotation=simd::float3{M_PI,M_PI/2,0.0f};
+		
+		float cosPitch=cosf(m_Rotation.x);
+		float sinPitch=sinf(m_Rotation.x);
+		float cosYaw=cosf(m_Rotation.y);
+		float sinYaw=sinf(m_Rotation.y);
+		
+		m_Forward=simd::normalize(simd::float3{cosYaw*cosPitch,sinPitch,sinYaw*cosPitch});
+		m_Right=simd::normalize(simd::cross(m_Forward, simd::float3{0,1,0}));
+		m_Up=simd::normalize(simd::cross(m_Right, m_Forward));
+		
+		UpdateViewMatrix();
+	}
+	
 	void Camera::LookAt(const simd::float3 &target){
 		m_Forward=simd::normalize(target-m_Position);
 		m_Right=simd::normalize(simd::cross(m_Forward, simd::float3{0,1,0}));
@@ -60,19 +75,19 @@ namespace MEL {
 	}
 	
 	void Camera::UpdateViewMatrix(){
-		simd::float3 z=simd::normalize(m_Forward);
+		simd::float3 z=-simd::normalize(m_Forward);
 		simd::float3 x=simd::normalize(simd::cross(simd::float3{0,1,0}, z));
 		simd::float3 y=simd::cross(z, x);
 		
 		simd::float3 p=m_Position;
 		
 		m_ViewMatrix=simd::float4x4{
-			simd::float4{x.x,x.y,x.z,-simd::dot(x, p)},
-			simd::float4{y.x,y.y,y.z,-simd::dot(y, p)},
-			simd::float4{z.x,z.y,z.z,-simd::dot(z, p)},
-			simd::float4{0	,0	,0	,1}
+			simd::float4{x.x,y.x,z.x,0},
+			simd::float4{x.y,y.y,z.y,0},
+			simd::float4{x.z,y.z,z.z,0},
+			simd::float4{-simd::dot(x, p),-simd::dot(y, p),-simd::dot(z, p),1}
 		};
-		m_ViewProjectionMatrix=m_ViewMatrix*m_ProjectionMatrix;
+		m_ViewProjectionMatrix=m_ProjectionMatrix*m_ViewMatrix;
 	}
 	
 	void Camera::UpdateProjectionMatrix(){

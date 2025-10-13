@@ -15,6 +15,7 @@ namespace MEL {
 		
 		void SetPosition(const simd::float3& position);
 		void SetRotation(const simd::float3& eulerAngles);
+		void SetTopDownView();
 		void LookAt(const simd::float3& target);
 		
 		const simd::float4x4& GetViewMatrix()const {return m_ViewMatrix;}

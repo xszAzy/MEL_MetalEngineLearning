@@ -2,6 +2,7 @@
 
 #include "Core.h"
 #include "Event.h"
+#include "Core/Timestep.h"
 
 namespace MEL {
 	class Layer{
@@ -10,7 +11,7 @@ namespace MEL {
 		virtual ~Layer();
 		virtual void OnAttach(){}
 		virtual void OnDetach(){}
-		virtual void OnUpdate(){}
+		virtual void OnUpdate(Timestep ts){}
 		virtual void OnImGuiRender(){}
 		virtual void OnEvent(Event& event){}
 		inline const std::string& GetName()const{return m_DebugName;}
