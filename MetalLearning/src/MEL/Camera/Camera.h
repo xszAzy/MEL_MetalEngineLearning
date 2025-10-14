@@ -15,6 +15,10 @@ namespace MEL {
 		
 		void SetPosition(const simd::float3& position);
 		void SetRotation(const simd::float3& eulerAngles);
+		void RotatePitch(float delta);
+		void RotateYaw(float delta);
+		void RotateRoll(float delta);
+
 		void SetTopDownView();
 		void LookAt(const simd::float3& target);
 		
@@ -30,9 +34,10 @@ namespace MEL {
 	private:
 		void UpdateViewMatrix();
 		void UpdateProjectionMatrix();
+		void UpdateDirections();
 		
 		simd::float3 m_Position={0.0f,0.0f,-1.0f};
-		simd::float3 m_Rotation={0.0f,0.0f,0.0f};
+		simd_quatf m_Orientation=simd_quaternion(0.0f, 0,0,-1);
 		
 		simd::float3 m_Forward={0.0f,0.0f,-1.0f};
 		simd::float3 m_Right={1.0f,0.0f,0.0f};

@@ -37,55 +37,60 @@ namespace MEL {
 	}
 	
 	void Camera::SetRotation(const simd::float3 &eulerAngles){
-		m_Rotation=eulerAngles;
+		m_Orientation=simd_quaternion(0.0f,0.0f,0.0f,1.0f);
 		
-		float cosPitch=cosf(m_Rotation.x);
-		float sinPitch=sinf(m_Rotation.x);
-		float cosYaw=cosf(m_Rotation.y);
-		float sinYaw=sinf(m_Rotation.y);
-		
-		m_Forward=simd::normalize(simd::float3{cosYaw*cosPitch,sinPitch,sinYaw*cosPitch});
-		m_Right=simd::normalize(simd::cross(m_Forward, simd::float3{0,1,0}));
-		m_Up=simd::normalize(simd::cross(m_Right, m_Forward));
-		
-		UpdateViewMatrix();
+		RotateYaw(eulerAngles.y);
+		RotatePitch(eulerAngles.x);
+		RotateRoll(eulerAngles.z);
 	}
 	
-	void Camera::SetTopDownView(){
-		m_Rotation=simd::float3{M_PI,M_PI/2,0.0f};
-		
-		float cosPitch=cosf(m_Rotation.x);
-		float sinPitch=sinf(m_Rotation.x);
-		float cosYaw=cosf(m_Rotation.y);
-		float sinYaw=sinf(m_Rotation.y);
-		
-		m_Forward=simd::normalize(simd::float3{cosYaw*cosPitch,sinPitch,sinYaw*cosPitch});
-		m_Right=simd::normalize(simd::cross(m_Forward, simd::float3{0,1,0}));
-		m_Up=simd::normalize(simd::cross(m_Right, m_Forward));
+	void Camera::RotatePitch(float delta){
+		simd_quatf rot=simd_quaternion(delta,-m_Right);
+		m_Orientation=simd::normalize(simd_mul(m_Orientation,rot));
+		UpdateDirections();
+	}
+	
+	void Camera::RotateYaw(float delta){
+		simd_quatf rot=simd_quaternion(delta,simd::float3{0,1,0});
+		m_Orientation=simd::normalize(simd_mul(m_Orientation,rot));
+		UpdateDirections();
+	}
+	
+	void Camera::RotateRoll(float delta){
+		simd_quatf rot=simd_quaternion(delta,m_Forward);
+		m_Orientation=simd::normalize(simd_mul(m_Orientation,rot));
+		UpdateDirections();
+	}
+	
+	void Camera::UpdateDirections(){
+		m_Right=simd::normalize(simd_act(m_Orientation, simd::float3{1,0,0}));
+		m_Up=simd::normalize(simd_act(m_Orientation, simd::float3{0,1,0}));
+		m_Forward=simd::normalize(simd_act(m_Orientation, simd::float3{0,0,-1}));
 		
 		UpdateViewMatrix();
 	}
 	
 	void Camera::LookAt(const simd::float3 &target){
+		simd::float3 worldUp={0,1,0};
 		m_Forward=simd::normalize(target-m_Position);
-		m_Right=simd::normalize(simd::cross(m_Forward, simd::float3{0,1,0}));
-		m_Up=simd::normalize(simd::cross(m_Right, m_Forward));
+		m_Right=simd::normalize(simd::cross(m_Forward,worldUp));
+		m_Up=simd::normalize(simd::cross(m_Right,m_Forward));
 		
 		UpdateViewMatrix();
 	}
 	
 	void Camera::UpdateViewMatrix(){
 		simd::float3 z=-simd::normalize(m_Forward);
-		simd::float3 x=simd::normalize(simd::cross(simd::float3{0,1,0}, z));
-		simd::float3 y=simd::cross(z, x);
+		simd::float3 x=simd::normalize(m_Right);
+		simd::float3 y=simd::normalize(m_Up);
 		
 		simd::float3 p=m_Position;
 		
 		m_ViewMatrix=simd::float4x4{
-			simd::float4{x.x,y.x,z.x,0},
-			simd::float4{x.y,y.y,z.y,0},
-			simd::float4{x.z,y.z,z.z,0},
-			simd::float4{-simd::dot(x, p),-simd::dot(y, p),-simd::dot(z, p),1}
+			simd::float4{x.x,y.x,z.x,0.0f},
+			simd::float4{x.y,y.y,z.y,0.0f},
+			simd::float4{x.z,y.z,z.z,0.0f},
+			simd::float4{-simd::dot(x,p),-simd::dot(y, p),-simd::dot(z, p),1.0f}
 		};
 		m_ViewProjectionMatrix=m_ProjectionMatrix*m_ViewMatrix;
 	}
@@ -113,6 +118,6 @@ namespace MEL {
 					-m_NearZ/(m_FarZ-m_NearZ),1.0f}
 			};
 		}
-		m_ViewProjectionMatrix=m_ViewMatrix*m_ProjectionMatrix;
+		m_ViewProjectionMatrix=m_ProjectionMatrix*m_ViewMatrix;
 	}
 }
