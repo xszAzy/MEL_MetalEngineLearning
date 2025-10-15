@@ -12,7 +12,7 @@
 #import "Buffer/UniformBuffer.h"
 #import "Buffer/BufferLayout.h"
 
-#import "Camera/Camera.h"
+#import "Transforms/Camera.h"
 
 #import "VertexArray/VertexArray.h"
 

@@ -6,6 +6,11 @@ struct VertexIn {
 	float4 color [[attribute(1)]];
 };
 
+struct TransformData{
+	float4x4 modelMatrix;
+	float4 color;
+};
+
 struct CameraData{
 	float4x4 viewProjectionMatrix;
 	float3 cameraPosition;
@@ -17,10 +22,14 @@ struct VertexOut{
 	float4 color;
 };
 
-vertex VertexOut vertexShader(const VertexIn in [[stage_in]],constant CameraData& cameraData [[buffer(1)]]){
+vertex VertexOut vertexShader(const VertexIn in [[stage_in]],
+							  constant CameraData& cameraData [[buffer(1)]],
+							  constant TransformData& transformData [[buffer(2)]]){
 	VertexOut out;
-	out.position=cameraData.viewProjectionMatrix*float4(in.position,1.0);
-	out.color=in.color;
+	float4 worldPosition=transformData.modelMatrix*float4(in.position,1.0);
+	out.position=cameraData.viewProjectionMatrix*worldPosition;
+	
+	out.color=transformData.color;
 	return out;
 }
 

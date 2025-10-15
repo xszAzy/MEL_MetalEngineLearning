@@ -8,7 +8,8 @@
 #include "Shader.h"
 #include "MacInput.h"
 
-#import "Camera/Camera.h"
+#import "Transforms/Camera.h"
+#import "Transforms/Transform.h"
 
 #import "VertexArray/VertexArray.h"
 namespace MEL{
@@ -18,7 +19,9 @@ namespace MEL{
 		static void BeginFrame();
 		static void BeginScene(const std::shared_ptr<Camera> &camera);
 		
-		static void Submit(const std::shared_ptr<Shader>& shader,const std::shared_ptr<VertexArray>& vertexArray);
+		static void Submit(const std::shared_ptr<Shader>& shader,
+						   const std::shared_ptr<VertexArray>& vertexArray);
+		
 		static void EndScene();
 		static void EndFrame();
 	private:

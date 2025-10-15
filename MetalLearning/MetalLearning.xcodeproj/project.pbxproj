@@ -13,6 +13,7 @@
 		470E4F862E92E62C0001CB6D /* Delegates.mm in Sources */ = {isa = PBXBuildFile; fileRef = 470E4F852E92E62C0001CB6D /* Delegates.mm */; };
 		471F408B2E9048F700A39495 /* Shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 0EC3D68640BD2138BA9C5CC6 /* Shader.metal */; };
 		472151D42E953F6D00E52696 /* VertexArray.mm in Sources */ = {isa = PBXBuildFile; fileRef = 472151D32E953F6D00E52696 /* VertexArray.mm */; };
+		475080D32E9EA83F006A9103 /* Transform.mm in Sources */ = {isa = PBXBuildFile; fileRef = 475080D22E9EA83F006A9103 /* Transform.mm */; };
 		475DDCC62E8D968900D66434 /* ImGuiLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 475DDCC52E8D968900D66434 /* ImGuiLayer.mm */; };
 		479A9D0A2E93ED400019F59F /* Buffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 479A9D092E93ED400019F59F /* Buffer.mm */; };
 		479A9D0D2E942C4E0019F59F /* IndexBuffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 479A9D0C2E942C4E0019F59F /* IndexBuffer.mm */; };
@@ -91,6 +92,9 @@
 		470E4F852E92E62C0001CB6D /* Delegates.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Delegates.mm; path = src/MEL/Renderer/Delegates.mm; sourceTree = "<group>"; };
 		472151D22E953F6D00E52696 /* VertexArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VertexArray.h; sourceTree = "<group>"; };
 		472151D32E953F6D00E52696 /* VertexArray.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = VertexArray.mm; sourceTree = "<group>"; };
+		474C75802E9FFB630073CDD3 /* GameObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameObject.h; path = src/MEL/GameObject.h; sourceTree = "<group>"; };
+		475080D12E9EA83F006A9103 /* Transform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform.h; sourceTree = "<group>"; };
+		475080D22E9EA83F006A9103 /* Transform.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Transform.mm; sourceTree = "<group>"; };
 		475DDCC42E8D968900D66434 /* ImGuiLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImGuiLayer.h; sourceTree = "<group>"; };
 		475DDCC52E8D968900D66434 /* ImGuiLayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ImGuiLayer.mm; sourceTree = "<group>"; };
 		479A9D082E93ED400019F59F /* Buffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Buffer.h; sourceTree = "<group>"; };
@@ -182,7 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				47A031FE2E9C87FB00B92CB4 /* Core */,
-				47C6B40E2E96B6D90033E9F8 /* Camera */,
+				47C6B40E2E96B6D90033E9F8 /* Transforms */,
 				472151D12E953F5900E52696 /* VertexArray */,
 				479A9D072E93ED2A0019F59F /* Buffer */,
 				47F2B4272E9180E3005D0A7A /* Shader */,
@@ -197,6 +201,7 @@
 				734CD11C8A5F6C4E7A7B675C /* Window */,
 				475DDCC32E8D966F00D66434 /* ImGuiLayer */,
 				47A97AAB2E8EDB8A00293FA8 /* ViewController */,
+				474C75802E9FFB630073CDD3 /* GameObject.h */,
 			);
 			name = MEL;
 			sourceTree = "<group>";
@@ -276,14 +281,16 @@
 			path = src/MEL/ViewController;
 			sourceTree = "<group>";
 		};
-		47C6B40E2E96B6D90033E9F8 /* Camera */ = {
+		47C6B40E2E96B6D90033E9F8 /* Transforms */ = {
 			isa = PBXGroup;
 			children = (
 				47C6B40F2E96B6E80033E9F8 /* Camera.h */,
 				47C6B4102E96B6E80033E9F8 /* Camera.mm */,
+				475080D12E9EA83F006A9103 /* Transform.h */,
+				475080D22E9EA83F006A9103 /* Transform.mm */,
 			);
-			name = Camera;
-			path = src/MEL/Camera;
+			name = Transforms;
+			path = src/MEL/Transforms;
 			sourceTree = "<group>";
 		};
 		47F2B4272E9180E3005D0A7A /* Shader */ = {
@@ -511,6 +518,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				475080D32E9EA83F006A9103 /* Transform.mm in Sources */,
 				471F408B2E9048F700A39495 /* Shader.metal in Sources */,
 				47A6742D2E996F6F00DA9F74 /* RenderCommand.mm in Sources */,
 				472151D42E953F6D00E52696 /* VertexArray.mm in Sources */,

@@ -47,19 +47,19 @@ namespace MEL {
 	void Camera::RotatePitch(float delta){
 		simd_quatf rot=simd_quaternion(delta,-m_Right);
 		m_Orientation=simd::normalize(simd_mul(m_Orientation,rot));
-		UpdateDirections();
+		UpdateViewMatrix();
 	}
 	
 	void Camera::RotateYaw(float delta){
 		simd_quatf rot=simd_quaternion(delta,simd::float3{0,1,0});
 		m_Orientation=simd::normalize(simd_mul(m_Orientation,rot));
-		UpdateDirections();
+		UpdateViewMatrix();
 	}
 	
 	void Camera::RotateRoll(float delta){
 		simd_quatf rot=simd_quaternion(delta,m_Forward);
 		m_Orientation=simd::normalize(simd_mul(m_Orientation,rot));
-		UpdateDirections();
+		UpdateViewMatrix();
 	}
 	
 	void Camera::UpdateDirections(){
@@ -67,19 +67,39 @@ namespace MEL {
 		m_Up=simd::normalize(simd_act(m_Orientation, simd::float3{0,1,0}));
 		m_Forward=simd::normalize(simd_act(m_Orientation, simd::float3{0,0,-1}));
 		
-		UpdateViewMatrix();
+		
 	}
 	
 	void Camera::LookAt(const simd::float3 &target){
 		simd::float3 worldUp={0,1,0};
-		m_Forward=simd::normalize(target-m_Position);
-		m_Right=simd::normalize(simd::cross(m_Forward,worldUp));
-		m_Up=simd::normalize(simd::cross(m_Right,m_Forward));
+		simd::float3 newForward=simd::normalize(target-m_Position);
+		
+		if(fabs(simd::dot(newForward,worldUp))>0.999f){
+			worldUp={0,0,1};
+		}
+		
+		simd::float3 newRight=simd::normalize(simd::cross(worldUp, newForward));
+		simd::float3 newUp=simd::normalize(simd::cross(newForward, newRight));
+		
+		simd::float4x4 rotationMatrix={
+			simd::float4{newRight.x,newUp.x,-newForward.x,0},
+			simd::float4{newRight.y,newUp.y,-newForward.y,0},
+			simd::float4{newRight.z,newUp.z,-newForward.z,0},
+			simd::float4{0,0,0,1}
+		};
+		
+		m_Orientation=simd_quaternion(rotationMatrix);
+		m_Orientation=simd_normalize(m_Orientation);
+		
+		m_Forward=newForward;
+		m_Right=newRight;
+		m_Up=newUp;
 		
 		UpdateViewMatrix();
 	}
 	
 	void Camera::UpdateViewMatrix(){
+		UpdateDirections();
 		simd::float3 z=-simd::normalize(m_Forward);
 		simd::float3 x=simd::normalize(m_Right);
 		simd::float3 y=simd::normalize(m_Up);

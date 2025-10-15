@@ -12,6 +12,7 @@
 #include "RenderCommand.h"
 #include "Core/Timestep.h"
 
+#include "GameObject.h"
 
 class ExampleLayer:public MEL::Layer{
 public:
@@ -38,7 +39,7 @@ public:
 		simd::float3 position=camera->GetPosition();
 		float moveSpeed=1.0f;
 		float rotateSpeed=1.0f;
-		
+#pragma mark - move controll
 		if(MEL::MacInput::IsKeyPressed(MEL::Key::W)){
 			if(camera){
 				position.z-=moveSpeed*ts*2.0f;
@@ -116,13 +117,21 @@ public:
 						 (float)position[0],(float)position[1],(float)position[2]);
 			}
 		}
+#pragma mark - other sets
 		camera->SetPosition(position);
 		m_Renderer->UpdateCameraUniform();
 		
-		//draw
+		static float bounce=.0f;
+		bounce+=ts;
+		float yPos=sinf(bounce*2.0f)*0.3f;
 		
-		MEL::RenderCommand::Submit(m_CurrentShader, m_VertexArray);
-		MEL::RenderCommand::Submit(m_CurrentShader, m_TriangleVA);
+		for(size_t i=0;i<m_GameObjects.size();i++){
+			auto& obj=m_GameObjects[i];
+			
+			//bind transform
+			obj->BindTransform();
+			MEL::RenderCommand::Submit(m_CurrentShader, obj->GetVertexArray());
+		}
 	}
 	
 	void OnAttach() override{
@@ -157,21 +166,75 @@ public:
   }
   )";
 		 */
-		m_VertexArray=MEL::VertexArray::Create();
-		//set buffers
-		struct Vertex{
-			float position[3];
-			float color[4];
-		};
-		
+#pragma mark - Set source
+		//set camera
 		auto camera=std::make_shared<MEL::Camera>();
 		//*camera=MEL::Camera::CreateOrthographic(-1.0f, 1.0f, -1.0f, 1.0f, 0.1f, 100.f);
 		*camera=MEL::Camera::CreatePerspective(60.0f, 16.0f/9.0f, 0.1f, 100.0f);
 		camera->SetPosition({0.0f,0.0f,3.0f});
-		//camera->LookAt({.0f,.0f,.0f});
+		camera->LookAt({.0f,.0f,.0f});
 		
 		m_Renderer->SetSceneCamera(camera);
+
+		CreateObjects();
+		//create shader(this can be done in sandbox)
+		auto defaultShader=MEL::Shader::CreateFromDefaultLibrary("DefaultShader", @"vertexShader", @"fragmentShader");
+		if(defaultShader)
+			defaultShader->CreatePipelineState(m_Layout);
 		
+		m_CurrentShader=defaultShader;
+		
+	}
+	
+	void OnEvent(MEL::Event& e) override{
+		MEL_INFO("testing event{0}",e.ToString());
+	}
+#pragma mark - Create objects
+public:
+	void CreateObjects(){
+		//create square
+		auto squareObject=std::make_shared<MEL::GameObject>("Square");
+		squareObject->SetVertexArray(CreateSquareVA());
+		squareObject->GetTransform().SetPosition({-1.0f,-1.0f,0.0f});
+		squareObject->GetTransform().SetScale({0.1f,0.1f,0.1f});
+		squareObject->SetColor({1,0,0});
+		
+		m_GameObjects.push_back(squareObject);
+		//create triangle
+		auto triangleObject=std::make_shared<MEL::GameObject>("Triangle");
+		triangleObject->SetVertexArray(CreateTriVA());
+		triangleObject->GetTransform().SetPosition({0,0,0});
+		
+		m_GameObjects.push_back(triangleObject);
+		//create extra
+		for(size_t i=0;i<21;i++){
+			for(size_t j=0;j<20;j++){
+				auto extraObject=std::make_shared<MEL::GameObject>("extra");
+				extraObject->SetVertexArray(CreateSquareVA());
+				extraObject->GetTransform().SetScale({0.1f,0.1f,0.1f});
+				extraObject->GetTransform().SetPosition({0.11f*i,0.11f*j,0});
+				extraObject->SetColor({0,0,1});
+				
+				m_GameObjects.push_back(extraObject);
+			}
+		}
+	}
+#pragma mark - private objects
+private:
+	std::shared_ptr<MEL::VertexArray> CreateSquareVA(){
+		//set vertex layout
+		struct Vertex{
+			float position[3];
+			float color[4];
+		};
+		//set layout
+		MEL::BufferLayout layout={
+			{MEL::ShaderDataType::Float3,"a_Position"},
+			{MEL::ShaderDataType::Float4,"a_Color"}
+		};
+		
+		auto va=MEL::VertexArray::Create();
+		//set data
 		Vertex SquareVertices[]={
 			{{-0.5f,-0.5f,0.0f},
 				{0.4f,0.2f,0.4f,1.0f}},
@@ -188,25 +251,30 @@ public:
 		
 		uint32_t SquareIndices[]={0,1,2,
 			2,3,0};
-		
-		//create bufferlayout
-		MEL::BufferLayout layout={
-			{MEL::ShaderDataType::Float3,"a_Position"},
-			{MEL::ShaderDataType::Float4,"a_Color"}
-		};
-		
 		//Set buffers
 		auto SquareVB=MEL::VertexBuffer::Create(SquareVertices, sizeof(SquareVertices));
 		auto SquareIB=MEL::IndexBuffer::Create(SquareIndices, 6);
 		SquareVB->SetSlot(0);
 		SquareVB->SetLayout(layout);
 		
-		m_VertexArray->AddVertexBuffer(SquareVB);
-		m_VertexArray->SetIndexBuffer(SquareIB);
+		va->AddVertexBuffer(SquareVB);
+		va->SetIndexBuffer(SquareIB);
+		return va;
+	}
+	
+	std::shared_ptr<MEL::VertexArray> CreateTriVA(){
+		//set vertex layout
+		struct Vertex{
+			float position[3];
+			float color[4];
+		};
+		//set layout
+		MEL::BufferLayout layout={
+			{MEL::ShaderDataType::Float3,"a_Position"},
+			{MEL::ShaderDataType::Float4,"a_Color"}
+		};
 		
-		//Set another source
-		
-		m_TriangleVA=MEL::VertexArray::Create();
+		auto va=MEL::VertexArray::Create();
 		
 		Vertex TriVertices[]={
 			{{-0.5f,-0.5f,0.0f},
@@ -220,33 +288,26 @@ public:
 		};
 		
 		uint32_t TriIndices[]={0,1,2};
-		
+		//set buffers
 		auto TriVB=MEL::VertexBuffer::Create(TriVertices, sizeof(TriVertices));
 		auto TriIB=MEL::IndexBuffer::Create(TriIndices, 3);
 		TriVB->SetSlot(0);
 		TriVB->SetLayout(layout);
 		
-		m_TriangleVA->AddVertexBuffer(TriVB);
-		m_TriangleVA->SetIndexBuffer(TriIB);
-		
-		//create shader(this can be done in sandbox)
-		auto defaultShader=MEL::Shader::CreateFromDefaultLibrary("DefaultShader", @"vertexShader", @"fragmentShader");
-		if(defaultShader)
-			defaultShader->CreatePipelineState(layout);
-		
-		m_CurrentShader=defaultShader;
-		
-	}
-	
-	void OnEvent(MEL::Event& e) override{
-		MEL_INFO("testing event{0}",e.ToString());
+		va->AddVertexBuffer(TriVB);
+		va->SetIndexBuffer(TriIB);
+		return va;
 	}
 	
 private:
-	std::shared_ptr<MEL::Shader> m_CurrentShader;
 	MEL::Renderer* m_Renderer;
-	std::shared_ptr<MEL::VertexArray> m_VertexArray;
-	std::shared_ptr<MEL::VertexArray> m_TriangleVA;
+	
+	std::vector<std::shared_ptr<MEL::GameObject>> m_GameObjects;
+	std::shared_ptr<MEL::Shader> m_CurrentShader;
+	MEL::BufferLayout m_Layout={
+		{MEL::ShaderDataType::Float3,"a_Position"},
+		{MEL::ShaderDataType::Float4,"a_Color"}
+	};
 };
 
 class Sandbox:public MEL::Application{
