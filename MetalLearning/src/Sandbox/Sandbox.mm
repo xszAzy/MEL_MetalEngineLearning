@@ -25,6 +25,7 @@ public:
 		ImGui::Text("Hello, Metal! This is your engine");
 		
 		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)",1000.0f/ImGui::GetIO().Framerate,ImGui::GetIO().Framerate);
+		ImGui::ColorEdit3("Triangle Color", m_TriColor);
 		static bool show=0;
 		if(show)
 			ImGui::ShowDemoWindow(&show);
@@ -120,14 +121,13 @@ public:
 #pragma mark - other sets
 		camera->SetPosition(position);
 		m_Renderer->UpdateCameraUniform();
-		
-		static float bounce=.0f;
-		bounce+=ts;
-		float yPos=sinf(bounce*2.0f)*0.3f;
-		
+			
 		for(size_t i=0;i<m_GameObjects.size();i++){
 			auto& obj=m_GameObjects[i];
-			
+			//other settings
+			if(i==1){
+				obj->SetColor({m_TriColor[0],m_TriColor[1],m_TriColor[2]});
+			}
 			//bind transform
 			obj->BindTransform();
 			MEL::RenderCommand::Submit(m_CurrentShader, obj->GetVertexArray());
@@ -204,6 +204,7 @@ public:
 		auto triangleObject=std::make_shared<MEL::GameObject>("Triangle");
 		triangleObject->SetVertexArray(CreateTriVA());
 		triangleObject->GetTransform().SetPosition({0,0,0});
+		triangleObject->SetColor({m_TriColor[0],m_TriColor[1],m_TriColor[2]});
 		
 		m_GameObjects.push_back(triangleObject);
 		//create extra
@@ -213,7 +214,7 @@ public:
 				extraObject->SetVertexArray(CreateSquareVA());
 				extraObject->GetTransform().SetScale({0.1f,0.1f,0.1f});
 				extraObject->GetTransform().SetPosition({0.11f*i,0.11f*j,0});
-				extraObject->SetColor({0,0,1});
+				extraObject->SetColor({.0f,.0f,1.0f});
 				
 				m_GameObjects.push_back(extraObject);
 			}
@@ -308,6 +309,8 @@ private:
 		{MEL::ShaderDataType::Float3,"a_Position"},
 		{MEL::ShaderDataType::Float4,"a_Color"}
 	};
+	
+	float m_TriColor[4]={0.2,0.3,0.6,1.0};
 };
 
 class Sandbox:public MEL::Application{

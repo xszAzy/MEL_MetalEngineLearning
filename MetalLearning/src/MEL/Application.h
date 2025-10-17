@@ -42,13 +42,14 @@ namespace MEL {
 		void RenderOneFrame();
 	private:
 		std::unique_ptr<Window> m_Window;
-		
 		MELMTKViewDelegate* m_ViewDelegate;
+		
 		Renderer* m_Renderer;
+		
 		ImGuiLayer* m_ImGuiLayer;
-		bool m_Running=true;
 		LayerStack m_LayerStack;
 		
+		bool m_Running=true;
 		static Application* s_Instance;
 		
 		float m_LastframeTime=0.0f;

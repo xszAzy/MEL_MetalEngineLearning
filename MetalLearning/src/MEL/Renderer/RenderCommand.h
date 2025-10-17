@@ -27,6 +27,5 @@ namespace MEL{
 	private:
 		static Renderer* s_Renderer;
 		static std::shared_ptr<Camera> s_CurrentCamera;
-		static simd::float4 s_ClearColor;
 	};
 }

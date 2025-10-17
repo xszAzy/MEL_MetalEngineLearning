@@ -2,7 +2,6 @@
 namespace MEL{
 	Renderer* RenderCommand::s_Renderer=nullptr;
 	std::shared_ptr<Camera> RenderCommand::s_CurrentCamera=nullptr;
-	simd::float4 RenderCommand::s_ClearColor;
 	void RenderCommand::Init(Renderer *renderer){
 		s_Renderer=renderer;
 	}
