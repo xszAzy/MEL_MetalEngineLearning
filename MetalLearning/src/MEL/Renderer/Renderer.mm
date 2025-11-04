@@ -21,8 +21,6 @@ namespace MEL{
 			(uint32_t)m_View.frame.size.width,
 			(uint32_t)m_View.frame.size.height
 		};
-		MEL_CORE_INFO("Viewport size:{0} x {1}",(int)m_ViewportSize.x,(int)m_ViewportSize.y);
-		//SetupPipeline();
 	}
 	
 	Renderer::~Renderer(){
@@ -51,7 +49,7 @@ namespace MEL{
 	void Renderer::BeginScene(){
 		//debug mode
 		//MEL_CORE_INFO("----Begin Scene----");
-		
+
 		//get render pass descriptor
 		MTLRenderPassDescriptor* renderPassDescriptor=m_View.currentRenderPassDescriptor;
 		
@@ -95,7 +93,7 @@ namespace MEL{
 		}
 	}
 	
-	void Renderer::DrawIndexed(const std::shared_ptr<VertexArray>& vertexArray){
+	void Renderer::DrawIndexed(const Ref<VertexArray>& vertexArray){
 		if(!vertexArray){
 			MEL_CORE_ERROR("No array");
 			return;
@@ -174,6 +172,11 @@ namespace MEL{
 		ImDrawData* drawData=ImGui::GetDrawData();
 		
 		ImGui_ImplMetal_RenderDrawData(drawData, m_CommandBuffer, m_CurrentEncoder);
+		
+		if(ImGui::GetIO().ConfigFlags&ImGuiConfigFlags_ViewportsEnable){
+			ImGui::UpdatePlatformWindows();
+			ImGui::RenderPlatformWindowsDefault();
+		}
 		//MEL_CORE_INFO("ImGui draw with data{}",(void*)drawData);
 	}
 
@@ -189,10 +192,9 @@ namespace MEL{
 			(double)m_ViewportSize.y,
 			1,0
 		};
-		//MEL_CORE_INFO("Viewport size:{}x{}",(double)m_ViewportSize.x,(double)m_ViewportSize.y);
 	}
 #pragma mark - Camera settings
-	void Renderer::SetSceneCamera(const std::shared_ptr<Camera> &camera){
+	void Renderer::SetSceneCamera(const Ref<Camera>& camera){
 		m_SceneCamera=camera;
 		
 		if(!m_CameraUniform){

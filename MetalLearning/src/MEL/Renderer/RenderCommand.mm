@@ -1,7 +1,7 @@
 #include "RenderCommand.h"
 namespace MEL{
 	Renderer* RenderCommand::s_Renderer=nullptr;
-	std::shared_ptr<Camera> RenderCommand::s_CurrentCamera=nullptr;
+	Ref<Camera> RenderCommand::s_CurrentCamera=nullptr;
 	void RenderCommand::Init(Renderer *renderer){
 		s_Renderer=renderer;
 	}
@@ -9,11 +9,11 @@ namespace MEL{
 	void RenderCommand::BeginFrame(){
 		s_Renderer->BeginFrame();
 	}
-	void RenderCommand::BeginScene(const std::shared_ptr<Camera> &camera){
+	void RenderCommand::BeginScene(const Ref<Camera> &camera){
 		s_CurrentCamera=camera;
 		s_Renderer->BeginScene();
 		
-		if(camera&&s_Renderer->GetCameraUniform()){
+		if(s_Renderer->GetCameraUniform()){
 			struct CameraData{
 				simd::float4x4 viewProjection;
 				simd::float3 position;
@@ -26,7 +26,7 @@ namespace MEL{
 		}
 	}
 	
-	void RenderCommand::Submit(const std::shared_ptr<Shader> &shader, const std::shared_ptr<VertexArray> &vertexArray){
+	void RenderCommand::Submit(const Ref<Shader> &shader, const Ref<VertexArray> &vertexArray){
 		shader->Bind();
 		if(s_Renderer->GetCameraUniform()){
 			s_Renderer->GetCameraUniform()->Bind();

@@ -26,8 +26,19 @@
 
 -(void)drawInMTKView:(MTKView *)view{
 	if(!_application)return;
-	
-	_application->RenderOneFrame();
+	if(view.hidden||
+	   view.window==nil||
+	   !view.window.visible||
+	   view.currentDrawable==nil||
+	   view.currentRenderPassDescriptor==nil){
+		return;
+	}
+	@try{
+		_application->RenderOneFrame();
+	}
+	@catch (NSException* exception){
+		NSLog(@"Rendering error:%@",exception);
+	}
 }
 @end
 
@@ -40,6 +51,14 @@
 
 -(BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender{
 	return YES;
+}
+
+-(void)applicationDidBecomeActive:(NSNotification *)notification{
+	NSLog(@"Application became active");
+}
+
+-(void)applicationDidResignActive:(NSNotification *)notification{
+	NSLog(@"Application resigned active");
 }
 
 @end

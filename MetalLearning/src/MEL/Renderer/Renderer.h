@@ -20,7 +20,7 @@ namespace MEL {
 		void EndScene();
 		void EndFrame();
 		
-		void DrawIndexed(const std::shared_ptr<VertexArray>& vertexArray);
+		void DrawIndexed(const Ref<VertexArray>& vertexArray);
 		
 		void SetCurrentPipelineState(id<MTLRenderPipelineState> pipelineState);
 		
@@ -35,10 +35,10 @@ namespace MEL {
 		void EndImGui();
 	public:
 		//camera set
-		void SetSceneCamera(const std::shared_ptr<Camera>& camera);
-		std::shared_ptr<Camera> GetSceneCamera()const {return m_SceneCamera;}
+		void SetSceneCamera(const Ref<Camera>& camera);
+		Ref<Camera> GetSceneCamera()const {return m_SceneCamera;}
 		
-		std::shared_ptr<UniformBuffer> GetCameraUniform()const{return m_CameraUniform;}
+		Ref<UniformBuffer> GetCameraUniform()const{return m_CameraUniform;}
 		
 		void UpdateCameraUniform();
 	public:
@@ -47,6 +47,8 @@ namespace MEL {
 		id<MTLDevice> GetMetalDevice(){return m_Device;}
 		id<MTLRenderCommandEncoder> GetCurrentEncoder(){return m_CurrentEncoder;}
 		void UpdateViewport();
+	public:
+		ShaderLibrary& GetShaderLibrary(){return m_ShaderLibrary;}
 	private:
 		MTKView* m_View;
 		
@@ -57,16 +59,16 @@ namespace MEL {
 		id<MTLRenderPipelineState> m_CurrentPipeline=nil;
 		vector_uint2 m_ViewportSize;
 		
-		
 		bool is_default=true;
 		
 		MTLViewport m_MTLViewportSize;
+		ShaderLibrary m_ShaderLibrary;
 	private:
 		bool m_ImGuiEnabled=false;
 	private:
-		std::shared_ptr<Camera> m_SceneCamera;
-		std::shared_ptr<UniformBuffer> m_TransformUniform;
-		std::shared_ptr<UniformBuffer> m_CameraUniform;
+		Ref<Camera> m_SceneCamera;
+		Ref<UniformBuffer> m_TransformUniform;
+		Ref<UniformBuffer> m_CameraUniform;
 		
 		struct CameraData{
 			simd::float4x4 viewProjectionMatrix;

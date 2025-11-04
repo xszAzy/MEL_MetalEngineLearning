@@ -7,40 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0963E6A7E80682199CE884E7 /* IndexBuffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 75973C8F753A1FC1AF8ED2CF /* IndexBuffer.mm */; };
 		1817955824A247CA9F871398 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5C1300C9792D32A5828940 /* CoreFoundation.framework */; };
-		1EA5B05892FFF54A10E37E98 /* LayerStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD1D7500EF4751B223383B40 /* LayerStack.cpp */; };
+		1DA823F8B3D135EA75379238 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC907E406F8687F2C0A8E480 /* ViewController.mm */; };
+		35E3BE041500D836F10A3444 /* Entrypoint.mm in Sources */ = {isa = PBXBuildFile; fileRef = 76D51CAC0962E69E723B8AEC /* Entrypoint.mm */; };
+		37BF7A5047A4A68234183090 /* LayerStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 539467F8F57E03EAECA51638 /* LayerStack.cpp */; };
+		3B3AE003953BF6F55C82EE43 /* ImGuiLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = C7CF762BE29BE4DDE66C7C6B /* ImGuiLayer.mm */; };
+		3F2E13D01DD0AF42D2B2B210 /* Transform.mm in Sources */ = {isa = PBXBuildFile; fileRef = 057A6478051D47AA3F71FAB8 /* Transform.mm */; };
 		40821283ADAA20F5AF3D10C3 /* Sandbox.mm in Sources */ = {isa = PBXBuildFile; fileRef = DB139FCB287695FD9E95960B /* Sandbox.mm */; };
-		470E4F862E92E62C0001CB6D /* Delegates.mm in Sources */ = {isa = PBXBuildFile; fileRef = 470E4F852E92E62C0001CB6D /* Delegates.mm */; };
-		471F408B2E9048F700A39495 /* Shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 0EC3D68640BD2138BA9C5CC6 /* Shader.metal */; };
-		472151D42E953F6D00E52696 /* VertexArray.mm in Sources */ = {isa = PBXBuildFile; fileRef = 472151D32E953F6D00E52696 /* VertexArray.mm */; };
-		475080D32E9EA83F006A9103 /* Transform.mm in Sources */ = {isa = PBXBuildFile; fileRef = 475080D22E9EA83F006A9103 /* Transform.mm */; };
-		475DDCC62E8D968900D66434 /* ImGuiLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 475DDCC52E8D968900D66434 /* ImGuiLayer.mm */; };
-		479A9D0A2E93ED400019F59F /* Buffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 479A9D092E93ED400019F59F /* Buffer.mm */; };
-		479A9D0D2E942C4E0019F59F /* IndexBuffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 479A9D0C2E942C4E0019F59F /* IndexBuffer.mm */; };
-		479A9D102E942CBD0019F59F /* VertexBuffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 479A9D0F2E942CBD0019F59F /* VertexBuffer.mm */; };
-		47A032012E9C880F00B92CB4 /* Timestep.mm in Sources */ = {isa = PBXBuildFile; fileRef = 47A032002E9C880F00B92CB4 /* Timestep.mm */; };
-		47A6742D2E996F6F00DA9F74 /* RenderCommand.mm in Sources */ = {isa = PBXBuildFile; fileRef = 47A6742C2E996F6E00DA9F74 /* RenderCommand.mm */; };
-		47A97AAA2E8EB34B00293FA8 /* Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 47A97AA92E8EB34B00293FA8 /* Renderer.mm */; };
-		47A97AAE2E8EDBAD00293FA8 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 47A97AAD2E8EDBAD00293FA8 /* ViewController.mm */; };
-		47C6B40D2E96ACA00033E9F8 /* UniformBuffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 47C6B40C2E96AC9F0033E9F8 /* UniformBuffer.mm */; };
-		47C6B4112E96B6E80033E9F8 /* Camera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 47C6B4102E96B6E80033E9F8 /* Camera.mm */; };
-		47F2B42A2E918103005D0A7A /* Shader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 47F2B4292E918103005D0A7A /* Shader.mm */; };
+		41DBF34285EFC47479C14982 /* Timestep.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2198DB0A92BB7BFC4882294A /* Timestep.mm */; };
+		47708D1F2EB90FAC004619E7 /* Texture.metal.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9A05E4E35CC64555B9FB2323 /* Texture.metal.txt */; };
+		47708D202EB90FB9004619E7 /* square.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9DB8081D332EC74FA1CB1E5D /* square.jpg */; };
+		47708D212EB90FB9004619E7 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 18590F0365BC0535DBDB0543 /* test.png */; };
+		488CD858E66DD90ABDEC1E98 /* RenderCommand.mm in Sources */ = {isa = PBXBuildFile; fileRef = 853E52A047FEB312A53390E0 /* RenderCommand.mm */; };
 		4B007C2E118E73A07F909A6E /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0271576359DD4A8A43A2BB6 /* MetalKit.framework */; };
-		70B86CF5705B5027AAB00335 /* CocoaWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = C83A417D1F9FB46FD1ADCFBD /* CocoaWindow.mm */; };
+		4C2935EA3D20A3DCA924242A /* Camera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8B4C00F22398E6A451DFE732 /* Camera.mm */; };
+		70696E77CCF072E955932CB7 /* UniformBuffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = F8EBDD5F08D10991F544939F /* UniformBuffer.mm */; };
 		7D00ECD4898B9F4604706B14 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6BEC0BCC5DBDAEEA1E536FC /* GameController.framework */; };
+		820B145393C2544509304293 /* VertexBuffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83C7A87BF7B0202D19FDCEBB /* VertexBuffer.mm */; };
 		9130093853F069AAB1254778 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B91C4E06FD8CD12F3C5FB20 /* QuartzCore.framework */; };
 		93CEE37D2C46D0EF582DC1BD /* imgui_impl_metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = B0B9D6E54ADDCC17FB03AD25 /* imgui_impl_metal.mm */; };
 		95EFFE0C89EF477E0EDA5C4C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74A9A874B8BD79A6AC8EFEB4 /* CoreGraphics.framework */; };
-		969729155D252087CB274755 /* MacInput.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2379E11DB8F0A04F278CF75D /* MacInput.mm */; };
+		9C19BCA089814F52267B42E0 /* VertexArray.mm in Sources */ = {isa = PBXBuildFile; fileRef = 21CC23282E56D59AA93BA168 /* VertexArray.mm */; };
+		9CCC89016AEFDCB3F1FE2F41 /* Log.mm in Sources */ = {isa = PBXBuildFile; fileRef = DD2E15E9386F695B0BC9B429 /* Log.mm */; };
+		A656DCA59A5626171F413AE5 /* MacWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0D322EAD5145FFDF451784ED /* MacWindow.mm */; };
+		A8E577B4C3B1E666C7827DF4 /* Application.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5F46585CCC6E66CECE01569C /* Application.mm */; };
 		B24E4279E3323A6BF64A70B9 /* melpch.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0EB1E78134D817339BDF0DC1 /* melpch.mm */; };
-		BC2CC98D9B49E3BF77533FCD /* MacWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 28A2B695BB308087240924D5 /* MacWindow.mm */; };
+		B43D71F27BA22CE4065A0032 /* CameraController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C36EA67AB0D6392C4DD02CBA /* CameraController.mm */; };
+		C063F276DB306128DF00F8B6 /* Delegates.mm in Sources */ = {isa = PBXBuildFile; fileRef = BD548FDE2A7C9E502C0F8E1E /* Delegates.mm */; };
+		C091F6EEA628FE20696E0D2E /* MetalTexture2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8DCEF7D6E7D00EC8AF170616 /* MetalTexture2D.mm */; };
 		C39B3D3E56290730BF01AB7E /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EF28886D25E4A381101EEC6 /* Metal.framework */; };
-		C5361949BEF7D5BBF8F6D789 /* Log.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AC9F531E33AD96327D9AB71 /* Log.mm */; };
-		CA73010C21D873FED3E68F4C /* Entrypoint.mm in Sources */ = {isa = PBXBuildFile; fileRef = CD3C96B4FF35E16679151CF4 /* Entrypoint.mm */; };
-		CE38F4BC94C6EC2E02C912FC /* Application.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6038CC64F5AF8B96644BE2A4 /* Application.mm */; };
-		E6BAF36C53E301DE5575F1AC /* Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5F823D4035B1A06797A1A14 /* Layer.cpp */; };
+		C593F1D739EE36C9B7D1C017 /* Buffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 212199BF334B7671673C5FFF /* Buffer.mm */; };
+		C676B74E3AD0FC40B8B4858E /* Shader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 282E2A963A5807486E48F0D6 /* Shader.mm */; };
+		D2639D40B6AAA5723A97D380 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3DDA5A286EBE521A81D68868 /* Utils.cpp */; };
+		E7B2A65E3F181950F126349E /* Shader.metal in Resources */ = {isa = PBXBuildFile; fileRef = 0EC3D68640BD2138BA9C5CC6 /* Shader.metal */; };
 		EA0614A5455164D733834AE5 /* libImGui.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B70ACDADC8C20D9F3E2FFBED /* libImGui.a */; };
+		F3F520A48C420656BA8906E4 /* Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB88D20CFFD7777E41FEB04C /* Layer.cpp */; };
 		F8E8DBA28B76A594F44F49E2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D6BC6AA50D7885C8F7B2CEA /* Cocoa.framework */; };
+		FA8E1D2D155A8BDF192B236D /* MacInput.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2C8D1A3599B528A79B481875 /* MacInput.mm */; };
+		FBCEDC28DAEBF65AB6F55268 /* Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F5C9A70E1EA64624AC308B0 /* Renderer.mm */; };
+		FD16768D09A128FF8485F4CD /* CocoaWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = F01A6015CF377A47AB40D655 /* CocoaWindow.mm */; };
 		FF1219CB5B991E3DE43BD80B /* imgui_impl_osx.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6AB35F537A988B85670C1593 /* imgui_impl_osx.mm */; };
 /* End PBXBuildFile section */
 
@@ -75,75 +81,83 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		00294224039A14568506B864 /* Window.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Window.h; sourceTree = "<group>"; };
+		057A6478051D47AA3F71FAB8 /* Transform.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = Transform.mm; path = src/MEL/Renderer/Transforms/Transform.mm; sourceTree = "<group>"; };
+		0BBB8DF218464064932B0C32 /* MetalTexture2D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MetalTexture2D.h; path = src/MEL/Renderer/Texture/MetalTexture2D.h; sourceTree = "<group>"; };
 		0BCE199D22E0B4CF12FCAFDD /* melpch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = melpch.h; path = src/melpch.h; sourceTree = "<group>"; };
+		0D322EAD5145FFDF451784ED /* MacWindow.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = MacWindow.mm; path = src/MEL/Core/Window/MacWindow.mm; sourceTree = "<group>"; };
 		0EB1E78134D817339BDF0DC1 /* melpch.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = melpch.mm; path = src/melpch.mm; sourceTree = "<group>"; };
 		0EC3D68640BD2138BA9C5CC6 /* Shader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; name = Shader.metal; path = ShaderSrc/Shader.metal; sourceTree = "<group>"; };
 		0EF28886D25E4A381101EEC6 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
-		14AAEE9285CD8F843B943CD2 /* KeyEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KeyEvent.h; path = src/MEL/Events/KeyEvent.h; sourceTree = "<group>"; };
-		167CCC373848796974FDA277 /* MacKeycode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MacKeycode.h; path = src/MEL/Input/MacKeycode.h; sourceTree = "<group>"; };
-		2379E11DB8F0A04F278CF75D /* MacInput.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = MacInput.mm; path = src/MEL/Input/MacInput.mm; sourceTree = "<group>"; };
-		2640360AF46389BC7B71DC4A /* LayerStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LayerStack.h; path = src/MEL/Layer/LayerStack.h; sourceTree = "<group>"; };
-		28A2B695BB308087240924D5 /* MacWindow.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = MacWindow.mm; path = src/MEL/Window/MacWindow.mm; sourceTree = "<group>"; };
-		333B5CED59618C9FC068832D /* Log.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Log.h; path = src/MEL/Log/Log.h; sourceTree = "<group>"; };
+		12D5B9F2426788E41D74C832 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = src/MEL/Core/Utils.h; sourceTree = "<group>"; };
+		18590F0365BC0535DBDB0543 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = text; name = test.png; path = assets/textures/test.png; sourceTree = "<group>"; };
+		1D6A63654CFC3257280971A5 /* Log.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Log.h; path = src/MEL/Core/Log/Log.h; sourceTree = "<group>"; };
+		1ED68952031D9184870ABF92 /* Shader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Shader.h; path = src/MEL/Renderer/Shader/Shader.h; sourceTree = "<group>"; };
+		1FFBF0EE640FC22057E1472E /* Camera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Camera.h; path = src/MEL/Renderer/Transforms/Camera.h; sourceTree = "<group>"; };
+		212199BF334B7671673C5FFF /* Buffer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = Buffer.mm; path = src/MEL/Renderer/Buffer/Buffer.mm; sourceTree = "<group>"; };
+		2198DB0A92BB7BFC4882294A /* Timestep.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = Timestep.mm; path = src/MEL/Core/Timestep.mm; sourceTree = "<group>"; };
+		21CC23282E56D59AA93BA168 /* VertexArray.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = VertexArray.mm; path = src/MEL/Renderer/VertexArray/VertexArray.mm; sourceTree = "<group>"; };
+		22C5B291B5537C831E2C20D1 /* MacInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MacInput.h; path = src/MEL/Core/Input/MacInput.h; sourceTree = "<group>"; };
+		272276FB0B697F2D8F56AD3B /* Buffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Buffer.h; path = src/MEL/Renderer/Buffer/Buffer.h; sourceTree = "<group>"; };
+		282E2A963A5807486E48F0D6 /* Shader.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = Shader.mm; path = src/MEL/Renderer/Shader/Shader.mm; sourceTree = "<group>"; };
+		2B6B05270A881F59E6917B67 /* ImGuiLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ImGuiLayer.h; path = src/MEL/Core/ImGuiLayer/ImGuiLayer.h; sourceTree = "<group>"; };
+		2C8D1A3599B528A79B481875 /* MacInput.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = MacInput.mm; path = src/MEL/Core/Input/MacInput.mm; sourceTree = "<group>"; };
+		2DF1950627B3517861B25346 /* Timestep.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Timestep.h; path = src/MEL/Core/Timestep.h; sourceTree = "<group>"; };
+		2E44163985A9892B37B7A479 /* MacKeycode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MacKeycode.h; path = src/MEL/Core/Input/MacKeycode.h; sourceTree = "<group>"; };
+		3612A5962FD4620869D363D6 /* Layer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Layer.h; path = src/MEL/Core/Layer/Layer.h; sourceTree = "<group>"; };
 		38BBC2DB812CA70DC5CB791B /* MetalLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		470691262E9CB205000DD820 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
-		470E4F842E92E62C0001CB6D /* Delegates.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Delegates.h; path = src/MEL/Renderer/Delegates.h; sourceTree = "<group>"; };
-		470E4F852E92E62C0001CB6D /* Delegates.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Delegates.mm; path = src/MEL/Renderer/Delegates.mm; sourceTree = "<group>"; };
-		472151D22E953F6D00E52696 /* VertexArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VertexArray.h; sourceTree = "<group>"; };
-		472151D32E953F6D00E52696 /* VertexArray.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = VertexArray.mm; sourceTree = "<group>"; };
-		474C75802E9FFB630073CDD3 /* GameObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameObject.h; path = src/MEL/GameObject.h; sourceTree = "<group>"; };
-		475080D12E9EA83F006A9103 /* Transform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform.h; sourceTree = "<group>"; };
-		475080D22E9EA83F006A9103 /* Transform.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Transform.mm; sourceTree = "<group>"; };
-		475DDCC42E8D968900D66434 /* ImGuiLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImGuiLayer.h; sourceTree = "<group>"; };
-		475DDCC52E8D968900D66434 /* ImGuiLayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ImGuiLayer.mm; sourceTree = "<group>"; };
-		479A9D082E93ED400019F59F /* Buffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Buffer.h; sourceTree = "<group>"; };
-		479A9D092E93ED400019F59F /* Buffer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Buffer.mm; sourceTree = "<group>"; };
-		479A9D0B2E942C4E0019F59F /* IndexBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndexBuffer.h; sourceTree = "<group>"; };
-		479A9D0C2E942C4E0019F59F /* IndexBuffer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = IndexBuffer.mm; sourceTree = "<group>"; };
-		479A9D0E2E942CBD0019F59F /* VertexBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VertexBuffer.h; sourceTree = "<group>"; };
-		479A9D0F2E942CBD0019F59F /* VertexBuffer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = VertexBuffer.mm; sourceTree = "<group>"; };
-		47A031FF2E9C880F00B92CB4 /* Timestep.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Timestep.h; sourceTree = "<group>"; };
-		47A032002E9C880F00B92CB4 /* Timestep.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Timestep.mm; sourceTree = "<group>"; };
-		47A6742B2E996F6E00DA9F74 /* RenderCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RenderCommand.h; path = src/MEL/Renderer/RenderCommand.h; sourceTree = "<group>"; };
-		47A6742C2E996F6E00DA9F74 /* RenderCommand.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = RenderCommand.mm; path = src/MEL/Renderer/RenderCommand.mm; sourceTree = "<group>"; };
-		47A97AA82E8EB31500293FA8 /* Renderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Renderer.h; path = src/MEL/Renderer/Renderer.h; sourceTree = "<group>"; };
-		47A97AA92E8EB34B00293FA8 /* Renderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Renderer.mm; path = src/MEL/Renderer/Renderer.mm; sourceTree = "<group>"; };
-		47A97AAC2E8EDBAD00293FA8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		47A97AAD2E8EDBAD00293FA8 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
-		47BB8EEB2E9559770005EA9F /* BufferLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BufferLayout.h; sourceTree = "<group>"; };
-		47C6B40B2E96AC9F0033E9F8 /* UniformBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UniformBuffer.h; sourceTree = "<group>"; };
-		47C6B40C2E96AC9F0033E9F8 /* UniformBuffer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = UniformBuffer.mm; sourceTree = "<group>"; };
-		47C6B40F2E96B6E80033E9F8 /* Camera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
-		47C6B4102E96B6E80033E9F8 /* Camera.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Camera.mm; sourceTree = "<group>"; };
-		47F2B4282E918103005D0A7A /* Shader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
-		47F2B4292E918103005D0A7A /* Shader.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Shader.mm; sourceTree = "<group>"; };
+		3DDA5A286EBE521A81D68868 /* Utils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Utils.cpp; path = src/MEL/Core/Utils.cpp; sourceTree = "<group>"; };
+		3EE642AA232D4ADCA71A78EA /* KeyEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KeyEvent.h; path = src/MEL/Core/Events/KeyEvent.h; sourceTree = "<group>"; };
+		48A4F222A00A651452188062 /* LayerStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LayerStack.h; path = src/MEL/Core/Layer/LayerStack.h; sourceTree = "<group>"; };
+		4F5C9A70E1EA64624AC308B0 /* Renderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = Renderer.mm; path = src/MEL/Renderer/Renderer.mm; sourceTree = "<group>"; };
 		500811C6F3539AF80E246806 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
-		6038CC64F5AF8B96644BE2A4 /* Application.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = Application.mm; path = src/MEL/Application.mm; sourceTree = "<group>"; };
+		539467F8F57E03EAECA51638 /* LayerStack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LayerStack.cpp; path = src/MEL/Core/Layer/LayerStack.cpp; sourceTree = "<group>"; };
+		5F46585CCC6E66CECE01569C /* Application.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = Application.mm; path = src/MEL/Core/Application.mm; sourceTree = "<group>"; };
 		6AB35F537A988B85670C1593 /* imgui_impl_osx.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = imgui_impl_osx.mm; path = vendor/imgui/backends/imgui_impl_osx.mm; sourceTree = "<group>"; };
-		7378E5520606AF446EDF5392 /* MouseEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MouseEvent.h; path = src/MEL/Events/MouseEvent.h; sourceTree = "<group>"; };
 		74A9A874B8BD79A6AC8EFEB4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		7B436A80AD3CB532271BF0C0 /* Application.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Application.h; path = src/MEL/Application.h; sourceTree = "<group>"; };
+		75973C8F753A1FC1AF8ED2CF /* IndexBuffer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = IndexBuffer.mm; path = src/MEL/Renderer/Buffer/IndexBuffer.mm; sourceTree = "<group>"; };
+		76D51CAC0962E69E723B8AEC /* Entrypoint.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = Entrypoint.mm; path = src/MEL/Core/Entrypoint.mm; sourceTree = "<group>"; };
+		7844FD3777E7E069B23C9377 /* BufferLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BufferLayout.h; path = src/MEL/Renderer/Buffer/BufferLayout.h; sourceTree = "<group>"; };
+		7C786A52C0C70FC402EE4892 /* GameObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameObject.h; path = src/MEL/Core/GameObject.h; sourceTree = "<group>"; };
+		7E569E8990807B3BC47164C9 /* MacWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MacWindow.h; path = src/MEL/Core/Window/MacWindow.h; sourceTree = "<group>"; };
+		83C7A87BF7B0202D19FDCEBB /* VertexBuffer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = VertexBuffer.mm; path = src/MEL/Renderer/Buffer/VertexBuffer.mm; sourceTree = "<group>"; };
+		853E52A047FEB312A53390E0 /* RenderCommand.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = RenderCommand.mm; path = src/MEL/Renderer/RenderCommand.mm; sourceTree = "<group>"; };
+		8784C064787C2E56E47FAEA4 /* VertexArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VertexArray.h; path = src/MEL/Renderer/VertexArray/VertexArray.h; sourceTree = "<group>"; };
+		88A3271C2A8CC30E21B3D55C /* RenderCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RenderCommand.h; path = src/MEL/Renderer/RenderCommand.h; sourceTree = "<group>"; };
+		8B4C00F22398E6A451DFE732 /* Camera.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = Camera.mm; path = src/MEL/Renderer/Transforms/Camera.mm; sourceTree = "<group>"; };
 		8B91C4E06FD8CD12F3C5FB20 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8D6BC6AA50D7885C8F7B2CEA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		8F0B8720EA4CDA92BDA72560 /* Event.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Event.h; path = src/MEL/Events/Event.h; sourceTree = "<group>"; };
-		9AC9F531E33AD96327D9AB71 /* Log.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = Log.mm; path = src/MEL/Log/Log.mm; sourceTree = "<group>"; };
-		9D8A3D8811E4827A8FC80BC8 /* ApplicationEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ApplicationEvent.h; path = src/MEL/Events/ApplicationEvent.h; sourceTree = "<group>"; };
+		8DCEF7D6E7D00EC8AF170616 /* MetalTexture2D.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = MetalTexture2D.mm; path = src/MEL/Renderer/Texture/MetalTexture2D.mm; sourceTree = "<group>"; };
+		8E58A694A9251546ACF5ACD4 /* Transform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Transform.h; path = src/MEL/Renderer/Transforms/Transform.h; sourceTree = "<group>"; };
+		9A05E4E35CC64555B9FB2323 /* Texture.metal.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = Texture.metal.txt; path = assets/shaders/Texture.metal.txt; sourceTree = "<group>"; };
+		9DB8081D332EC74FA1CB1E5D /* square.jpg */ = {isa = PBXFileReference; lastKnownFileType = text; name = square.jpg; path = assets/textures/square.jpg; sourceTree = "<group>"; };
 		A0271576359DD4A8A43A2BB6 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
+		A1C8B98BBC95283DC065BFCB /* IndexBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IndexBuffer.h; path = src/MEL/Renderer/Buffer/IndexBuffer.h; sourceTree = "<group>"; };
+		AB9157BC45B54CEEF5DB2DFC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = src/MEL/Core/ViewController/ViewController.h; sourceTree = "<group>"; };
 		B0B9D6E54ADDCC17FB03AD25 /* imgui_impl_metal.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = imgui_impl_metal.mm; path = vendor/imgui/backends/imgui_impl_metal.mm; sourceTree = "<group>"; };
+		B30AA480C2EFD0B2AF635AC0 /* ApplicationEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ApplicationEvent.h; path = src/MEL/Core/Events/ApplicationEvent.h; sourceTree = "<group>"; };
+		B3192ADB2701A28D494F511B /* UniformBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UniformBuffer.h; path = src/MEL/Renderer/Buffer/UniformBuffer.h; sourceTree = "<group>"; };
 		B3233A300336CEE285B50070 /* MEL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MEL.h; sourceTree = "<group>"; };
-		B37F823ED54B2F701200587E /* Layer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Layer.h; path = src/MEL/Layer/Layer.h; sourceTree = "<group>"; };
-		B5F823D4035B1A06797A1A14 /* Layer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Layer.cpp; path = src/MEL/Layer/Layer.cpp; sourceTree = "<group>"; };
-		C83A417D1F9FB46FD1ADCFBD /* CocoaWindow.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = CocoaWindow.mm; path = src/MEL/Window/CocoaWindow.mm; sourceTree = "<group>"; };
-		CD1B60B1116A062353913EF1 /* MacWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MacWindow.h; path = src/MEL/Window/MacWindow.h; sourceTree = "<group>"; };
-		CD3C96B4FF35E16679151CF4 /* Entrypoint.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = Entrypoint.mm; path = src/MEL/Entrypoint.mm; sourceTree = "<group>"; };
+		B371276AF784F89CEB567DAA /* MouseEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MouseEvent.h; path = src/MEL/Core/Events/MouseEvent.h; sourceTree = "<group>"; };
+		B7B272760051B0A8237D68B6 /* CameraController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CameraController.h; path = src/MEL/Renderer/Transforms/CameraController.h; sourceTree = "<group>"; };
+		BB88D20CFFD7777E41FEB04C /* Layer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Layer.cpp; path = src/MEL/Core/Layer/Layer.cpp; sourceTree = "<group>"; };
+		BC907E406F8687F2C0A8E480 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = ViewController.mm; path = src/MEL/Core/ViewController/ViewController.mm; sourceTree = "<group>"; };
+		BD548FDE2A7C9E502C0F8E1E /* Delegates.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Delegates.mm; path = src/MEL/Renderer/Delegates.mm; sourceTree = "<group>"; };
+		C36EA67AB0D6392C4DD02CBA /* CameraController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = CameraController.mm; path = src/MEL/Renderer/Transforms/CameraController.mm; sourceTree = "<group>"; };
+		C5583098F7517B4A7130B6D8 /* Event.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Event.h; path = src/MEL/Core/Events/Event.h; sourceTree = "<group>"; };
+		C7CF762BE29BE4DDE66C7C6B /* ImGuiLayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = ImGuiLayer.mm; path = src/MEL/Core/ImGuiLayer/ImGuiLayer.mm; sourceTree = "<group>"; };
+		D15817F169A4FDA397EBFE31 /* CocoaWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CocoaWindow.h; path = src/MEL/Core/Window/CocoaWindow.h; sourceTree = "<group>"; };
+		D1DBEC386469B62ACD425A78 /* Application.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Application.h; path = src/MEL/Core/Application.h; sourceTree = "<group>"; };
 		DB139FCB287695FD9E95960B /* Sandbox.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = Sandbox.mm; path = src/Sandbox/Sandbox.mm; sourceTree = "<group>"; };
-		DC88E3B90E822E6B886169F9 /* MacInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MacInput.h; path = src/MEL/Input/MacInput.h; sourceTree = "<group>"; };
-		DD1D7500EF4751B223383B40 /* LayerStack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LayerStack.cpp; path = src/MEL/Layer/LayerStack.cpp; sourceTree = "<group>"; };
+		DD2E15E9386F695B0BC9B429 /* Log.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = Log.mm; path = src/MEL/Core/Log/Log.mm; sourceTree = "<group>"; };
 		E19C4EDD3901C1CFEB0FDD1D /* ImGui.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ImGui.xcodeproj; path = vendor/imgui/ImGui.xcodeproj; sourceTree = SOURCE_ROOT; };
-		E54DE3995275F20B5408E1D9 /* CocoaWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CocoaWindow.h; path = src/MEL/Window/CocoaWindow.h; sourceTree = "<group>"; };
 		E6BEC0BCC5DBDAEEA1E536FC /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
+		E97CE4F7E91FC82923747B37 /* VertexBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VertexBuffer.h; path = src/MEL/Renderer/Buffer/VertexBuffer.h; sourceTree = "<group>"; };
 		EA5C1300C9792D32A5828940 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		F01A6015CF377A47AB40D655 /* CocoaWindow.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = CocoaWindow.mm; path = src/MEL/Core/Window/CocoaWindow.mm; sourceTree = "<group>"; };
+		F713B52C3B625A9E7D89936C /* Renderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Renderer.h; path = src/MEL/Renderer/Renderer.h; sourceTree = "<group>"; };
+		F8EBDD5F08D10991F544939F /* UniformBuffer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = UniformBuffer.mm; path = src/MEL/Renderer/Buffer/UniformBuffer.mm; sourceTree = "<group>"; };
+		F94AF500548C487227E69340 /* Window.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Window.h; path = src/MEL/Core/Window.h; sourceTree = "<group>"; };
+		FEB77BBA914545ACFA1DE9FA /* Delegates.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Delegates.h; path = src/MEL/Renderer/Delegates.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,13 +179,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		15A91B70B9FBB922CC3401B0 /* Log */ = {
+		12F3B49443D7AC8656EFE2D4 /* Texture */ = {
 			isa = PBXGroup;
 			children = (
-				333B5CED59618C9FC068832D /* Log.h */,
-				9AC9F531E33AD96327D9AB71 /* Log.mm */,
+				0BBB8DF218464064932B0C32 /* MetalTexture2D.h */,
+				8DCEF7D6E7D00EC8AF170616 /* MetalTexture2D.mm */,
 			);
-			name = Log;
+			name = Texture;
+			sourceTree = "<group>";
+		};
+		17759BB20261C1A44A4789F2 /* textures */ = {
+			isa = PBXGroup;
+			children = (
+				9DB8081D332EC74FA1CB1E5D /* square.jpg */,
+				18590F0365BC0535DBDB0543 /* test.png */,
+			);
+			name = textures;
+			sourceTree = "<group>";
+		};
+		1DA00504088C2AF65071F344 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				22C5B291B5537C831E2C20D1 /* MacInput.h */,
+				2C8D1A3599B528A79B481875 /* MacInput.mm */,
+				2E44163985A9892B37B7A479 /* MacKeycode.h */,
+			);
+			name = Input;
 			sourceTree = "<group>";
 		};
 		1DF602E4C1418C16DC125924 /* vendor */ = {
@@ -182,28 +215,41 @@
 			name = vendor;
 			sourceTree = "<group>";
 		};
+		243A136EC7859CA0E25669AE /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				306EA93E29D4AAB01D70077E /* shaders */,
+				17759BB20261C1A44A4789F2 /* textures */,
+			);
+			name = assets;
+			sourceTree = "<group>";
+		};
+		29E504EE80726F6058EB832E /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				B30AA480C2EFD0B2AF635AC0 /* ApplicationEvent.h */,
+				C5583098F7517B4A7130B6D8 /* Event.h */,
+				3EE642AA232D4ADCA71A78EA /* KeyEvent.h */,
+				B371276AF784F89CEB567DAA /* MouseEvent.h */,
+			);
+			name = Events;
+			sourceTree = "<group>";
+		};
 		2C8FAEDB7CA3438DFF21751B /* MEL */ = {
 			isa = PBXGroup;
 			children = (
-				47A031FE2E9C87FB00B92CB4 /* Core */,
-				47C6B40E2E96B6D90033E9F8 /* Transforms */,
-				472151D12E953F5900E52696 /* VertexArray */,
-				479A9D072E93ED2A0019F59F /* Buffer */,
-				47F2B4272E9180E3005D0A7A /* Shader */,
-				7B436A80AD3CB532271BF0C0 /* Application.h */,
-				6038CC64F5AF8B96644BE2A4 /* Application.mm */,
-				CD3C96B4FF35E16679151CF4 /* Entrypoint.mm */,
-				9C59A956B36C4488A3883F96 /* Events */,
-				D5C45B8C78B2823E07D861CC /* Input */,
-				70E5D5C613D3FC78A2F9DC06 /* Layer */,
-				15A91B70B9FBB922CC3401B0 /* Log */,
+				9085357E93F607B01562ABBE /* Core */,
 				B69F209AFF1004CC43AED6DA /* Renderer */,
-				734CD11C8A5F6C4E7A7B675C /* Window */,
-				475DDCC32E8D966F00D66434 /* ImGuiLayer */,
-				47A97AAB2E8EDB8A00293FA8 /* ViewController */,
-				474C75802E9FFB630073CDD3 /* GameObject.h */,
 			);
 			name = MEL;
+			sourceTree = "<group>";
+		};
+		306EA93E29D4AAB01D70077E /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				9A05E4E35CC64555B9FB2323 /* Texture.metal.txt */,
+			);
+			name = shaders;
 			sourceTree = "<group>";
 		};
 		3684523D5CAA81EFC3B1787D /* Products */ = {
@@ -223,84 +269,17 @@
 			name = backends;
 			sourceTree = "<group>";
 		};
-		472151D12E953F5900E52696 /* VertexArray */ = {
+		53E1EF30983094A2DA57CD70 /* Transforms */ = {
 			isa = PBXGroup;
 			children = (
-				472151D22E953F6D00E52696 /* VertexArray.h */,
-				472151D32E953F6D00E52696 /* VertexArray.mm */,
-			);
-			name = VertexArray;
-			path = src/MEL/VertexArray;
-			sourceTree = "<group>";
-		};
-		475DDCC32E8D966F00D66434 /* ImGuiLayer */ = {
-			isa = PBXGroup;
-			children = (
-				475DDCC42E8D968900D66434 /* ImGuiLayer.h */,
-				475DDCC52E8D968900D66434 /* ImGuiLayer.mm */,
-			);
-			name = ImGuiLayer;
-			path = src/MEL/ImGuiLayer;
-			sourceTree = "<group>";
-		};
-		479A9D072E93ED2A0019F59F /* Buffer */ = {
-			isa = PBXGroup;
-			children = (
-				479A9D082E93ED400019F59F /* Buffer.h */,
-				479A9D092E93ED400019F59F /* Buffer.mm */,
-				479A9D0B2E942C4E0019F59F /* IndexBuffer.h */,
-				479A9D0C2E942C4E0019F59F /* IndexBuffer.mm */,
-				479A9D0E2E942CBD0019F59F /* VertexBuffer.h */,
-				479A9D0F2E942CBD0019F59F /* VertexBuffer.mm */,
-				47BB8EEB2E9559770005EA9F /* BufferLayout.h */,
-				47C6B40B2E96AC9F0033E9F8 /* UniformBuffer.h */,
-				47C6B40C2E96AC9F0033E9F8 /* UniformBuffer.mm */,
-			);
-			name = Buffer;
-			path = src/MEL/Buffer;
-			sourceTree = "<group>";
-		};
-		47A031FE2E9C87FB00B92CB4 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				47A031FF2E9C880F00B92CB4 /* Timestep.h */,
-				47A032002E9C880F00B92CB4 /* Timestep.mm */,
-				470691262E9CB205000DD820 /* Utils.h */,
-			);
-			name = Core;
-			path = src/MEL/Core;
-			sourceTree = "<group>";
-		};
-		47A97AAB2E8EDB8A00293FA8 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				47A97AAC2E8EDBAD00293FA8 /* ViewController.h */,
-				47A97AAD2E8EDBAD00293FA8 /* ViewController.mm */,
-			);
-			name = ViewController;
-			path = src/MEL/ViewController;
-			sourceTree = "<group>";
-		};
-		47C6B40E2E96B6D90033E9F8 /* Transforms */ = {
-			isa = PBXGroup;
-			children = (
-				47C6B40F2E96B6E80033E9F8 /* Camera.h */,
-				47C6B4102E96B6E80033E9F8 /* Camera.mm */,
-				475080D12E9EA83F006A9103 /* Transform.h */,
-				475080D22E9EA83F006A9103 /* Transform.mm */,
+				1FFBF0EE640FC22057E1472E /* Camera.h */,
+				8B4C00F22398E6A451DFE732 /* Camera.mm */,
+				B7B272760051B0A8237D68B6 /* CameraController.h */,
+				C36EA67AB0D6392C4DD02CBA /* CameraController.mm */,
+				8E58A694A9251546ACF5ACD4 /* Transform.h */,
+				057A6478051D47AA3F71FAB8 /* Transform.mm */,
 			);
 			name = Transforms;
-			path = src/MEL/Transforms;
-			sourceTree = "<group>";
-		};
-		47F2B4272E9180E3005D0A7A /* Shader */ = {
-			isa = PBXGroup;
-			children = (
-				47F2B4282E918103005D0A7A /* Shader.h */,
-				47F2B4292E918103005D0A7A /* Shader.mm */,
-			);
-			name = Shader;
-			path = src/MEL/Shader;
 			sourceTree = "<group>";
 		};
 		5775D4184366DFCA959E7A58 /* src */ = {
@@ -314,26 +293,13 @@
 			name = src;
 			sourceTree = "<group>";
 		};
-		70E5D5C613D3FC78A2F9DC06 /* Layer */ = {
+		7BB39802E8DBA674EA6E9642 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				B5F823D4035B1A06797A1A14 /* Layer.cpp */,
-				B37F823ED54B2F701200587E /* Layer.h */,
-				DD1D7500EF4751B223383B40 /* LayerStack.cpp */,
-				2640360AF46389BC7B71DC4A /* LayerStack.h */,
+				AB9157BC45B54CEEF5DB2DFC /* ViewController.h */,
+				BC907E406F8687F2C0A8E480 /* ViewController.mm */,
 			);
-			name = Layer;
-			sourceTree = "<group>";
-		};
-		734CD11C8A5F6C4E7A7B675C /* Window */ = {
-			isa = PBXGroup;
-			children = (
-				E54DE3995275F20B5408E1D9 /* CocoaWindow.h */,
-				C83A417D1F9FB46FD1ADCFBD /* CocoaWindow.mm */,
-				CD1B60B1116A062353913EF1 /* MacWindow.h */,
-				28A2B695BB308087240924D5 /* MacWindow.mm */,
-			);
-			name = Window;
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 		7FE31CBBF16E352DA06F5AFB /* imgui */ = {
@@ -344,15 +310,47 @@
 			name = imgui;
 			sourceTree = "<group>";
 		};
-		9C59A956B36C4488A3883F96 /* Events */ = {
+		8530416C17BE0B5E8096AFAC /* VertexArray */ = {
 			isa = PBXGroup;
 			children = (
-				9D8A3D8811E4827A8FC80BC8 /* ApplicationEvent.h */,
-				8F0B8720EA4CDA92BDA72560 /* Event.h */,
-				14AAEE9285CD8F843B943CD2 /* KeyEvent.h */,
-				7378E5520606AF446EDF5392 /* MouseEvent.h */,
+				8784C064787C2E56E47FAEA4 /* VertexArray.h */,
+				21CC23282E56D59AA93BA168 /* VertexArray.mm */,
 			);
-			name = Events;
+			name = VertexArray;
+			sourceTree = "<group>";
+		};
+		8882B11482446D86BC436F54 /* ImGuiLayer */ = {
+			isa = PBXGroup;
+			children = (
+				2B6B05270A881F59E6917B67 /* ImGuiLayer.h */,
+				C7CF762BE29BE4DDE66C7C6B /* ImGuiLayer.mm */,
+			);
+			name = ImGuiLayer;
+			sourceTree = "<group>";
+		};
+		9085357E93F607B01562ABBE /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				D1DBEC386469B62ACD425A78 /* Application.h */,
+				5F46585CCC6E66CECE01569C /* Application.mm */,
+				76D51CAC0962E69E723B8AEC /* Entrypoint.mm */,
+				29E504EE80726F6058EB832E /* Events */,
+				7C786A52C0C70FC402EE4892 /* GameObject.h */,
+				8882B11482446D86BC436F54 /* ImGuiLayer */,
+				1DA00504088C2AF65071F344 /* Input */,
+				DAE0DB5EC5CD01500DB2C99E /* Layer */,
+				D3408A28D3F3871A47D55868 /* Log */,
+				2DF1950627B3517861B25346 /* Timestep.h */,
+				2198DB0A92BB7BFC4882294A /* Timestep.mm */,
+				3DDA5A286EBE521A81D68868 /* Utils.cpp */,
+				12D5B9F2426788E41D74C832 /* Utils.h */,
+				7BB39802E8DBA674EA6E9642 /* ViewController */,
+				F94AF500548C487227E69340 /* Window.h */,
+				E867EE943EF55906176E6CD4 /* Window */,
+				FEB77BBA914545ACFA1DE9FA /* Delegates.h */,
+				BD548FDE2A7C9E502C0F8E1E /* Delegates.mm */,
+			);
+			name = Core;
 			sourceTree = "<group>";
 		};
 		9D968EAA920D05DCE0E0A4EA /* Projects */ = {
@@ -374,12 +372,15 @@
 		B69F209AFF1004CC43AED6DA /* Renderer */ = {
 			isa = PBXGroup;
 			children = (
-				47A97AA82E8EB31500293FA8 /* Renderer.h */,
-				47A97AA92E8EB34B00293FA8 /* Renderer.mm */,
-				470E4F842E92E62C0001CB6D /* Delegates.h */,
-				470E4F852E92E62C0001CB6D /* Delegates.mm */,
-				47A6742B2E996F6E00DA9F74 /* RenderCommand.h */,
-				47A6742C2E996F6E00DA9F74 /* RenderCommand.mm */,
+				FF6C3A665AAD8DD82E07D8A6 /* Buffer */,
+				88A3271C2A8CC30E21B3D55C /* RenderCommand.h */,
+				853E52A047FEB312A53390E0 /* RenderCommand.mm */,
+				F713B52C3B625A9E7D89936C /* Renderer.h */,
+				4F5C9A70E1EA64624AC308B0 /* Renderer.mm */,
+				DE361CC0397770320CD1BB00 /* Shader */,
+				12F3B49443D7AC8656EFE2D4 /* Texture */,
+				53E1EF30983094A2DA57CD70 /* Transforms */,
+				8530416C17BE0B5E8096AFAC /* VertexArray */,
 			);
 			name = Renderer;
 			sourceTree = "<group>";
@@ -406,14 +407,33 @@
 			name = Sandbox;
 			sourceTree = "<group>";
 		};
-		D5C45B8C78B2823E07D861CC /* Input */ = {
+		D3408A28D3F3871A47D55868 /* Log */ = {
 			isa = PBXGroup;
 			children = (
-				167CCC373848796974FDA277 /* MacKeycode.h */,
-				DC88E3B90E822E6B886169F9 /* MacInput.h */,
-				2379E11DB8F0A04F278CF75D /* MacInput.mm */,
+				1D6A63654CFC3257280971A5 /* Log.h */,
+				DD2E15E9386F695B0BC9B429 /* Log.mm */,
 			);
-			name = Input;
+			name = Log;
+			sourceTree = "<group>";
+		};
+		DAE0DB5EC5CD01500DB2C99E /* Layer */ = {
+			isa = PBXGroup;
+			children = (
+				BB88D20CFFD7777E41FEB04C /* Layer.cpp */,
+				3612A5962FD4620869D363D6 /* Layer.h */,
+				539467F8F57E03EAECA51638 /* LayerStack.cpp */,
+				48A4F222A00A651452188062 /* LayerStack.h */,
+			);
+			name = Layer;
+			sourceTree = "<group>";
+		};
+		DE361CC0397770320CD1BB00 /* Shader */ = {
+			isa = PBXGroup;
+			children = (
+				1ED68952031D9184870ABF92 /* Shader.h */,
+				282E2A963A5807486E48F0D6 /* Shader.mm */,
+			);
+			name = Shader;
 			sourceTree = "<group>";
 		};
 		E0ED8EA319A85515A93F8CE3 /* MetalLearning */ = {
@@ -422,7 +442,7 @@
 				500811C6F3539AF80E246806 /* Core.h */,
 				B3233A300336CEE285B50070 /* MEL.h */,
 				EFA4B5E69292DC9821B8BC26 /* ShaderSrc */,
-				00294224039A14568506B864 /* Window.h */,
+				243A136EC7859CA0E25669AE /* assets */,
 				5775D4184366DFCA959E7A58 /* src */,
 				1DF602E4C1418C16DC125924 /* vendor */,
 				BBF76781A7E87333FA200DC1 /* Frameworks */,
@@ -432,12 +452,39 @@
 			name = MetalLearning;
 			sourceTree = "<group>";
 		};
+		E867EE943EF55906176E6CD4 /* Window */ = {
+			isa = PBXGroup;
+			children = (
+				D15817F169A4FDA397EBFE31 /* CocoaWindow.h */,
+				F01A6015CF377A47AB40D655 /* CocoaWindow.mm */,
+				7E569E8990807B3BC47164C9 /* MacWindow.h */,
+				0D322EAD5145FFDF451784ED /* MacWindow.mm */,
+			);
+			name = Window;
+			sourceTree = "<group>";
+		};
 		EFA4B5E69292DC9821B8BC26 /* ShaderSrc */ = {
 			isa = PBXGroup;
 			children = (
 				0EC3D68640BD2138BA9C5CC6 /* Shader.metal */,
 			);
 			name = ShaderSrc;
+			sourceTree = "<group>";
+		};
+		FF6C3A665AAD8DD82E07D8A6 /* Buffer */ = {
+			isa = PBXGroup;
+			children = (
+				272276FB0B697F2D8F56AD3B /* Buffer.h */,
+				212199BF334B7671673C5FFF /* Buffer.mm */,
+				7844FD3777E7E069B23C9377 /* BufferLayout.h */,
+				A1C8B98BBC95283DC065BFCB /* IndexBuffer.h */,
+				75973C8F753A1FC1AF8ED2CF /* IndexBuffer.mm */,
+				B3192ADB2701A28D494F511B /* UniformBuffer.h */,
+				F8EBDD5F08D10991F544939F /* UniformBuffer.mm */,
+				E97CE4F7E91FC82923747B37 /* VertexBuffer.h */,
+				83C7A87BF7B0202D19FDCEBB /* VertexBuffer.mm */,
+			);
+			name = Buffer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -508,6 +555,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47708D202EB90FB9004619E7 /* square.jpg in Resources */,
+				47708D212EB90FB9004619E7 /* test.png in Resources */,
+				47708D1F2EB90FAC004619E7 /* Texture.metal.txt in Resources */,
+				E7B2A65E3F181950F126349E /* Shader.metal in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,33 +569,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				475080D32E9EA83F006A9103 /* Transform.mm in Sources */,
-				471F408B2E9048F700A39495 /* Shader.metal in Sources */,
-				47A6742D2E996F6F00DA9F74 /* RenderCommand.mm in Sources */,
-				472151D42E953F6D00E52696 /* VertexArray.mm in Sources */,
-				47C6B4112E96B6E80033E9F8 /* Camera.mm in Sources */,
-				CE38F4BC94C6EC2E02C912FC /* Application.mm in Sources */,
-				CA73010C21D873FED3E68F4C /* Entrypoint.mm in Sources */,
-				47C6B40D2E96ACA00033E9F8 /* UniformBuffer.mm in Sources */,
-				969729155D252087CB274755 /* MacInput.mm in Sources */,
-				47A032012E9C880F00B92CB4 /* Timestep.mm in Sources */,
-				E6BAF36C53E301DE5575F1AC /* Layer.cpp in Sources */,
-				1EA5B05892FFF54A10E37E98 /* LayerStack.cpp in Sources */,
-				C5361949BEF7D5BBF8F6D789 /* Log.mm in Sources */,
-				475DDCC62E8D968900D66434 /* ImGuiLayer.mm in Sources */,
-				47A97AAE2E8EDBAD00293FA8 /* ViewController.mm in Sources */,
-				47F2B42A2E918103005D0A7A /* Shader.mm in Sources */,
-				70B86CF5705B5027AAB00335 /* CocoaWindow.mm in Sources */,
-				BC2CC98D9B49E3BF77533FCD /* MacWindow.mm in Sources */,
-				479A9D0A2E93ED400019F59F /* Buffer.mm in Sources */,
-				470E4F862E92E62C0001CB6D /* Delegates.mm in Sources */,
-				479A9D102E942CBD0019F59F /* VertexBuffer.mm in Sources */,
+				A8E577B4C3B1E666C7827DF4 /* Application.mm in Sources */,
+				35E3BE041500D836F10A3444 /* Entrypoint.mm in Sources */,
+				3B3AE003953BF6F55C82EE43 /* ImGuiLayer.mm in Sources */,
+				FA8E1D2D155A8BDF192B236D /* MacInput.mm in Sources */,
+				F3F520A48C420656BA8906E4 /* Layer.cpp in Sources */,
+				37BF7A5047A4A68234183090 /* LayerStack.cpp in Sources */,
+				9CCC89016AEFDCB3F1FE2F41 /* Log.mm in Sources */,
+				41DBF34285EFC47479C14982 /* Timestep.mm in Sources */,
+				D2639D40B6AAA5723A97D380 /* Utils.cpp in Sources */,
+				1DA823F8B3D135EA75379238 /* ViewController.mm in Sources */,
+				FD16768D09A128FF8485F4CD /* CocoaWindow.mm in Sources */,
+				A656DCA59A5626171F413AE5 /* MacWindow.mm in Sources */,
+				C593F1D739EE36C9B7D1C017 /* Buffer.mm in Sources */,
+				0963E6A7E80682199CE884E7 /* IndexBuffer.mm in Sources */,
+				70696E77CCF072E955932CB7 /* UniformBuffer.mm in Sources */,
+				820B145393C2544509304293 /* VertexBuffer.mm in Sources */,
+				C063F276DB306128DF00F8B6 /* Delegates.mm in Sources */,
+				488CD858E66DD90ABDEC1E98 /* RenderCommand.mm in Sources */,
+				FBCEDC28DAEBF65AB6F55268 /* Renderer.mm in Sources */,
+				C676B74E3AD0FC40B8B4858E /* Shader.mm in Sources */,
+				C091F6EEA628FE20696E0D2E /* MetalTexture2D.mm in Sources */,
+				4C2935EA3D20A3DCA924242A /* Camera.mm in Sources */,
+				B43D71F27BA22CE4065A0032 /* CameraController.mm in Sources */,
+				3F2E13D01DD0AF42D2B2B210 /* Transform.mm in Sources */,
+				9C19BCA089814F52267B42E0 /* VertexArray.mm in Sources */,
 				40821283ADAA20F5AF3D10C3 /* Sandbox.mm in Sources */,
-				479A9D0D2E942C4E0019F59F /* IndexBuffer.mm in Sources */,
 				B24E4279E3323A6BF64A70B9 /* melpch.mm in Sources */,
 				93CEE37D2C46D0EF582DC1BD /* imgui_impl_metal.mm in Sources */,
 				FF1219CB5B991E3DE43BD80B /* imgui_impl_osx.mm in Sources */,
-				47A97AAA2E8EB34B00293FA8 /* Renderer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,7 +638,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = static;
 				SYMROOT = "../bin/Debug-macosx-x86_64/MetalLearning";
-				USER_HEADER_SEARCH_PATHS = "../bin . ../.git ../MEL.xcworkspace ../bin/Debug-macosx-x86_64 ../bin/Debug-macosx-x86_64/MetalLearning ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app/Contents ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app/Contents/_CodeSignature ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app/Contents/MacOS ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app/Contents/Resources ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM/Contents ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM/Contents/Resources ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM/Contents/Resources/Relocations ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM/Contents/Resources/DWARF ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM/Contents/Resources/Relocations/aarch64 MetalLearning.xcodeproj vendor src MetalLearning.xcodeproj/xcuserdata MetalLearning.xcodeproj/xcuserdata/xudianhuan.xcuserdatad MetalLearning.xcodeproj/xcuserdata/xudianhuan.xcuserdatad/xcschemes vendor/spdlog vendor/imgui/misc vendor/imgui/bin vendor/imgui/ImGui.xcodeproj vendor/imgui/backends vendor/imgui/docs vendor/imgui/examples vendor/imgui/.github vendor/imgui/misc/single_file vendor/imgui/misc/freetype vendor/imgui/misc/debuggers vendor/imgui/misc/cpp vendor/imgui/misc/fonts vendor/imgui/bin/Debug-macosx-x86_64 vendor/imgui/bin/Debug-macosx-x86_64/ImGui vendor/imgui/ImGui.xcodeproj/xcuserdata vendor/imgui/ImGui.xcodeproj/xcuserdata/xudianhuan.xcuserdatad vendor/imgui/ImGui.xcodeproj/xcuserdata/xudianhuan.xcuserdatad/xcschemes vendor/imgui/backends/vulkan vendor/imgui/examples/example_sdl_vulkan vendor/imgui/examples/example_glfw_opengl2 vendor/imgui/examples/example_null vendor/imgui/examples/example_glfw_opengl3 vendor/imgui/examples/example_glut_opengl2 vendor/imgui/examples/example_win32_directx9 vendor/imgui/examples/example_sdl_directx11 vendor/imgui/examples/example_glfw_vulkan vendor/imgui/examples/example_sdl_sdlrenderer vendor/imgui/examples/example_allegro5 vendor/imgui/examples/example_win32_directx10 vendor/imgui/examples/example_glfw_metal vendor/imgui/examples/example_emscripten_wgpu vendor/imgui/examples/example_win32_directx11 vendor/imgui/examples/libs vendor/imgui/examples/example_apple_opengl2 vendor/imgui/examples/example_android_opengl3 vendor/imgui/examples/example_sdl_opengl3 vendor/imgui/examples/example_apple_metal vendor/imgui/examples/example_sdl_opengl2 vendor/imgui/examples/example_sdl_metal vendor/imgui/examples/example_win32_directx12 vendor/imgui/examples/example_emscripten_wgpu/web vendor/imgui/examples/libs/usynergy vendor/imgui/examples/libs/emscripten vendor/imgui/examples/libs/glfw vendor/imgui/examples/libs/glfw/lib-vc2010-64 vendor/imgui/examples/libs/glfw/include vendor/imgui/examples/libs/glfw/lib-vc2010-32 vendor/imgui/examples/libs/glfw/include/GLFW vendor/imgui/examples/example_apple_opengl2/example_apple_opengl2.xcodeproj vendor/imgui/examples/example_android_opengl3/android vendor/imgui/examples/example_android_opengl3/android/app vendor/imgui/examples/example_android_opengl3/android/app/src vendor/imgui/examples/example_android_opengl3/android/app/src/main vendor/imgui/examples/example_android_opengl3/android/app/src/main/java vendor/imgui/examples/example_apple_metal/macOS vendor/imgui/examples/example_apple_metal/example_apple_metal.xcodeproj vendor/imgui/examples/example_apple_metal/iOS vendor/imgui/.github/workflows vendor/spdlog/bench vendor/spdlog/cmake vendor/spdlog/example vendor/spdlog/tests vendor/spdlog/logos vendor/spdlog/scripts vendor/spdlog/.github vendor/spdlog/src vendor/spdlog/include/spdlog vendor/spdlog/include/spdlog/fmt vendor/spdlog/include/spdlog/sinks vendor/spdlog/include/spdlog/details vendor/spdlog/include/spdlog/cfg vendor/spdlog/include/spdlog/fmt/bundled vendor/spdlog/.github/workflows src/Sandbox src/MEL src/MEL/Renderer src/MEL/Input src/MEL/Layer src/MEL/Window src/MEL/Log src/MEL/Events ../.git/objects ../.git/info ../.git/logs ../.git/hooks ../.git/refs ../.git/modules ../.git/objects/0d ../.git/objects/95 ../.git/objects/59 ../.git/objects/0c ../.git/objects/66 ../.git/objects/50 ../.git/objects/68 ../.git/objects/57 ../.git/objects/6f ../.git/objects/9b ../.git/objects/9e ../.git/objects/04 ../.git/objects/32 ../.git/objects/35 ../.git/objects/56 ../.git/objects/3d ../.git/objects/58 ../.git/objects/67 ../.git/objects/0b ../.git/objects/34 ../.git/objects/5a ../.git/objects/33 ../.git/objects/9c ../.git/objects/02 ../.git/objects/a3 ../.git/objects/b5 ../.git/objects/d9 ../.git/objects/ac ../.git/objects/d7 ../.git/objects/d0 ../.git/objects/be ../.git/objects/b3 ../.git/objects/da ../.git/objects/b4 ../.git/objects/a2 ../.git/objects/bd ../.git/objects/d1 ../.git/objects/bc ../.git/objects/d8 ../.git/objects/f3 ../.git/objects/eb ../.git/objects/c7 ../.git/objects/ee ../.git/objects/c9 ../.git/objects/fc ../.git/objects/fd ../.git/objects/f2 ../.git/objects/f5 ../.git/objects/e3 ../.git/objects/cf ../.git/objects/e4 ../.git/objects/fb ../.git/objects/ed ../.git/objects/c6 ../.git/objects/20 ../.git/objects/18 ../.git/objects/27 ../.git/objects/4b ../.git/objects/pack ../.git/objects/11 ../.git/objects/7d ../.git/objects/7c ../.git/objects/16 ../.git/objects/42 ../.git/objects/89 ../.git/objects/45 ../.git/objects/1f ../.git/objects/73 ../.git/objects/87 ../.git/objects/80 ../.git/objects/17 ../.git/objects/7b ../.git/objects/8a ../.git/objects/7e ../.git/objects/10 ../.git/objects/19 ../.git/objects/26 ../.git/objects/75 ../.git/objects/81 ../.git/objects/86 ../.git/objects/2a ../.git/objects/43 ../.git/objects/38 ../.git/objects/00 ../.git/objects/6e ../.git/objects/36 ../.git/objects/5c ../.git/objects/5d ../.git/objects/info ../.git/objects/91 ../.git/objects/65 ../.git/objects/62 ../.git/objects/98 ../.git/objects/53 ../.git/objects/3f ../.git/objects/37 ../.git/objects/08 ../.git/objects/6d ../.git/objects/01 ../.git/objects/06 ../.git/objects/99 ../.git/objects/52 ../.git/objects/55 ../.git/objects/63 ../.git/objects/0f ../.git/objects/0a ../.git/objects/64 ../.git/objects/90 ../.git/objects/d4 ../.git/objects/ba ../.git/objects/a0 ../.git/objects/a7 ../.git/objects/b8 ../.git/objects/b1 ../.git/objects/dd ../.git/objects/dc ../.git/objects/d5 ../.git/objects/d2 ../.git/objects/af ../.git/objects/db ../.git/objects/a8 ../.git/objects/de ../.git/objects/a6 ../.git/objects/ef ../.git/objects/c3 ../.git/objects/c4 ../.git/objects/ea ../.git/objects/cc ../.git/objects/e6 ../.git/objects/f9 ../.git/objects/f0 ../.git/objects/e8 ../.git/objects/ff ../.git/objects/c2 ../.git/objects/f6 ../.git/objects/f8 ../.git/objects/e0 ../.git/objects/46 ../.git/objects/41 ../.git/objects/83 ../.git/objects/77 ../.git/objects/48 ../.git/objects/70 ../.git/objects/1e ../.git/objects/84 ../.git/objects/4a ../.git/objects/24 ../.git/objects/23 ../.git/objects/4f ../.git/objects/8d ../.git/objects/12 ../.git/objects/85 ../.git/objects/1d ../.git/objects/76 ../.git/objects/49 ../.git/objects/2b ../.git/objects/78 ../.git/objects/8b ../.git/objects/13 ../.git/objects/7f ../.git/objects/7a ../.git/objects/14 ../.git/objects/8e ../.git/objects/22 ../.git/logs/refs ../.git/logs/refs/heads ../.git/logs/refs/remotes ../.git/logs/refs/remotes/origin ../.git/refs/heads ../.git/refs/tags ../.git/refs/remotes ../.git/refs/remotes/origin ../.git/modules/MetalLearning ../.git/modules/MetalLearning/vendor ../.git/modules/MetalLearning/src ../.git/modules/MetalLearning/vendor/imgui ../.git/modules/MetalLearning/vendor/spdlog ../.git/modules/MetalLearning/vendor/glm ../.git/modules/MetalLearning/vendor/imgui/objects ../.git/modules/MetalLearning/vendor/imgui/info ../.git/modules/MetalLearning/vendor/imgui/logs ../.git/modules/MetalLearning/vendor/imgui/hooks ../.git/modules/MetalLearning/vendor/imgui/refs ../.git/modules/MetalLearning/vendor/imgui/objects/pack ../.git/modules/MetalLearning/vendor/imgui/objects/info ../.git/modules/MetalLearning/vendor/imgui/logs/refs ../.git/modules/MetalLearning/vendor/imgui/logs/refs/heads ../.git/modules/MetalLearning/vendor/imgui/logs/refs/remotes ../.git/modules/MetalLearning/vendor/imgui/logs/refs/remotes/origin ../.git/modules/MetalLearning/vendor/imgui/refs/heads ../.git/modules/MetalLearning/vendor/imgui/refs/tags ../.git/modules/MetalLearning/vendor/imgui/refs/remotes ../.git/modules/MetalLearning/vendor/imgui/refs/remotes/origin ../.git/modules/MetalLearning/vendor/spdlog/objects ../.git/modules/MetalLearning/vendor/spdlog/info ../.git/modules/MetalLearning/vendor/spdlog/logs ../.git/modules/MetalLearning/vendor/spdlog/hooks ../.git/modules/MetalLearning/vendor/spdlog/refs ../.git/modules/MetalLearning/vendor/spdlog/objects/pack ../.git/modules/MetalLearning/vendor/spdlog/objects/info ../.git/modules/MetalLearning/vendor/spdlog/logs/refs ../.git/modules/MetalLearning/vendor/spdlog/logs/refs/heads ../.git/modules/MetalLearning/vendor/spdlog/logs/refs/remotes ../.git/modules/MetalLearning/vendor/spdlog/logs/refs/remotes/origin ../.git/modules/MetalLearning/vendor/spdlog/refs/heads ../.git/modules/MetalLearning/vendor/spdlog/refs/tags ../.git/modules/MetalLearning/vendor/spdlog/refs/remotes ../.git/modules/MetalLearning/vendor/spdlog/refs/remotes/origin ../.git/modules/MetalLearning/vendor/glm/objects ../.git/modules/MetalLearning/vendor/glm/info ../.git/modules/MetalLearning/vendor/glm/logs ../.git/modules/MetalLearning/vendor/glm/hooks ../.git/modules/MetalLearning/vendor/glm/refs ../.git/modules/MetalLearning/vendor/glm/objects/pack ../.git/modules/MetalLearning/vendor/glm/objects/info ../.git/modules/MetalLearning/vendor/glm/logs/refs ../.git/modules/MetalLearning/vendor/glm/logs/refs/heads ../.git/modules/MetalLearning/vendor/glm/logs/refs/remotes ../.git/modules/MetalLearning/vendor/glm/logs/refs/remotes/origin ../.git/modules/MetalLearning/vendor/glm/refs/heads ../.git/modules/MetalLearning/vendor/glm/refs/tags ../.git/modules/MetalLearning/vendor/glm/refs/remotes ../.git/modules/MetalLearning/vendor/glm/refs/remotes/origin ../.git/modules/MetalLearning/src/vendor ../.git/modules/MetalLearning/src/vendor/objects ../.git/modules/MetalLearning/src/vendor/info ../.git/modules/MetalLearning/src/vendor/logs ../.git/modules/MetalLearning/src/vendor/hooks ../.git/modules/MetalLearning/src/vendor/refs ../.git/modules/MetalLearning/src/vendor/objects/pack ../.git/modules/MetalLearning/src/vendor/objects/info ../.git/modules/MetalLearning/src/vendor/logs/refs ../.git/modules/MetalLearning/src/vendor/logs/refs/heads ../.git/modules/MetalLearning/src/vendor/logs/refs/remotes ../.git/modules/MetalLearning/src/vendor/logs/refs/remotes/origin ../.git/modules/MetalLearning/src/vendor/refs/heads ../.git/modules/MetalLearning/src/vendor/refs/tags ../.git/modules/MetalLearning/src/vendor/refs/remotes ../.git/modules/MetalLearning/src/vendor/refs/remotes/origin ../MEL.xcworkspace/xcuserdata ../MEL.xcworkspace/xcshareddata ../MEL.xcworkspace/xcuserdata/xudianhuan.xcuserdatad ../MEL.xcworkspace/xcshareddata/swiftpm ../MEL.xcworkspace/xcshareddata/swiftpm/configuration ShaderSrc vendor/spdlog/include vendor/imgui";
+				USER_HEADER_SEARCH_PATHS = "../bin . ../.git ../MEL.xcworkspace ../bin/Debug-macosx-x86_64 ../bin/Debug-macosx-x86_64/MetalLearning ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app/Contents ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app/Contents/_CodeSignature ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app/Contents/MacOS ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app/Contents/Resources ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM/Contents ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM/Contents/Resources ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM/Contents/Resources/Relocations ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM/Contents/Resources/DWARF ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM/Contents/Resources/Relocations/aarch64 MetalLearning.xcodeproj assets vendor src MetalLearning.xcodeproj/xcuserdata MetalLearning.xcodeproj/xcuserdata/xudianhuan.xcuserdatad MetalLearning.xcodeproj/xcuserdata/xudianhuan.xcuserdatad/xcschemes assets/textures assets/shaders vendor/spdlog vendor/imgui/misc vendor/imgui/bin vendor/imgui/ImGui.xcodeproj vendor/imgui/backends vendor/imgui/docs vendor/imgui/examples vendor/imgui/.github vendor/imgui/misc/single_file vendor/imgui/misc/freetype vendor/imgui/misc/debuggers vendor/imgui/misc/cpp vendor/imgui/misc/fonts vendor/imgui/bin/Debug-macosx-x86_64 vendor/imgui/bin/Debug-macosx-x86_64/ImGui vendor/imgui/ImGui.xcodeproj/xcuserdata vendor/imgui/ImGui.xcodeproj/xcuserdata/xudianhuan.xcuserdatad vendor/imgui/ImGui.xcodeproj/xcuserdata/xudianhuan.xcuserdatad/xcschemes vendor/imgui/backends/vulkan vendor/imgui/examples/example_sdl_vulkan vendor/imgui/examples/example_glfw_opengl2 vendor/imgui/examples/example_null vendor/imgui/examples/example_glfw_opengl3 vendor/imgui/examples/example_glut_opengl2 vendor/imgui/examples/example_win32_directx9 vendor/imgui/examples/example_sdl_directx11 vendor/imgui/examples/example_glfw_vulkan vendor/imgui/examples/example_sdl_sdlrenderer vendor/imgui/examples/example_allegro5 vendor/imgui/examples/example_win32_directx10 vendor/imgui/examples/example_glfw_metal vendor/imgui/examples/example_emscripten_wgpu vendor/imgui/examples/example_win32_directx11 vendor/imgui/examples/libs vendor/imgui/examples/example_apple_opengl2 vendor/imgui/examples/example_android_opengl3 vendor/imgui/examples/example_sdl_opengl3 vendor/imgui/examples/example_apple_metal vendor/imgui/examples/example_sdl_opengl2 vendor/imgui/examples/example_sdl_metal vendor/imgui/examples/example_win32_directx12 vendor/imgui/examples/example_emscripten_wgpu/web vendor/imgui/examples/libs/usynergy vendor/imgui/examples/libs/emscripten vendor/imgui/examples/libs/glfw vendor/imgui/examples/libs/glfw/lib-vc2010-64 vendor/imgui/examples/libs/glfw/include vendor/imgui/examples/libs/glfw/lib-vc2010-32 vendor/imgui/examples/libs/glfw/include/GLFW vendor/imgui/examples/example_apple_opengl2/example_apple_opengl2.xcodeproj vendor/imgui/examples/example_android_opengl3/android vendor/imgui/examples/example_android_opengl3/android/app vendor/imgui/examples/example_android_opengl3/android/app/src vendor/imgui/examples/example_android_opengl3/android/app/src/main vendor/imgui/examples/example_android_opengl3/android/app/src/main/java vendor/imgui/examples/example_apple_metal/macOS vendor/imgui/examples/example_apple_metal/example_apple_metal.xcodeproj vendor/imgui/examples/example_apple_metal/iOS vendor/imgui/.github/workflows vendor/spdlog/bench vendor/spdlog/cmake vendor/spdlog/example vendor/spdlog/tests vendor/spdlog/logos vendor/spdlog/scripts vendor/spdlog/.github vendor/spdlog/src vendor/spdlog/include/spdlog vendor/spdlog/include/spdlog/fmt vendor/spdlog/include/spdlog/sinks vendor/spdlog/include/spdlog/details vendor/spdlog/include/spdlog/cfg vendor/spdlog/include/spdlog/fmt/bundled vendor/spdlog/.github/workflows src/Sandbox src/MEL src/MEL/Renderer src/MEL/Core src/MEL/Renderer/VertexArray src/MEL/Renderer/Transforms src/MEL/Renderer/Texture src/MEL/Renderer/Shader src/MEL/Renderer/Buffer src/MEL/Core/Input src/MEL/Core/ImGuiLayer src/MEL/Core/Layer src/MEL/Core/Window src/MEL/Core/Log src/MEL/Core/Events src/MEL/Core/ViewController ../.git/objects ../.git/info ../.git/logs ../.git/hooks ../.git/refs ../.git/modules ../.git/objects/61 ../.git/objects/0d ../.git/objects/95 ../.git/objects/59 ../.git/objects/92 ../.git/objects/0c ../.git/objects/66 ../.git/objects/3e ../.git/objects/50 ../.git/objects/68 ../.git/objects/57 ../.git/objects/3b ../.git/objects/6f ../.git/objects/9b ../.git/objects/9e ../.git/objects/04 ../.git/objects/6a ../.git/objects/32 ../.git/objects/35 ../.git/objects/3c ../.git/objects/56 ../.git/objects/51 ../.git/objects/3d ../.git/objects/58 ../.git/objects/67 ../.git/objects/0b ../.git/objects/94 ../.git/objects/60 ../.git/objects/34 ../.git/objects/5a ../.git/objects/5f ../.git/objects/33 ../.git/objects/05 ../.git/objects/9d ../.git/objects/9c ../.git/objects/02 ../.git/objects/a4 ../.git/objects/a3 ../.git/objects/b5 ../.git/objects/d9 ../.git/objects/ac ../.git/objects/bb ../.git/objects/d7 ../.git/objects/d0 ../.git/objects/be ../.git/objects/b3 ../.git/objects/da ../.git/objects/b4 ../.git/objects/a2 ../.git/objects/a5 ../.git/objects/bd ../.git/objects/d1 ../.git/objects/bc ../.git/objects/ae ../.git/objects/d8 ../.git/objects/ab ../.git/objects/e5 ../.git/objects/e2 ../.git/objects/f4 ../.git/objects/f3 ../.git/objects/eb ../.git/objects/c7 ../.git/objects/c0 ../.git/objects/ee ../.git/objects/c9 ../.git/objects/fc ../.git/objects/fd ../.git/objects/f2 ../.git/objects/f5 ../.git/objects/e3 ../.git/objects/cf ../.git/objects/e4 ../.git/objects/fe ../.git/objects/c8 ../.git/objects/fb ../.git/objects/ed ../.git/objects/c1 ../.git/objects/c6 ../.git/objects/ec ../.git/objects/20 ../.git/objects/18 ../.git/objects/27 ../.git/objects/4b ../.git/objects/pack ../.git/objects/11 ../.git/objects/7d ../.git/objects/29 ../.git/objects/7c ../.git/objects/16 ../.git/objects/42 ../.git/objects/89 ../.git/objects/45 ../.git/objects/1f ../.git/objects/73 ../.git/objects/87 ../.git/objects/80 ../.git/objects/1a ../.git/objects/28 ../.git/objects/17 ../.git/objects/7b ../.git/objects/8f ../.git/objects/8a ../.git/objects/7e ../.git/objects/10 ../.git/objects/19 ../.git/objects/4c ../.git/objects/26 ../.git/objects/21 ../.git/objects/75 ../.git/objects/81 ../.git/objects/86 ../.git/objects/72 ../.git/objects/2a ../.git/objects/2f ../.git/objects/43 ../.git/objects/88 ../.git/objects/9f ../.git/objects/6b ../.git/objects/07 ../.git/objects/38 ../.git/objects/00 ../.git/objects/6e ../.git/objects/9a ../.git/objects/36 ../.git/objects/5c ../.git/objects/09 ../.git/objects/5d ../.git/objects/info ../.git/objects/91 ../.git/objects/65 ../.git/objects/62 ../.git/objects/98 ../.git/objects/53 ../.git/objects/3f ../.git/objects/5b ../.git/objects/37 ../.git/objects/08 ../.git/objects/6d ../.git/objects/01 ../.git/objects/06 ../.git/objects/6c ../.git/objects/99 ../.git/objects/52 ../.git/objects/55 ../.git/objects/97 ../.git/objects/63 ../.git/objects/0f ../.git/objects/0a ../.git/objects/64 ../.git/objects/90 ../.git/objects/d4 ../.git/objects/ba ../.git/objects/a0 ../.git/objects/a7 ../.git/objects/b8 ../.git/objects/b1 ../.git/objects/dd ../.git/objects/dc ../.git/objects/b6 ../.git/objects/a9 ../.git/objects/d5 ../.git/objects/d2 ../.git/objects/aa ../.git/objects/af ../.git/objects/db ../.git/objects/a8 ../.git/objects/de ../.git/objects/a6 ../.git/objects/b9 ../.git/objects/a1 ../.git/objects/ef ../.git/objects/c3 ../.git/objects/c4 ../.git/objects/ea ../.git/objects/e1 ../.git/objects/cc ../.git/objects/e6 ../.git/objects/f9 ../.git/objects/f0 ../.git/objects/f7 ../.git/objects/e8 ../.git/objects/fa ../.git/objects/ff ../.git/objects/c5 ../.git/objects/c2 ../.git/objects/f6 ../.git/objects/e9 ../.git/objects/cb ../.git/objects/f8 ../.git/objects/ce ../.git/objects/e0 ../.git/objects/46 ../.git/objects/79 ../.git/objects/2d ../.git/objects/41 ../.git/objects/83 ../.git/objects/1b ../.git/objects/77 ../.git/objects/48 ../.git/objects/70 ../.git/objects/1e ../.git/objects/84 ../.git/objects/4a ../.git/objects/24 ../.git/objects/23 ../.git/objects/4f ../.git/objects/8d ../.git/objects/15 ../.git/objects/12 ../.git/objects/8c ../.git/objects/85 ../.git/objects/1d ../.git/objects/76 ../.git/objects/1c ../.git/objects/82 ../.git/objects/49 ../.git/objects/40 ../.git/objects/2e ../.git/objects/2b ../.git/objects/47 ../.git/objects/78 ../.git/objects/8b ../.git/objects/13 ../.git/objects/7f ../.git/objects/7a ../.git/objects/14 ../.git/objects/8e ../.git/objects/22 ../.git/objects/25 ../.git/logs/refs ../.git/logs/refs/heads ../.git/logs/refs/remotes ../.git/logs/refs/remotes/origin ../.git/logs/refs/remotes/mirror ../.git/refs/heads ../.git/refs/tags ../.git/refs/remotes ../.git/refs/remotes/origin ../.git/refs/remotes/mirror ../.git/modules/MetalLearning ../.git/modules/MetalLearning/vendor ../.git/modules/MetalLearning/src ../.git/modules/MetalLearning/vendor/imgui ../.git/modules/MetalLearning/vendor/spdlog ../.git/modules/MetalLearning/vendor/glm ../.git/modules/MetalLearning/vendor/imgui/objects ../.git/modules/MetalLearning/vendor/imgui/info ../.git/modules/MetalLearning/vendor/imgui/logs ../.git/modules/MetalLearning/vendor/imgui/hooks ../.git/modules/MetalLearning/vendor/imgui/refs ../.git/modules/MetalLearning/vendor/imgui/objects/pack ../.git/modules/MetalLearning/vendor/imgui/objects/info ../.git/modules/MetalLearning/vendor/imgui/logs/refs ../.git/modules/MetalLearning/vendor/imgui/logs/refs/heads ../.git/modules/MetalLearning/vendor/imgui/logs/refs/remotes ../.git/modules/MetalLearning/vendor/imgui/logs/refs/remotes/origin ../.git/modules/MetalLearning/vendor/imgui/refs/heads ../.git/modules/MetalLearning/vendor/imgui/refs/tags ../.git/modules/MetalLearning/vendor/imgui/refs/remotes ../.git/modules/MetalLearning/vendor/imgui/refs/remotes/origin ../.git/modules/MetalLearning/vendor/spdlog/objects ../.git/modules/MetalLearning/vendor/spdlog/info ../.git/modules/MetalLearning/vendor/spdlog/logs ../.git/modules/MetalLearning/vendor/spdlog/hooks ../.git/modules/MetalLearning/vendor/spdlog/refs ../.git/modules/MetalLearning/vendor/spdlog/objects/pack ../.git/modules/MetalLearning/vendor/spdlog/objects/info ../.git/modules/MetalLearning/vendor/spdlog/logs/refs ../.git/modules/MetalLearning/vendor/spdlog/logs/refs/heads ../.git/modules/MetalLearning/vendor/spdlog/logs/refs/remotes ../.git/modules/MetalLearning/vendor/spdlog/logs/refs/remotes/origin ../.git/modules/MetalLearning/vendor/spdlog/refs/heads ../.git/modules/MetalLearning/vendor/spdlog/refs/tags ../.git/modules/MetalLearning/vendor/spdlog/refs/remotes ../.git/modules/MetalLearning/vendor/spdlog/refs/remotes/origin ../.git/modules/MetalLearning/vendor/glm/objects ../.git/modules/MetalLearning/vendor/glm/info ../.git/modules/MetalLearning/vendor/glm/logs ../.git/modules/MetalLearning/vendor/glm/hooks ../.git/modules/MetalLearning/vendor/glm/refs ../.git/modules/MetalLearning/vendor/glm/objects/pack ../.git/modules/MetalLearning/vendor/glm/objects/info ../.git/modules/MetalLearning/vendor/glm/logs/refs ../.git/modules/MetalLearning/vendor/glm/logs/refs/heads ../.git/modules/MetalLearning/vendor/glm/logs/refs/remotes ../.git/modules/MetalLearning/vendor/glm/logs/refs/remotes/origin ../.git/modules/MetalLearning/vendor/glm/refs/heads ../.git/modules/MetalLearning/vendor/glm/refs/tags ../.git/modules/MetalLearning/vendor/glm/refs/remotes ../.git/modules/MetalLearning/vendor/glm/refs/remotes/origin ../.git/modules/MetalLearning/src/vendor ../.git/modules/MetalLearning/src/vendor/objects ../.git/modules/MetalLearning/src/vendor/info ../.git/modules/MetalLearning/src/vendor/logs ../.git/modules/MetalLearning/src/vendor/hooks ../.git/modules/MetalLearning/src/vendor/refs ../.git/modules/MetalLearning/src/vendor/objects/pack ../.git/modules/MetalLearning/src/vendor/objects/info ../.git/modules/MetalLearning/src/vendor/logs/refs ../.git/modules/MetalLearning/src/vendor/logs/refs/heads ../.git/modules/MetalLearning/src/vendor/logs/refs/remotes ../.git/modules/MetalLearning/src/vendor/logs/refs/remotes/origin ../.git/modules/MetalLearning/src/vendor/refs/heads ../.git/modules/MetalLearning/src/vendor/refs/tags ../.git/modules/MetalLearning/src/vendor/refs/remotes ../.git/modules/MetalLearning/src/vendor/refs/remotes/origin ../MEL.xcworkspace/xcuserdata ../MEL.xcworkspace/xcshareddata ../MEL.xcworkspace/xcuserdata/xudianhuan.xcuserdatad ../MEL.xcworkspace/xcshareddata/swiftpm ../MEL.xcworkspace/xcshareddata/swiftpm/configuration ShaderSrc vendor/spdlog/include vendor/imgui";
 			};
 			name = Debug;
 		};
@@ -613,7 +666,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = static;
 				SYMROOT = "../bin/Release-macosx-x86_64/MetalLearning";
-				USER_HEADER_SEARCH_PATHS = "../bin . ../.git ../MEL.xcworkspace ../bin/Debug-macosx-x86_64 ../bin/Debug-macosx-x86_64/MetalLearning ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app/Contents ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app/Contents/_CodeSignature ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app/Contents/MacOS ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app/Contents/Resources ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM/Contents ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM/Contents/Resources ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM/Contents/Resources/Relocations ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM/Contents/Resources/DWARF ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM/Contents/Resources/Relocations/aarch64 MetalLearning.xcodeproj vendor src MetalLearning.xcodeproj/xcuserdata MetalLearning.xcodeproj/xcuserdata/xudianhuan.xcuserdatad MetalLearning.xcodeproj/xcuserdata/xudianhuan.xcuserdatad/xcschemes vendor/spdlog vendor/imgui/misc vendor/imgui/bin vendor/imgui/ImGui.xcodeproj vendor/imgui/backends vendor/imgui/docs vendor/imgui/examples vendor/imgui/.github vendor/imgui/misc/single_file vendor/imgui/misc/freetype vendor/imgui/misc/debuggers vendor/imgui/misc/cpp vendor/imgui/misc/fonts vendor/imgui/bin/Debug-macosx-x86_64 vendor/imgui/bin/Debug-macosx-x86_64/ImGui vendor/imgui/ImGui.xcodeproj/xcuserdata vendor/imgui/ImGui.xcodeproj/xcuserdata/xudianhuan.xcuserdatad vendor/imgui/ImGui.xcodeproj/xcuserdata/xudianhuan.xcuserdatad/xcschemes vendor/imgui/backends/vulkan vendor/imgui/examples/example_sdl_vulkan vendor/imgui/examples/example_glfw_opengl2 vendor/imgui/examples/example_null vendor/imgui/examples/example_glfw_opengl3 vendor/imgui/examples/example_glut_opengl2 vendor/imgui/examples/example_win32_directx9 vendor/imgui/examples/example_sdl_directx11 vendor/imgui/examples/example_glfw_vulkan vendor/imgui/examples/example_sdl_sdlrenderer vendor/imgui/examples/example_allegro5 vendor/imgui/examples/example_win32_directx10 vendor/imgui/examples/example_glfw_metal vendor/imgui/examples/example_emscripten_wgpu vendor/imgui/examples/example_win32_directx11 vendor/imgui/examples/libs vendor/imgui/examples/example_apple_opengl2 vendor/imgui/examples/example_android_opengl3 vendor/imgui/examples/example_sdl_opengl3 vendor/imgui/examples/example_apple_metal vendor/imgui/examples/example_sdl_opengl2 vendor/imgui/examples/example_sdl_metal vendor/imgui/examples/example_win32_directx12 vendor/imgui/examples/example_emscripten_wgpu/web vendor/imgui/examples/libs/usynergy vendor/imgui/examples/libs/emscripten vendor/imgui/examples/libs/glfw vendor/imgui/examples/libs/glfw/lib-vc2010-64 vendor/imgui/examples/libs/glfw/include vendor/imgui/examples/libs/glfw/lib-vc2010-32 vendor/imgui/examples/libs/glfw/include/GLFW vendor/imgui/examples/example_apple_opengl2/example_apple_opengl2.xcodeproj vendor/imgui/examples/example_android_opengl3/android vendor/imgui/examples/example_android_opengl3/android/app vendor/imgui/examples/example_android_opengl3/android/app/src vendor/imgui/examples/example_android_opengl3/android/app/src/main vendor/imgui/examples/example_android_opengl3/android/app/src/main/java vendor/imgui/examples/example_apple_metal/macOS vendor/imgui/examples/example_apple_metal/example_apple_metal.xcodeproj vendor/imgui/examples/example_apple_metal/iOS vendor/imgui/.github/workflows vendor/spdlog/bench vendor/spdlog/cmake vendor/spdlog/example vendor/spdlog/tests vendor/spdlog/logos vendor/spdlog/scripts vendor/spdlog/.github vendor/spdlog/src vendor/spdlog/include/spdlog vendor/spdlog/include/spdlog/fmt vendor/spdlog/include/spdlog/sinks vendor/spdlog/include/spdlog/details vendor/spdlog/include/spdlog/cfg vendor/spdlog/include/spdlog/fmt/bundled vendor/spdlog/.github/workflows src/Sandbox src/MEL src/MEL/Renderer src/MEL/Input src/MEL/Layer src/MEL/Window src/MEL/Log src/MEL/Events ../.git/objects ../.git/info ../.git/logs ../.git/hooks ../.git/refs ../.git/modules ../.git/objects/0d ../.git/objects/95 ../.git/objects/59 ../.git/objects/0c ../.git/objects/66 ../.git/objects/50 ../.git/objects/68 ../.git/objects/57 ../.git/objects/6f ../.git/objects/9b ../.git/objects/9e ../.git/objects/04 ../.git/objects/32 ../.git/objects/35 ../.git/objects/56 ../.git/objects/3d ../.git/objects/58 ../.git/objects/67 ../.git/objects/0b ../.git/objects/34 ../.git/objects/5a ../.git/objects/33 ../.git/objects/9c ../.git/objects/02 ../.git/objects/a3 ../.git/objects/b5 ../.git/objects/d9 ../.git/objects/ac ../.git/objects/d7 ../.git/objects/d0 ../.git/objects/be ../.git/objects/b3 ../.git/objects/da ../.git/objects/b4 ../.git/objects/a2 ../.git/objects/bd ../.git/objects/d1 ../.git/objects/bc ../.git/objects/d8 ../.git/objects/f3 ../.git/objects/eb ../.git/objects/c7 ../.git/objects/ee ../.git/objects/c9 ../.git/objects/fc ../.git/objects/fd ../.git/objects/f2 ../.git/objects/f5 ../.git/objects/e3 ../.git/objects/cf ../.git/objects/e4 ../.git/objects/fb ../.git/objects/ed ../.git/objects/c6 ../.git/objects/20 ../.git/objects/18 ../.git/objects/27 ../.git/objects/4b ../.git/objects/pack ../.git/objects/11 ../.git/objects/7d ../.git/objects/7c ../.git/objects/16 ../.git/objects/42 ../.git/objects/89 ../.git/objects/45 ../.git/objects/1f ../.git/objects/73 ../.git/objects/87 ../.git/objects/80 ../.git/objects/17 ../.git/objects/7b ../.git/objects/8a ../.git/objects/7e ../.git/objects/10 ../.git/objects/19 ../.git/objects/26 ../.git/objects/75 ../.git/objects/81 ../.git/objects/86 ../.git/objects/2a ../.git/objects/43 ../.git/objects/38 ../.git/objects/00 ../.git/objects/6e ../.git/objects/36 ../.git/objects/5c ../.git/objects/5d ../.git/objects/info ../.git/objects/91 ../.git/objects/65 ../.git/objects/62 ../.git/objects/98 ../.git/objects/53 ../.git/objects/3f ../.git/objects/37 ../.git/objects/08 ../.git/objects/6d ../.git/objects/01 ../.git/objects/06 ../.git/objects/99 ../.git/objects/52 ../.git/objects/55 ../.git/objects/63 ../.git/objects/0f ../.git/objects/0a ../.git/objects/64 ../.git/objects/90 ../.git/objects/d4 ../.git/objects/ba ../.git/objects/a0 ../.git/objects/a7 ../.git/objects/b8 ../.git/objects/b1 ../.git/objects/dd ../.git/objects/dc ../.git/objects/d5 ../.git/objects/d2 ../.git/objects/af ../.git/objects/db ../.git/objects/a8 ../.git/objects/de ../.git/objects/a6 ../.git/objects/ef ../.git/objects/c3 ../.git/objects/c4 ../.git/objects/ea ../.git/objects/cc ../.git/objects/e6 ../.git/objects/f9 ../.git/objects/f0 ../.git/objects/e8 ../.git/objects/ff ../.git/objects/c2 ../.git/objects/f6 ../.git/objects/f8 ../.git/objects/e0 ../.git/objects/46 ../.git/objects/41 ../.git/objects/83 ../.git/objects/77 ../.git/objects/48 ../.git/objects/70 ../.git/objects/1e ../.git/objects/84 ../.git/objects/4a ../.git/objects/24 ../.git/objects/23 ../.git/objects/4f ../.git/objects/8d ../.git/objects/12 ../.git/objects/85 ../.git/objects/1d ../.git/objects/76 ../.git/objects/49 ../.git/objects/2b ../.git/objects/78 ../.git/objects/8b ../.git/objects/13 ../.git/objects/7f ../.git/objects/7a ../.git/objects/14 ../.git/objects/8e ../.git/objects/22 ../.git/logs/refs ../.git/logs/refs/heads ../.git/logs/refs/remotes ../.git/logs/refs/remotes/origin ../.git/refs/heads ../.git/refs/tags ../.git/refs/remotes ../.git/refs/remotes/origin ../.git/modules/MetalLearning ../.git/modules/MetalLearning/vendor ../.git/modules/MetalLearning/src ../.git/modules/MetalLearning/vendor/imgui ../.git/modules/MetalLearning/vendor/spdlog ../.git/modules/MetalLearning/vendor/glm ../.git/modules/MetalLearning/vendor/imgui/objects ../.git/modules/MetalLearning/vendor/imgui/info ../.git/modules/MetalLearning/vendor/imgui/logs ../.git/modules/MetalLearning/vendor/imgui/hooks ../.git/modules/MetalLearning/vendor/imgui/refs ../.git/modules/MetalLearning/vendor/imgui/objects/pack ../.git/modules/MetalLearning/vendor/imgui/objects/info ../.git/modules/MetalLearning/vendor/imgui/logs/refs ../.git/modules/MetalLearning/vendor/imgui/logs/refs/heads ../.git/modules/MetalLearning/vendor/imgui/logs/refs/remotes ../.git/modules/MetalLearning/vendor/imgui/logs/refs/remotes/origin ../.git/modules/MetalLearning/vendor/imgui/refs/heads ../.git/modules/MetalLearning/vendor/imgui/refs/tags ../.git/modules/MetalLearning/vendor/imgui/refs/remotes ../.git/modules/MetalLearning/vendor/imgui/refs/remotes/origin ../.git/modules/MetalLearning/vendor/spdlog/objects ../.git/modules/MetalLearning/vendor/spdlog/info ../.git/modules/MetalLearning/vendor/spdlog/logs ../.git/modules/MetalLearning/vendor/spdlog/hooks ../.git/modules/MetalLearning/vendor/spdlog/refs ../.git/modules/MetalLearning/vendor/spdlog/objects/pack ../.git/modules/MetalLearning/vendor/spdlog/objects/info ../.git/modules/MetalLearning/vendor/spdlog/logs/refs ../.git/modules/MetalLearning/vendor/spdlog/logs/refs/heads ../.git/modules/MetalLearning/vendor/spdlog/logs/refs/remotes ../.git/modules/MetalLearning/vendor/spdlog/logs/refs/remotes/origin ../.git/modules/MetalLearning/vendor/spdlog/refs/heads ../.git/modules/MetalLearning/vendor/spdlog/refs/tags ../.git/modules/MetalLearning/vendor/spdlog/refs/remotes ../.git/modules/MetalLearning/vendor/spdlog/refs/remotes/origin ../.git/modules/MetalLearning/vendor/glm/objects ../.git/modules/MetalLearning/vendor/glm/info ../.git/modules/MetalLearning/vendor/glm/logs ../.git/modules/MetalLearning/vendor/glm/hooks ../.git/modules/MetalLearning/vendor/glm/refs ../.git/modules/MetalLearning/vendor/glm/objects/pack ../.git/modules/MetalLearning/vendor/glm/objects/info ../.git/modules/MetalLearning/vendor/glm/logs/refs ../.git/modules/MetalLearning/vendor/glm/logs/refs/heads ../.git/modules/MetalLearning/vendor/glm/logs/refs/remotes ../.git/modules/MetalLearning/vendor/glm/logs/refs/remotes/origin ../.git/modules/MetalLearning/vendor/glm/refs/heads ../.git/modules/MetalLearning/vendor/glm/refs/tags ../.git/modules/MetalLearning/vendor/glm/refs/remotes ../.git/modules/MetalLearning/vendor/glm/refs/remotes/origin ../.git/modules/MetalLearning/src/vendor ../.git/modules/MetalLearning/src/vendor/objects ../.git/modules/MetalLearning/src/vendor/info ../.git/modules/MetalLearning/src/vendor/logs ../.git/modules/MetalLearning/src/vendor/hooks ../.git/modules/MetalLearning/src/vendor/refs ../.git/modules/MetalLearning/src/vendor/objects/pack ../.git/modules/MetalLearning/src/vendor/objects/info ../.git/modules/MetalLearning/src/vendor/logs/refs ../.git/modules/MetalLearning/src/vendor/logs/refs/heads ../.git/modules/MetalLearning/src/vendor/logs/refs/remotes ../.git/modules/MetalLearning/src/vendor/logs/refs/remotes/origin ../.git/modules/MetalLearning/src/vendor/refs/heads ../.git/modules/MetalLearning/src/vendor/refs/tags ../.git/modules/MetalLearning/src/vendor/refs/remotes ../.git/modules/MetalLearning/src/vendor/refs/remotes/origin ../MEL.xcworkspace/xcuserdata ../MEL.xcworkspace/xcshareddata ../MEL.xcworkspace/xcuserdata/xudianhuan.xcuserdatad ../MEL.xcworkspace/xcshareddata/swiftpm ../MEL.xcworkspace/xcshareddata/swiftpm/configuration ShaderSrc vendor/spdlog/include vendor/imgui";
+				USER_HEADER_SEARCH_PATHS = "../bin . ../.git ../MEL.xcworkspace ../bin/Debug-macosx-x86_64 ../bin/Debug-macosx-x86_64/MetalLearning ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app/Contents ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app/Contents/_CodeSignature ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app/Contents/MacOS ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app/Contents/Resources ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM/Contents ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM/Contents/Resources ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM/Contents/Resources/Relocations ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM/Contents/Resources/DWARF ../bin/Debug-macosx-x86_64/MetalLearning/MetalLearning.app.dSYM/Contents/Resources/Relocations/aarch64 MetalLearning.xcodeproj assets vendor src MetalLearning.xcodeproj/xcuserdata MetalLearning.xcodeproj/xcuserdata/xudianhuan.xcuserdatad MetalLearning.xcodeproj/xcuserdata/xudianhuan.xcuserdatad/xcschemes assets/textures assets/shaders vendor/spdlog vendor/imgui/misc vendor/imgui/bin vendor/imgui/ImGui.xcodeproj vendor/imgui/backends vendor/imgui/docs vendor/imgui/examples vendor/imgui/.github vendor/imgui/misc/single_file vendor/imgui/misc/freetype vendor/imgui/misc/debuggers vendor/imgui/misc/cpp vendor/imgui/misc/fonts vendor/imgui/bin/Debug-macosx-x86_64 vendor/imgui/bin/Debug-macosx-x86_64/ImGui vendor/imgui/ImGui.xcodeproj/xcuserdata vendor/imgui/ImGui.xcodeproj/xcuserdata/xudianhuan.xcuserdatad vendor/imgui/ImGui.xcodeproj/xcuserdata/xudianhuan.xcuserdatad/xcschemes vendor/imgui/backends/vulkan vendor/imgui/examples/example_sdl_vulkan vendor/imgui/examples/example_glfw_opengl2 vendor/imgui/examples/example_null vendor/imgui/examples/example_glfw_opengl3 vendor/imgui/examples/example_glut_opengl2 vendor/imgui/examples/example_win32_directx9 vendor/imgui/examples/example_sdl_directx11 vendor/imgui/examples/example_glfw_vulkan vendor/imgui/examples/example_sdl_sdlrenderer vendor/imgui/examples/example_allegro5 vendor/imgui/examples/example_win32_directx10 vendor/imgui/examples/example_glfw_metal vendor/imgui/examples/example_emscripten_wgpu vendor/imgui/examples/example_win32_directx11 vendor/imgui/examples/libs vendor/imgui/examples/example_apple_opengl2 vendor/imgui/examples/example_android_opengl3 vendor/imgui/examples/example_sdl_opengl3 vendor/imgui/examples/example_apple_metal vendor/imgui/examples/example_sdl_opengl2 vendor/imgui/examples/example_sdl_metal vendor/imgui/examples/example_win32_directx12 vendor/imgui/examples/example_emscripten_wgpu/web vendor/imgui/examples/libs/usynergy vendor/imgui/examples/libs/emscripten vendor/imgui/examples/libs/glfw vendor/imgui/examples/libs/glfw/lib-vc2010-64 vendor/imgui/examples/libs/glfw/include vendor/imgui/examples/libs/glfw/lib-vc2010-32 vendor/imgui/examples/libs/glfw/include/GLFW vendor/imgui/examples/example_apple_opengl2/example_apple_opengl2.xcodeproj vendor/imgui/examples/example_android_opengl3/android vendor/imgui/examples/example_android_opengl3/android/app vendor/imgui/examples/example_android_opengl3/android/app/src vendor/imgui/examples/example_android_opengl3/android/app/src/main vendor/imgui/examples/example_android_opengl3/android/app/src/main/java vendor/imgui/examples/example_apple_metal/macOS vendor/imgui/examples/example_apple_metal/example_apple_metal.xcodeproj vendor/imgui/examples/example_apple_metal/iOS vendor/imgui/.github/workflows vendor/spdlog/bench vendor/spdlog/cmake vendor/spdlog/example vendor/spdlog/tests vendor/spdlog/logos vendor/spdlog/scripts vendor/spdlog/.github vendor/spdlog/src vendor/spdlog/include/spdlog vendor/spdlog/include/spdlog/fmt vendor/spdlog/include/spdlog/sinks vendor/spdlog/include/spdlog/details vendor/spdlog/include/spdlog/cfg vendor/spdlog/include/spdlog/fmt/bundled vendor/spdlog/.github/workflows src/Sandbox src/MEL src/MEL/Renderer src/MEL/Core src/MEL/Renderer/VertexArray src/MEL/Renderer/Transforms src/MEL/Renderer/Texture src/MEL/Renderer/Shader src/MEL/Renderer/Buffer src/MEL/Core/Input src/MEL/Core/ImGuiLayer src/MEL/Core/Layer src/MEL/Core/Window src/MEL/Core/Log src/MEL/Core/Events src/MEL/Core/ViewController ../.git/objects ../.git/info ../.git/logs ../.git/hooks ../.git/refs ../.git/modules ../.git/objects/61 ../.git/objects/0d ../.git/objects/95 ../.git/objects/59 ../.git/objects/92 ../.git/objects/0c ../.git/objects/66 ../.git/objects/3e ../.git/objects/50 ../.git/objects/68 ../.git/objects/57 ../.git/objects/3b ../.git/objects/6f ../.git/objects/9b ../.git/objects/9e ../.git/objects/04 ../.git/objects/6a ../.git/objects/32 ../.git/objects/35 ../.git/objects/3c ../.git/objects/56 ../.git/objects/51 ../.git/objects/3d ../.git/objects/58 ../.git/objects/67 ../.git/objects/0b ../.git/objects/94 ../.git/objects/60 ../.git/objects/34 ../.git/objects/5a ../.git/objects/5f ../.git/objects/33 ../.git/objects/05 ../.git/objects/9d ../.git/objects/9c ../.git/objects/02 ../.git/objects/a4 ../.git/objects/a3 ../.git/objects/b5 ../.git/objects/d9 ../.git/objects/ac ../.git/objects/bb ../.git/objects/d7 ../.git/objects/d0 ../.git/objects/be ../.git/objects/b3 ../.git/objects/da ../.git/objects/b4 ../.git/objects/a2 ../.git/objects/a5 ../.git/objects/bd ../.git/objects/d1 ../.git/objects/bc ../.git/objects/ae ../.git/objects/d8 ../.git/objects/ab ../.git/objects/e5 ../.git/objects/e2 ../.git/objects/f4 ../.git/objects/f3 ../.git/objects/eb ../.git/objects/c7 ../.git/objects/c0 ../.git/objects/ee ../.git/objects/c9 ../.git/objects/fc ../.git/objects/fd ../.git/objects/f2 ../.git/objects/f5 ../.git/objects/e3 ../.git/objects/cf ../.git/objects/e4 ../.git/objects/fe ../.git/objects/c8 ../.git/objects/fb ../.git/objects/ed ../.git/objects/c1 ../.git/objects/c6 ../.git/objects/ec ../.git/objects/20 ../.git/objects/18 ../.git/objects/27 ../.git/objects/4b ../.git/objects/pack ../.git/objects/11 ../.git/objects/7d ../.git/objects/29 ../.git/objects/7c ../.git/objects/16 ../.git/objects/42 ../.git/objects/89 ../.git/objects/45 ../.git/objects/1f ../.git/objects/73 ../.git/objects/87 ../.git/objects/80 ../.git/objects/1a ../.git/objects/28 ../.git/objects/17 ../.git/objects/7b ../.git/objects/8f ../.git/objects/8a ../.git/objects/7e ../.git/objects/10 ../.git/objects/19 ../.git/objects/4c ../.git/objects/26 ../.git/objects/21 ../.git/objects/75 ../.git/objects/81 ../.git/objects/86 ../.git/objects/72 ../.git/objects/2a ../.git/objects/2f ../.git/objects/43 ../.git/objects/88 ../.git/objects/9f ../.git/objects/6b ../.git/objects/07 ../.git/objects/38 ../.git/objects/00 ../.git/objects/6e ../.git/objects/9a ../.git/objects/36 ../.git/objects/5c ../.git/objects/09 ../.git/objects/5d ../.git/objects/info ../.git/objects/91 ../.git/objects/65 ../.git/objects/62 ../.git/objects/98 ../.git/objects/53 ../.git/objects/3f ../.git/objects/5b ../.git/objects/37 ../.git/objects/08 ../.git/objects/6d ../.git/objects/01 ../.git/objects/06 ../.git/objects/6c ../.git/objects/99 ../.git/objects/52 ../.git/objects/55 ../.git/objects/97 ../.git/objects/63 ../.git/objects/0f ../.git/objects/0a ../.git/objects/64 ../.git/objects/90 ../.git/objects/d4 ../.git/objects/ba ../.git/objects/a0 ../.git/objects/a7 ../.git/objects/b8 ../.git/objects/b1 ../.git/objects/dd ../.git/objects/dc ../.git/objects/b6 ../.git/objects/a9 ../.git/objects/d5 ../.git/objects/d2 ../.git/objects/aa ../.git/objects/af ../.git/objects/db ../.git/objects/a8 ../.git/objects/de ../.git/objects/a6 ../.git/objects/b9 ../.git/objects/a1 ../.git/objects/ef ../.git/objects/c3 ../.git/objects/c4 ../.git/objects/ea ../.git/objects/e1 ../.git/objects/cc ../.git/objects/e6 ../.git/objects/f9 ../.git/objects/f0 ../.git/objects/f7 ../.git/objects/e8 ../.git/objects/fa ../.git/objects/ff ../.git/objects/c5 ../.git/objects/c2 ../.git/objects/f6 ../.git/objects/e9 ../.git/objects/cb ../.git/objects/f8 ../.git/objects/ce ../.git/objects/e0 ../.git/objects/46 ../.git/objects/79 ../.git/objects/2d ../.git/objects/41 ../.git/objects/83 ../.git/objects/1b ../.git/objects/77 ../.git/objects/48 ../.git/objects/70 ../.git/objects/1e ../.git/objects/84 ../.git/objects/4a ../.git/objects/24 ../.git/objects/23 ../.git/objects/4f ../.git/objects/8d ../.git/objects/15 ../.git/objects/12 ../.git/objects/8c ../.git/objects/85 ../.git/objects/1d ../.git/objects/76 ../.git/objects/1c ../.git/objects/82 ../.git/objects/49 ../.git/objects/40 ../.git/objects/2e ../.git/objects/2b ../.git/objects/47 ../.git/objects/78 ../.git/objects/8b ../.git/objects/13 ../.git/objects/7f ../.git/objects/7a ../.git/objects/14 ../.git/objects/8e ../.git/objects/22 ../.git/objects/25 ../.git/logs/refs ../.git/logs/refs/heads ../.git/logs/refs/remotes ../.git/logs/refs/remotes/origin ../.git/logs/refs/remotes/mirror ../.git/refs/heads ../.git/refs/tags ../.git/refs/remotes ../.git/refs/remotes/origin ../.git/refs/remotes/mirror ../.git/modules/MetalLearning ../.git/modules/MetalLearning/vendor ../.git/modules/MetalLearning/src ../.git/modules/MetalLearning/vendor/imgui ../.git/modules/MetalLearning/vendor/spdlog ../.git/modules/MetalLearning/vendor/glm ../.git/modules/MetalLearning/vendor/imgui/objects ../.git/modules/MetalLearning/vendor/imgui/info ../.git/modules/MetalLearning/vendor/imgui/logs ../.git/modules/MetalLearning/vendor/imgui/hooks ../.git/modules/MetalLearning/vendor/imgui/refs ../.git/modules/MetalLearning/vendor/imgui/objects/pack ../.git/modules/MetalLearning/vendor/imgui/objects/info ../.git/modules/MetalLearning/vendor/imgui/logs/refs ../.git/modules/MetalLearning/vendor/imgui/logs/refs/heads ../.git/modules/MetalLearning/vendor/imgui/logs/refs/remotes ../.git/modules/MetalLearning/vendor/imgui/logs/refs/remotes/origin ../.git/modules/MetalLearning/vendor/imgui/refs/heads ../.git/modules/MetalLearning/vendor/imgui/refs/tags ../.git/modules/MetalLearning/vendor/imgui/refs/remotes ../.git/modules/MetalLearning/vendor/imgui/refs/remotes/origin ../.git/modules/MetalLearning/vendor/spdlog/objects ../.git/modules/MetalLearning/vendor/spdlog/info ../.git/modules/MetalLearning/vendor/spdlog/logs ../.git/modules/MetalLearning/vendor/spdlog/hooks ../.git/modules/MetalLearning/vendor/spdlog/refs ../.git/modules/MetalLearning/vendor/spdlog/objects/pack ../.git/modules/MetalLearning/vendor/spdlog/objects/info ../.git/modules/MetalLearning/vendor/spdlog/logs/refs ../.git/modules/MetalLearning/vendor/spdlog/logs/refs/heads ../.git/modules/MetalLearning/vendor/spdlog/logs/refs/remotes ../.git/modules/MetalLearning/vendor/spdlog/logs/refs/remotes/origin ../.git/modules/MetalLearning/vendor/spdlog/refs/heads ../.git/modules/MetalLearning/vendor/spdlog/refs/tags ../.git/modules/MetalLearning/vendor/spdlog/refs/remotes ../.git/modules/MetalLearning/vendor/spdlog/refs/remotes/origin ../.git/modules/MetalLearning/vendor/glm/objects ../.git/modules/MetalLearning/vendor/glm/info ../.git/modules/MetalLearning/vendor/glm/logs ../.git/modules/MetalLearning/vendor/glm/hooks ../.git/modules/MetalLearning/vendor/glm/refs ../.git/modules/MetalLearning/vendor/glm/objects/pack ../.git/modules/MetalLearning/vendor/glm/objects/info ../.git/modules/MetalLearning/vendor/glm/logs/refs ../.git/modules/MetalLearning/vendor/glm/logs/refs/heads ../.git/modules/MetalLearning/vendor/glm/logs/refs/remotes ../.git/modules/MetalLearning/vendor/glm/logs/refs/remotes/origin ../.git/modules/MetalLearning/vendor/glm/refs/heads ../.git/modules/MetalLearning/vendor/glm/refs/tags ../.git/modules/MetalLearning/vendor/glm/refs/remotes ../.git/modules/MetalLearning/vendor/glm/refs/remotes/origin ../.git/modules/MetalLearning/src/vendor ../.git/modules/MetalLearning/src/vendor/objects ../.git/modules/MetalLearning/src/vendor/info ../.git/modules/MetalLearning/src/vendor/logs ../.git/modules/MetalLearning/src/vendor/hooks ../.git/modules/MetalLearning/src/vendor/refs ../.git/modules/MetalLearning/src/vendor/objects/pack ../.git/modules/MetalLearning/src/vendor/objects/info ../.git/modules/MetalLearning/src/vendor/logs/refs ../.git/modules/MetalLearning/src/vendor/logs/refs/heads ../.git/modules/MetalLearning/src/vendor/logs/refs/remotes ../.git/modules/MetalLearning/src/vendor/logs/refs/remotes/origin ../.git/modules/MetalLearning/src/vendor/refs/heads ../.git/modules/MetalLearning/src/vendor/refs/tags ../.git/modules/MetalLearning/src/vendor/refs/remotes ../.git/modules/MetalLearning/src/vendor/refs/remotes/origin ../MEL.xcworkspace/xcuserdata ../MEL.xcworkspace/xcshareddata ../MEL.xcworkspace/xcuserdata/xudianhuan.xcuserdatad ../MEL.xcworkspace/xcshareddata/swiftpm ../MEL.xcworkspace/xcshareddata/swiftpm/configuration ShaderSrc vendor/spdlog/include vendor/imgui";
 			};
 			name = Release;
 		};

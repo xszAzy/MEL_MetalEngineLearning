@@ -28,6 +28,9 @@ project "MetalLearning"
 		"%{prj.name}/src/**.m",
 		"%{prj.name}/*.h",
 		"%{prj.name}/ShaderSrc/**.metal",
+		"%{prj.name}/assets/shaders/**.txt",
+		"%{prj.name}/assets/textures/**.jpg",
+		"%{prj.name}/assets/textures/**.png",
 		"%{prj.name}/vendor/imgui/backends/imgui_impl_osx.mm",
 		"%{prj.name}/vendor/imgui/backends/imgui_impl_metal.mm"
 	}

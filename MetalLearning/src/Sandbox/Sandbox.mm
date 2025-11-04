@@ -3,12 +3,7 @@
 #include <stdio.h>
 #include "MacInput.h"
 
-#import "Buffer/VertexBuffer.h"
-#import "Buffer/IndexBuffer.h"
-#import "Buffer/UniformBuffer.h"
-#import "Buffer/BufferLayout.h"
-#import "VertexArray/VertexArray.h"
-
+#include "Core.h"
 #include "RenderCommand.h"
 #include "Core/Timestep.h"
 
@@ -26,111 +21,38 @@ public:
 		
 		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)",1000.0f/ImGui::GetIO().Framerate,ImGui::GetIO().Framerate);
 		ImGui::ColorEdit3("Triangle Color", m_TriColor);
-		static bool show=0;
-		if(show)
-			ImGui::ShowDemoWindow(&show);
-		
+		static bool show=1;
+		if(show){
+			//ImGui::ShowDemoWindow(&show);
+		}
 		ImGui::End();
 	}
 	
 	void OnUpdate(MEL::Timestep ts) override{
 		//MEL_INFO("testing update");
-		//set camera
-		auto camera=m_Renderer->GetSceneCamera();
-		simd::float3 position=camera->GetPosition();
-		float moveSpeed=1.0f;
-		float rotateSpeed=1.0f;
 #pragma mark - move controll
-		if(MEL::MacInput::IsKeyPressed(MEL::Key::W)){
-			if(camera){
-				position.z-=moveSpeed*ts*2.0f;
-				MEL_INFO("Set Camera to position {:.2f},{:.2f},{:.2f}",
-						 (float)position[0],(float)position[1],(float)position[2]);
-			}
-		}
-		else if (MEL::MacInput::IsKeyPressed(MEL::Key::S)){
-			if(camera){
-				position.z+=moveSpeed*ts*2.0f;
-				MEL_INFO("Set Camera to position {:.2f},{:.2f},{:.2f}",
-						 (float)position[0],(float)position[1],(float)position[2]);
-			}
-		}
-		
-		if(MEL::MacInput::IsKeyPressed(MEL::Key::A)){
-			if(camera){
-				camera->RotateRoll(-rotateSpeed*ts);
-			}
-		}
-		else if(MEL::MacInput::IsKeyPressed(MEL::Key::D)){
-			if(camera){
-				camera->RotateRoll(rotateSpeed*ts);
-			}
-		}
-		
-		if(MEL::MacInput::IsKeyPressed(MEL::Key::J)){
-			if(camera){
-				camera->RotateYaw(-rotateSpeed*ts);
-			}
-		}
-		else if(MEL::MacInput::IsKeyPressed(MEL::Key::L)){
-			if(camera){
-				camera->RotateYaw(rotateSpeed*ts);
-			}
-		}
-		
-		if(MEL::MacInput::IsKeyPressed(MEL::Key::I)){
-			if(camera){
-				camera->RotatePitch(-rotateSpeed*ts);
-			}
-		}
-		else if(MEL::MacInput::IsKeyPressed(MEL::Key::K)){
-			if(camera){
-				camera->RotatePitch(rotateSpeed*ts);
-			}
-		}
-		
-		if(MEL::MacInput::IsKeyPressed(MEL::Key::Left)){
-			if(camera){
-				position-=camera->GetRight()*(moveSpeed*ts);
-				MEL_INFO("Set Camera to position {:.2f},{:.2f},{:.2f}",
-						 (float)position[0],(float)position[1],(float)position[2]);
-			}
-		}
-		else if (MEL::MacInput::IsKeyPressed(MEL::Key::Right)){
-			if(camera){
-				position+=camera->GetRight()*(moveSpeed*ts);
-				MEL_INFO("Set Camera to position {:.2f},{:.2f},{:.2f}",
-						 (float)position[0],(float)position[1],(float)position[2]);
-			}
-		}
-		
-		if(MEL::MacInput::IsKeyPressed(MEL::Key::Up)){
-			if(camera){
-				position+=camera->GetUp()*(moveSpeed*ts);
-				MEL_INFO("Set Camera to position {:.2f},{:.2f},{:.2f}",
-						 (float)position[0],(float)position[1],(float)position[2]);
-			}
-		}
-		else if (MEL::MacInput::IsKeyPressed(MEL::Key::Down)){
-			if(camera){
-				position-=camera->GetUp()*(moveSpeed*ts);
-				MEL_INFO("Set Camera to position {:.2f},{:.2f},{:.2f}",
-						 (float)position[0],(float)position[1],(float)position[2]);
-			}
-		}
+		m_CameraController.OnUpdate(ts);
 #pragma mark - other sets
-		camera->SetPosition(position);
 		m_Renderer->UpdateCameraUniform();
 			
 		for(size_t i=0;i<m_GameObjects.size();i++){
 			auto& obj=m_GameObjects[i];
 			//other settings
-			if(i==1){
-				obj->SetColor({m_TriColor[0],m_TriColor[1],m_TriColor[2]});
+			if(i!=0){
+				//bind transform
+				obj->BindTransform();
+				if(i==1)
+					obj->SetColor({m_TriColor[0],m_TriColor[1],m_TriColor[2]});
+				MEL::RenderCommand::Submit(m_Renderer->GetShaderLibrary().Get("Default"), obj->GetVertexArray());
 			}
-			//bind transform
-			obj->BindTransform();
-			MEL::RenderCommand::Submit(m_CurrentShader, obj->GetVertexArray());
+			if(i==0){
+				//bind transform
+				obj->BindTransform();
+				obj->BindTexture();
+				MEL::RenderCommand::Submit(m_Renderer->GetShaderLibrary().Get("TextureShader"), obj->GetVertexArray());
+			}
+			
+			
 		}
 	}
 	
@@ -139,7 +61,7 @@ public:
 		m_Renderer=MEL::Application::Get().GetRenderer();
 		
 		//shadersource
-		/*
+		
 		const char* ShaderSource=R"(
   #include <metal_stdlib>
   using namespace metal;
@@ -149,15 +71,29 @@ public:
   float4 color[[attribute(1)]];
   };
   
+  struct TransformData{
+  float4x4 modelMatrix;
+  float4 color;
+  };
+  
+  struct CameraData{
+  float4x4 viewProjectionMatrix;
+  float3 cameraPosition;
+  float padding;
+  };
+  
   struct VertexOut{
   float4 position[[position]];
   float4 color;
   };
   
-  vertex VertexOut vertexMain(const VertexIn in [[stage_in]]){
+  vertex VertexOut vertexMain(const VertexIn in [[stage_in]],
+  constant CameraData& cameraData [[buffer(1)]],
+  constant TransformData& transformData [[buffer(2)]]){
   VertexOut out;
-  out.position=float4(in.position,1.0);
-  out.color=in.color;
+  float4 worldPosition=transformData.modelMatrix*float4(in.position,1.0);
+  out.position=cameraData.viewProjectionMatrix*worldPosition;
+  out.color=transformData.color;
   return out;
   }
   
@@ -165,41 +101,40 @@ public:
   return in.color;
   }
   )";
-		 */
+		
 #pragma mark - Set source
 		//set camera
-		auto camera=std::make_shared<MEL::Camera>();
-		//*camera=MEL::Camera::CreateOrthographic(-1.0f, 1.0f, -1.0f, 1.0f, 0.1f, 100.f);
-		*camera=MEL::Camera::CreatePerspective(60.0f, 16.0f/9.0f, 0.1f, 100.0f);
-		camera->SetPosition({0.0f,0.0f,3.0f});
-		camera->LookAt({.0f,.0f,.0f});
+		MEL::CameraController::PerspectiveController(60.0f, 16.0f/9.0f, 0.1f, 100.0f);
+		//MEL::CameraController::OrthographicController(-1.0f, 1.0f, -1.0f, 1.0f, 0.1f, 100.f);
+		m_CameraController.SetPosition({0.0f,0.0f,3.0f});
+		m_CameraController.LookAt({.0f,.0f,.0f});
+		m_Renderer->SetSceneCamera(m_CameraController.GetCamera());
 		
-		m_Renderer->SetSceneCamera(camera);
-
 		CreateObjects();
 		//create shader(this can be done in sandbox)
-		auto defaultShader=MEL::Shader::CreateFromDefaultLibrary("DefaultShader", @"vertexShader", @"fragmentShader");
-		if(defaultShader)
-			defaultShader->CreatePipelineState(m_Layout);
-		
-		m_CurrentShader=defaultShader;
-		
+		auto textureShader=m_Renderer->GetShaderLibrary().LoadFromFile("TextureShader","Texture.metal.txt",
+																	   @"vertexShader", @"fragmentShader",m_TextureLayout);
+		auto alterShader=m_Renderer->GetShaderLibrary().LoadFromSource("Default", ShaderSource,
+																	   @"vertexMain", @"fragmentMain",m_DefaultLayout);
 	}
 	
 	void OnEvent(MEL::Event& e) override{
 		MEL_INFO("testing event{0}",e.ToString());
+		m_CameraController.OnEvent(e);
 	}
 #pragma mark - Create objects
 public:
 	void CreateObjects(){
 		//create square
 		auto squareObject=std::make_shared<MEL::GameObject>("Square");
-		squareObject->SetVertexArray(CreateSquareVA());
+		squareObject->SetVertexArray(CreateSquareVAWithTexture());
 		squareObject->GetTransform().SetPosition({-1.0f,-1.0f,0.0f});
-		squareObject->GetTransform().SetScale({0.1f,0.1f,0.1f});
+		//squareObject->GetTransform().SetScale({0.1f,0.1f,0.1f});
 		squareObject->SetColor({1,0,0});
+		squareObject->SetTexture("square.jpg");
 		
 		m_GameObjects.push_back(squareObject);
+		
 		//create triangle
 		auto triangleObject=std::make_shared<MEL::GameObject>("Triangle");
 		triangleObject->SetVertexArray(CreateTriVA());
@@ -208,8 +143,8 @@ public:
 		
 		m_GameObjects.push_back(triangleObject);
 		//create extra
-		for(size_t i=0;i<21;i++){
-			for(size_t j=0;j<20;j++){
+		for(size_t i=0;i<6;i++){
+			for(size_t j=0;j<6;j++){
 				auto extraObject=std::make_shared<MEL::GameObject>("extra");
 				extraObject->SetVertexArray(CreateSquareVA());
 				extraObject->GetTransform().SetScale({0.1f,0.1f,0.1f});
@@ -219,10 +154,11 @@ public:
 				m_GameObjects.push_back(extraObject);
 			}
 		}
+		 
 	}
 #pragma mark - private objects
 private:
-	std::shared_ptr<MEL::VertexArray> CreateSquareVA(){
+	MEL::Ref<MEL::VertexArray> CreateSquareVA(){
 		//set vertex layout
 		struct Vertex{
 			float position[3];
@@ -233,7 +169,7 @@ private:
 			{MEL::ShaderDataType::Float3,"a_Position"},
 			{MEL::ShaderDataType::Float4,"a_Color"}
 		};
-		
+		MEL_CORE_INFO("Set layout for square");
 		auto va=MEL::VertexArray::Create();
 		//set data
 		Vertex SquareVertices[]={
@@ -262,8 +198,7 @@ private:
 		va->SetIndexBuffer(SquareIB);
 		return va;
 	}
-	
-	std::shared_ptr<MEL::VertexArray> CreateTriVA(){
+	MEL::Ref<MEL::VertexArray> CreateTriVA(){
 		//set vertex layout
 		struct Vertex{
 			float position[3];
@@ -274,7 +209,7 @@ private:
 			{MEL::ShaderDataType::Float3,"a_Position"},
 			{MEL::ShaderDataType::Float4,"a_Color"}
 		};
-		
+		MEL_CORE_INFO("Set layout for triangle");
 		auto va=MEL::VertexArray::Create();
 		
 		Vertex TriVertices[]={
@@ -299,13 +234,67 @@ private:
 		va->SetIndexBuffer(TriIB);
 		return va;
 	}
+	MEL::Ref<MEL::VertexArray> CreateSquareVAWithTexture(){
+		//set vertex layout
+		struct Vertex{
+			float position[3];
+			float color[4];
+			float texCoord[2];
+		};
+		//set layout
+		MEL::BufferLayout layout={
+			{MEL::ShaderDataType::Float3,"a_Position"},
+			{MEL::ShaderDataType::Float4,"a_Color"},
+			{MEL::ShaderDataType::Float2,"a_TexCoord"}
+		};
+		MEL_CORE_INFO("Set layout for square with texture");
+		auto va=MEL::VertexArray::Create();
+		//set data
+		Vertex SquareVertices[]={
+			{{-0.5f,-0.5f,0.0f},
+				{0.4f,0.2f,0.4f,1.0f},
+				{1.0f,1.0f}},
+			
+			{{0.5f,-0.5f,0.0f},
+				{0.1f,0.7f,0.1f,1.0f},
+				{0.0f,1.0f}},
+			
+			{{0.5f,0.5f,0.0f},
+				{0.1f,0.3f,0.4f,1.0f},
+				{0.0f,0.0f}},
+			
+			{{-0.5f,0.5f,0.0f},
+				{0.2f,0.3f,0.1f,1.0f},
+				{1.0f,0.0f}}
+		};
+		
+		uint32_t SquareIndices[]={0,1,2,
+			2,3,0};
+		//Set buffers
+		auto SquareVB=MEL::VertexBuffer::Create(SquareVertices, sizeof(SquareVertices));
+		auto SquareIB=MEL::IndexBuffer::Create(SquareIndices, 6);
+		SquareVB->SetSlot(0);
+		SquareVB->SetLayout(layout);
+		
+		va->AddVertexBuffer(SquareVB);
+		va->SetIndexBuffer(SquareIB);
+		return va;
+	}
 	
 private:
 	MEL::Renderer* m_Renderer;
 	
-	std::vector<std::shared_ptr<MEL::GameObject>> m_GameObjects;
-	std::shared_ptr<MEL::Shader> m_CurrentShader;
-	MEL::BufferLayout m_Layout={
+	MEL::CameraController m_CameraController;
+	
+	std::vector<MEL::Ref<MEL::GameObject>> m_GameObjects;
+	MEL::Ref<MEL::Shader> m_TextureShader;
+	MEL::Ref<MEL::Shader> m_DefaultShader;
+	MEL::BufferLayout m_TextureLayout={
+		{MEL::ShaderDataType::Float3,"a_Position"},
+		{MEL::ShaderDataType::Float4,"a_Color"},
+		{MEL::ShaderDataType::Float2,"a_texCoord"}
+	};
+	MEL::BufferLayout m_DefaultLayout={
 		{MEL::ShaderDataType::Float3,"a_Position"},
 		{MEL::ShaderDataType::Float4,"a_Color"}
 	};
