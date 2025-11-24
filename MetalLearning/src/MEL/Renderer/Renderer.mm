@@ -60,6 +60,9 @@ namespace MEL{
 			[m_CommandBuffer commit];
 			return;
 		}
+		//clear depthstencil
+		renderPassDescriptor.depthAttachment.loadAction=MTLLoadActionClear;
+		renderPassDescriptor.depthAttachment.clearDepth=1.0;
 		//create encoder for current scene
 		m_CurrentEncoder=[m_CommandBuffer renderCommandEncoderWithDescriptor:renderPassDescriptor];
 		
@@ -73,8 +76,10 @@ namespace MEL{
 		
 		if(m_CurrentPipeline){
 			[m_CurrentEncoder setRenderPipelineState:m_CurrentPipeline];
-			
 			//MEL_CORE_INFO("encoder pipeline set");
+		}
+		if(m_DepthStencilState){
+			[m_CurrentEncoder setDepthStencilState:m_DepthStencilState];
 		}
 	}
 	

@@ -1,13 +1,11 @@
 #include "MEL.h"
 #include "imgui.h"
 #include <stdio.h>
-#include "MacInput.h"
 
 #include "Core.h"
-#include "RenderCommand.h"
-#include "Core/Timestep.h"
 
 #include "GameObject.h"
+#include "Sandbox2D.h"
 
 class ExampleLayer:public MEL::Layer{
 public:
@@ -42,7 +40,7 @@ public:
 				//bind transform
 				obj->BindTransform();
 				if(i==1)
-					obj->SetColor({m_TriColor[0],m_TriColor[1],m_TriColor[2]});
+					obj->SetColor(m_TriColor);
 				MEL::RenderCommand::Submit(m_Renderer->GetShaderLibrary().Get("Default"), obj->GetVertexArray());
 			}
 			if(i==0){
@@ -112,9 +110,9 @@ public:
 		
 		CreateObjects();
 		//create shader(this can be done in sandbox)
-		auto textureShader=m_Renderer->GetShaderLibrary().LoadFromFile("TextureShader","Texture.metal.txt",
+		m_Renderer->GetShaderLibrary().LoadFromFile("TextureShader","Texture.metal.txt",
 																	   @"vertexShader", @"fragmentShader",m_TextureLayout);
-		auto alterShader=m_Renderer->GetShaderLibrary().LoadFromSource("Default", ShaderSource,
+		m_Renderer->GetShaderLibrary().LoadFromSource("Default", ShaderSource,
 																	   @"vertexMain", @"fragmentMain",m_DefaultLayout);
 	}
 	
@@ -130,7 +128,7 @@ public:
 		squareObject->SetVertexArray(CreateSquareVAWithTexture());
 		squareObject->GetTransform().SetPosition({-1.0f,-1.0f,0.0f});
 		//squareObject->GetTransform().SetScale({0.1f,0.1f,0.1f});
-		squareObject->SetColor({1,0,0});
+		squareObject->SetColor((float[4]){1,0,0,1});
 		squareObject->SetTexture("square.jpg");
 		
 		m_GameObjects.push_back(squareObject);
@@ -139,17 +137,17 @@ public:
 		auto triangleObject=std::make_shared<MEL::GameObject>("Triangle");
 		triangleObject->SetVertexArray(CreateTriVA());
 		triangleObject->GetTransform().SetPosition({0,0,0});
-		triangleObject->SetColor({m_TriColor[0],m_TriColor[1],m_TriColor[2]});
+		triangleObject->SetColor(m_TriColor);
 		
 		m_GameObjects.push_back(triangleObject);
 		//create extra
-		for(size_t i=0;i<6;i++){
-			for(size_t j=0;j<6;j++){
+		for(size_t i=0;i<5;i++){
+			for(size_t j=0;j<5;j++){
 				auto extraObject=std::make_shared<MEL::GameObject>("extra");
 				extraObject->SetVertexArray(CreateSquareVA());
 				extraObject->GetTransform().SetScale({0.1f,0.1f,0.1f});
 				extraObject->GetTransform().SetPosition({0.11f*i,0.11f*j,0});
-				extraObject->SetColor({.0f,.0f,1.0f});
+				extraObject->SetColor((float[4]){.0f,.0f,1.0f,1.0f});
 				
 				m_GameObjects.push_back(extraObject);
 			}
@@ -301,12 +299,12 @@ private:
 	
 	float m_TriColor[4]={0.2,0.3,0.6,1.0};
 };
-
+#pragma mark - Sandbox
 class Sandbox:public MEL::Application{
 public:
 	Sandbox(){
-		PushLayer(new ExampleLayer());
-		
+		//PushLayer(new ExampleLayer());
+		PushLayer(new Sandbox2D());
 	}
 	~Sandbox(){
 		
@@ -317,4 +315,16 @@ private:
 
 MEL::Application* MEL::CreateApplication(){
 	return new Sandbox();
+}
+MEL::Application* MEL::CreateApplication();
+
+int main(int argc,const char* argv[]){
+	MEL::Log::Init();
+	MEL_CORE_INFO("Testing");
+	
+	auto app =MEL::CreateApplication();
+	app->Run();
+	delete app;
+	
+	return 0;
 }

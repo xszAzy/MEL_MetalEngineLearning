@@ -11,7 +11,6 @@ namespace MEL{
 	}
 	void RenderCommand::BeginScene(const Ref<Camera> &camera){
 		s_CurrentCamera=camera;
-		s_Renderer->BeginScene();
 		
 		if(s_Renderer->GetCameraUniform()){
 			struct CameraData{
@@ -24,6 +23,7 @@ namespace MEL{
 			
 			s_Renderer->GetCameraUniform()->SetData(&cameradata, sizeof(cameradata));
 		}
+		s_Renderer->BeginScene();
 	}
 	
 	void RenderCommand::Submit(const Ref<Shader> &shader, const Ref<VertexArray> &vertexArray){

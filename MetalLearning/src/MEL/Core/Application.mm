@@ -1,11 +1,11 @@
 #import "melpch.h"
 #import "Renderer/Delegates.h"
+#include "Shader/Shader.h"
 #include "Application.h"
 #include "MacWindow.h"
 #include "Core/Utils.h"
 #include "Core/Timestep.h"
 #include "RenderCommand.h"
-
 
 namespace MEL{
 	Application* Application::s_Instance=nullptr;
@@ -104,9 +104,7 @@ namespace MEL{
 			m_LastframeTime=currentTime;
 			//begin frame(command buffer)
 			RenderCommand::BeginFrame();
-			//begin scene(pipeline desc,encoder,with sets)
 			RenderCommand::BeginScene(m_Renderer->GetSceneCamera());
-			
 			//layers
 			for(Layer* layer:m_LayerStack)
 				layer->OnUpdate(timestep);
@@ -119,7 +117,7 @@ namespace MEL{
 			
 			//end ImGui
 			m_ImGuiLayer->End();
-			//end scene
+			 
 			RenderCommand::EndScene();
 			//end frame
 			RenderCommand::EndFrame();

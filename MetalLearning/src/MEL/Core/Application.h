@@ -1,10 +1,8 @@
 #pragma once
-#include "Window.h"
 #include "Events/Event.h"
 #include "Events/ApplicationEvent.h"
 #include "Layer/LayerStack.h"
 #include "ImGuiLayer/ImGuiLayer.h"
-#include "Shader/Shader.h"
 #include "Delegates.h"
 
 namespace MEL{

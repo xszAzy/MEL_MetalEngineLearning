@@ -1,6 +1,6 @@
 #pragma once
-#include "Buffer/VertexBuffer.h"
-#include "Buffer/IndexBuffer.h"
+#include "VertexBuffer.h"
+#include "IndexBuffer.h"
 
 namespace MEL{
 	class VertexArray{

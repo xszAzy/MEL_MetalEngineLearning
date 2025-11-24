@@ -1,4 +1,5 @@
 #include "Shader.h"
+#include "Renderer.h"
 #include "Application.h"
 
 namespace MEL{
@@ -116,9 +117,11 @@ namespace MEL{
 		pipelineDescriptor.vertexFunction=m_VertexFunction;
 		pipelineDescriptor.fragmentFunction=m_FragmentFunction;
 		pipelineDescriptor.colorAttachments[0].pixelFormat=MTLPixelFormatBGRA8Unorm;
+		pipelineDescriptor.depthAttachmentPixelFormat=MTLPixelFormatDepth32Float;
 		MTLDepthStencilDescriptor* depthStencilDescriptor=[[[MTLDepthStencilDescriptor alloc] init] autorelease];
 		SetBlend(m_BlendType, pipelineDescriptor,depthStencilDescriptor);
-		[device newDepthStencilStateWithDescriptor:depthStencilDescriptor];
+		
+		renderer->SetDepthStencilState([[device newDepthStencilStateWithDescriptor:depthStencilDescriptor] autorelease]);
 		
 		MTLVertexDescriptor* vertexDescriptor=CreateVertexDescriptor(layout);
 		pipelineDescriptor.vertexDescriptor=vertexDescriptor;
@@ -220,9 +223,15 @@ namespace MEL{
 	
 	std::shared_ptr<Shader> ShaderLibrary::LoadFromFile(const std::string &name, const std::string &filepath,
 														NSString *vertexFuncName, NSString *fragmentFuncName,
-														const BufferLayout& layout){
+														const BufferLayout& layout,BlendType blendType){
 		auto shader=Shader::CreateFromLibrary(name, filepath, vertexFuncName, fragmentFuncName);
+		shader->SetBlendType(blendType);
 		if(shader){
+			shader->CreatePipelineState(layout);
+			Add(name,shader);
+		}
+		else{
+			shader=Shader::CreateFromDefaultLibrary(name, vertexFuncName, fragmentFuncName);
 			shader->CreatePipelineState(layout);
 			Add(name,shader);
 		}
@@ -231,9 +240,15 @@ namespace MEL{
 	
 	std::shared_ptr<Shader> ShaderLibrary::LoadFromSource(const std::string &name, const std::string &source,
 														  NSString *vertexFuncName, NSString *fragmentFuncName,
-														  const BufferLayout& layout){
+														  const BufferLayout& layout,BlendType blendType){
 		auto shader=Shader::CreateFromSource(name, source, vertexFuncName, fragmentFuncName);
+		shader->SetBlendType(blendType);
 		if(shader){
+			shader->CreatePipelineState(layout);
+			Add(name,shader);
+		}
+		else{
+			shader=Shader::CreateFromDefaultLibrary(name, vertexFuncName, fragmentFuncName);
 			shader->CreatePipelineState(layout);
 			Add(name,shader);
 		}

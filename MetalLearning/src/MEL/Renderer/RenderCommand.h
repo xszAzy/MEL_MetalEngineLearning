@@ -1,19 +1,10 @@
 #pragma once
-#import "Buffer/VertexBuffer.h"
-#import "Buffer/IndexBuffer.h"
-#import "Buffer/UniformBuffer.h"
+#include "MEL.h"
+
 #import "Buffer/BufferLayout.h"
 
-#include "Renderer.h"
-#include "Shader.h"
-#include "MacInput.h"
-
-#import "Transforms/Camera.h"
-#import "Transforms/CameraController.h"
-#import "Transforms/Transform.h"
-
-#import "VertexArray/VertexArray.h"
 namespace MEL{
+	class VertexArray;
 	class RenderCommand{
 	public:
 		static void Init(Renderer* renderer);

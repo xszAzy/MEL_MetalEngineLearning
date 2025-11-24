@@ -10,15 +10,17 @@
 		0963E6A7E80682199CE884E7 /* IndexBuffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 75973C8F753A1FC1AF8ED2CF /* IndexBuffer.mm */; };
 		1817955824A247CA9F871398 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5C1300C9792D32A5828940 /* CoreFoundation.framework */; };
 		1DA823F8B3D135EA75379238 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BC907E406F8687F2C0A8E480 /* ViewController.mm */; };
-		35E3BE041500D836F10A3444 /* Entrypoint.mm in Sources */ = {isa = PBXBuildFile; fileRef = 76D51CAC0962E69E723B8AEC /* Entrypoint.mm */; };
 		37BF7A5047A4A68234183090 /* LayerStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 539467F8F57E03EAECA51638 /* LayerStack.cpp */; };
 		3B3AE003953BF6F55C82EE43 /* ImGuiLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = C7CF762BE29BE4DDE66C7C6B /* ImGuiLayer.mm */; };
 		3F2E13D01DD0AF42D2B2B210 /* Transform.mm in Sources */ = {isa = PBXBuildFile; fileRef = 057A6478051D47AA3F71FAB8 /* Transform.mm */; };
 		40821283ADAA20F5AF3D10C3 /* Sandbox.mm in Sources */ = {isa = PBXBuildFile; fileRef = DB139FCB287695FD9E95960B /* Sandbox.mm */; };
 		41DBF34285EFC47479C14982 /* Timestep.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2198DB0A92BB7BFC4882294A /* Timestep.mm */; };
+		4712F98C2ECAA1390068AB91 /* Sandbox2D.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4712F98B2ECAA1390068AB91 /* Sandbox2D.txt */; };
+		4712F98F2ECAA54B0068AB91 /* Render.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4712F98E2ECAA54B0068AB91 /* Render.mm */; };
 		47708D1F2EB90FAC004619E7 /* Texture.metal.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9A05E4E35CC64555B9FB2323 /* Texture.metal.txt */; };
 		47708D202EB90FB9004619E7 /* square.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9DB8081D332EC74FA1CB1E5D /* square.jpg */; };
 		47708D212EB90FB9004619E7 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 18590F0365BC0535DBDB0543 /* test.png */; };
+		47E71EAC2EBA655E004E7FA8 /* Sandbox2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 47E71EAB2EBA655E004E7FA8 /* Sandbox2D.mm */; };
 		488CD858E66DD90ABDEC1E98 /* RenderCommand.mm in Sources */ = {isa = PBXBuildFile; fileRef = 853E52A047FEB312A53390E0 /* RenderCommand.mm */; };
 		4B007C2E118E73A07F909A6E /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0271576359DD4A8A43A2BB6 /* MetalKit.framework */; };
 		4C2935EA3D20A3DCA924242A /* Camera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8B4C00F22398E6A451DFE732 /* Camera.mm */; };
@@ -107,6 +109,11 @@
 		38BBC2DB812CA70DC5CB791B /* MetalLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DDA5A286EBE521A81D68868 /* Utils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Utils.cpp; path = src/MEL/Core/Utils.cpp; sourceTree = "<group>"; };
 		3EE642AA232D4ADCA71A78EA /* KeyEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KeyEvent.h; path = src/MEL/Core/Events/KeyEvent.h; sourceTree = "<group>"; };
+		4712F98B2ECAA1390068AB91 /* Sandbox2D.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = Sandbox2D.txt; path = assets/shaders/Sandbox2D.txt; sourceTree = "<group>"; };
+		4712F98D2ECAA54B0068AB91 /* Render.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Render.h; path = src/MEL/Renderer/Render.h; sourceTree = "<group>"; };
+		4712F98E2ECAA54B0068AB91 /* Render.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Render.mm; path = src/MEL/Renderer/Render.mm; sourceTree = "<group>"; };
+		47E71EAA2EBA655E004E7FA8 /* Sandbox2D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Sandbox2D.h; path = src/Sandbox/Sandbox2D.h; sourceTree = "<group>"; };
+		47E71EAB2EBA655E004E7FA8 /* Sandbox2D.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Sandbox2D.mm; path = src/Sandbox/Sandbox2D.mm; sourceTree = "<group>"; };
 		48A4F222A00A651452188062 /* LayerStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LayerStack.h; path = src/MEL/Core/Layer/LayerStack.h; sourceTree = "<group>"; };
 		4F5C9A70E1EA64624AC308B0 /* Renderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = Renderer.mm; path = src/MEL/Renderer/Renderer.mm; sourceTree = "<group>"; };
 		500811C6F3539AF80E246806 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
@@ -115,7 +122,6 @@
 		6AB35F537A988B85670C1593 /* imgui_impl_osx.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = imgui_impl_osx.mm; path = vendor/imgui/backends/imgui_impl_osx.mm; sourceTree = "<group>"; };
 		74A9A874B8BD79A6AC8EFEB4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		75973C8F753A1FC1AF8ED2CF /* IndexBuffer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = IndexBuffer.mm; path = src/MEL/Renderer/Buffer/IndexBuffer.mm; sourceTree = "<group>"; };
-		76D51CAC0962E69E723B8AEC /* Entrypoint.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objc; name = Entrypoint.mm; path = src/MEL/Core/Entrypoint.mm; sourceTree = "<group>"; };
 		7844FD3777E7E069B23C9377 /* BufferLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BufferLayout.h; path = src/MEL/Renderer/Buffer/BufferLayout.h; sourceTree = "<group>"; };
 		7C786A52C0C70FC402EE4892 /* GameObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameObject.h; path = src/MEL/Core/GameObject.h; sourceTree = "<group>"; };
 		7E569E8990807B3BC47164C9 /* MacWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MacWindow.h; path = src/MEL/Core/Window/MacWindow.h; sourceTree = "<group>"; };
@@ -247,6 +253,7 @@
 		306EA93E29D4AAB01D70077E /* shaders */ = {
 			isa = PBXGroup;
 			children = (
+				4712F98B2ECAA1390068AB91 /* Sandbox2D.txt */,
 				9A05E4E35CC64555B9FB2323 /* Texture.metal.txt */,
 			);
 			name = shaders;
@@ -333,7 +340,6 @@
 			children = (
 				D1DBEC386469B62ACD425A78 /* Application.h */,
 				5F46585CCC6E66CECE01569C /* Application.mm */,
-				76D51CAC0962E69E723B8AEC /* Entrypoint.mm */,
 				29E504EE80726F6058EB832E /* Events */,
 				7C786A52C0C70FC402EE4892 /* GameObject.h */,
 				8882B11482446D86BC436F54 /* ImGuiLayer */,
@@ -381,6 +387,8 @@
 				12F3B49443D7AC8656EFE2D4 /* Texture */,
 				53E1EF30983094A2DA57CD70 /* Transforms */,
 				8530416C17BE0B5E8096AFAC /* VertexArray */,
+				4712F98D2ECAA54B0068AB91 /* Render.h */,
+				4712F98E2ECAA54B0068AB91 /* Render.mm */,
 			);
 			name = Renderer;
 			sourceTree = "<group>";
@@ -403,6 +411,8 @@
 			isa = PBXGroup;
 			children = (
 				DB139FCB287695FD9E95960B /* Sandbox.mm */,
+				47E71EAA2EBA655E004E7FA8 /* Sandbox2D.h */,
+				47E71EAB2EBA655E004E7FA8 /* Sandbox2D.mm */,
 			);
 			name = Sandbox;
 			sourceTree = "<group>";
@@ -558,6 +568,7 @@
 				47708D202EB90FB9004619E7 /* square.jpg in Resources */,
 				47708D212EB90FB9004619E7 /* test.png in Resources */,
 				47708D1F2EB90FAC004619E7 /* Texture.metal.txt in Resources */,
+				4712F98C2ECAA1390068AB91 /* Sandbox2D.txt in Resources */,
 				E7B2A65E3F181950F126349E /* Shader.metal in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -570,7 +581,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8E577B4C3B1E666C7827DF4 /* Application.mm in Sources */,
-				35E3BE041500D836F10A3444 /* Entrypoint.mm in Sources */,
 				3B3AE003953BF6F55C82EE43 /* ImGuiLayer.mm in Sources */,
 				FA8E1D2D155A8BDF192B236D /* MacInput.mm in Sources */,
 				F3F520A48C420656BA8906E4 /* Layer.cpp in Sources */,
@@ -583,6 +593,7 @@
 				A656DCA59A5626171F413AE5 /* MacWindow.mm in Sources */,
 				C593F1D739EE36C9B7D1C017 /* Buffer.mm in Sources */,
 				0963E6A7E80682199CE884E7 /* IndexBuffer.mm in Sources */,
+				4712F98F2ECAA54B0068AB91 /* Render.mm in Sources */,
 				70696E77CCF072E955932CB7 /* UniformBuffer.mm in Sources */,
 				820B145393C2544509304293 /* VertexBuffer.mm in Sources */,
 				C063F276DB306128DF00F8B6 /* Delegates.mm in Sources */,
@@ -592,6 +603,7 @@
 				C091F6EEA628FE20696E0D2E /* MetalTexture2D.mm in Sources */,
 				4C2935EA3D20A3DCA924242A /* Camera.mm in Sources */,
 				B43D71F27BA22CE4065A0032 /* CameraController.mm in Sources */,
+				47E71EAC2EBA655E004E7FA8 /* Sandbox2D.mm in Sources */,
 				3F2E13D01DD0AF42D2B2B210 /* Transform.mm in Sources */,
 				9C19BCA089814F52267B42E0 /* VertexArray.mm in Sources */,
 				40821283ADAA20F5AF3D10C3 /* Sandbox.mm in Sources */,

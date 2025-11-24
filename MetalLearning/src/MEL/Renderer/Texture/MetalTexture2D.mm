@@ -1,5 +1,6 @@
 #include "MetalTexture2D.h"
 #include "Application.h"
+#include "Renderer.h"
 namespace MEL {
 	MetalTexture2D::MetalTexture2D(const std::string path):m_Path(path){
 		NSString* nsPath=[NSString stringWithUTF8String:path.c_str()];

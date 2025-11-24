@@ -25,7 +25,6 @@ namespace MEL{
 		ImGui_ImplOSX_Init(m_Renderer->GetMTKView());
 		ImGui::StyleColorsDark();
 		
-		NSLog(@"Set ImGuiLayer");
 		m_Renderer->SetImGuiEnabled(true);
 	}
 	

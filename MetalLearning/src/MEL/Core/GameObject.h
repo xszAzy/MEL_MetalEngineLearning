@@ -1,9 +1,5 @@
 #pragma once
-
-#include "Transforms/Transform.h"
-#include "VertexArray/VertexArray.h"
-#include "Buffer/UniformBuffer.h"
-#include "Texture/MetalTexture2D.h"
+#include "MEL.h"
 #include <memory>
 #include <string>
 
@@ -53,8 +49,8 @@ namespace MEL{
 				m_CurrentTexture->Bind();
 		}
 		
-		void SetColor(simd::float3 color){
-			m_Color={color.x,color.y,color.z,1.0f};
+		void SetColor(float color[4]){
+			m_Color={color[0],color[1],color[2],color[3]};
 		}
 		
 	private:

@@ -57,7 +57,6 @@ namespace MEL{
 		std::string m_Name;
 		id<MTLFunction> m_VertexFunction=nil;
 		id<MTLFunction> m_FragmentFunction=nil;
-		
 		id<MTLLibrary> m_Library;
 		id<MTLRenderPipelineState> m_PipelineState=nil;
 		BlendType m_BlendType=BlendType::Opaque;
@@ -67,10 +66,10 @@ namespace MEL{
 		void Add(const std::string& name,const std::shared_ptr<Shader>& shader);
 		std::shared_ptr<Shader> LoadFromSource(const std::string& name,const std::string& source,
 											   NSString* vertexFuncName,NSString* fragmentFuncName,
-											   const BufferLayout& layout);
+											   const BufferLayout& layout,BlendType blendType=BlendType::Opaque);
 		std::shared_ptr<Shader> LoadFromFile(const std::string& name,const std::string& filepath,
 											 NSString* vertexFuncName,NSString* fragmentFuncName,
-											 const BufferLayout& layout);
+											 const BufferLayout& layout,BlendType blendType=BlendType::Opaque);
 		bool Exists(const std::string& name)const;
 		std::shared_ptr<Shader> Get(const std::string& name);
 	private:

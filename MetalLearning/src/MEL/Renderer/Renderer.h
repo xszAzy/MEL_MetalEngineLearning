@@ -1,14 +1,11 @@
 #pragma once
 #include "MEL.h"
-#include "Shader/Shader.h"
-#include "Log.h"
-
-#include "Transforms/Camera.h"
-#include "Transforms/Transform.h"
+#include "Shader.h"
 
 namespace MEL {
 	class VertexArray;
 	class UniformBuffer;
+	class Camera;
 	class Renderer{
 	public:
 		//basic render
@@ -47,6 +44,7 @@ namespace MEL {
 		id<MTLDevice> GetMetalDevice(){return m_Device;}
 		id<MTLRenderCommandEncoder> GetCurrentEncoder(){return m_CurrentEncoder;}
 		void UpdateViewport();
+		void SetDepthStencilState(id<MTLDepthStencilState> depthStencil){m_DepthStencilState=depthStencil;}
 	public:
 		ShaderLibrary& GetShaderLibrary(){return m_ShaderLibrary;}
 	private:
@@ -57,6 +55,7 @@ namespace MEL {
 		id<MTLCommandBuffer> m_CommandBuffer;
 		id<MTLRenderCommandEncoder> m_CurrentEncoder;
 		id<MTLRenderPipelineState> m_CurrentPipeline=nil;
+		id<MTLDepthStencilState> m_DepthStencilState;
 		vector_uint2 m_ViewportSize;
 		
 		bool is_default=true;

@@ -15,6 +15,7 @@
 	self.metalView.device=[MTLCreateSystemDefaultDevice() autorelease];
 	self.metalView.clearColor=MTLClearColorMake(0.1, 0.1, 0.1, 1.0);
 	self.metalView.colorPixelFormat=MTLPixelFormatBGRA8Unorm;
+	self.metalView.depthStencilPixelFormat=MTLPixelFormatDepth32Float;
 	
 	self.metalView.enableSetNeedsDisplay=NO;
 	self.metalView.paused=NO;

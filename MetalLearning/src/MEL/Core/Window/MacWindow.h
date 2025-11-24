@@ -1,12 +1,10 @@
 #pragma once
-#include "melpch.h"
 #include "MEL.h"
 #include "Window.h"
 #include "ImGuiLayer/ImGuiLayer.h"
-#include "Renderer.h"
 
 namespace MEL {
-	class MetalRenderer;
+	class Renderer;
 	class MacWindow:public Window{
 	public:
 		MacWindow(const WindowProps& props);

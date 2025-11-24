@@ -3,7 +3,6 @@
 #include "melpch.h"
 #include "MEL.h"
 #include "Events/Event.h"
-#include "Renderer.h"
 namespace MEL {
 	class Renderer;
 	struct WindowProps{
